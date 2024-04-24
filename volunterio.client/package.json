@@ -1,10 +1,10 @@
 {
   "name": "volunterio.client",
-  "version": "0.0.0",
+  "version": "0.1.4",
   "scripts": {
     "ng": "ng",
     "start": "run-script-os",
-    "build": "ng build",
+    "build": "ng build --localize",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "prestart": "node aspnetcore-https",

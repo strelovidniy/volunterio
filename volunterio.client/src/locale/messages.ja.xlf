@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="en-US" datatype="plaintext" original="ng2.template" target-language="ja">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template" target-language="ja-JP">
     <body>
       <trans-unit id="718664953917016933" datatype="html">
         <source> <x id="INTERPOLATION" equiv-text="{{data.isEdit? 'Edit Role' : 'Create New Role'}}" />

@@ -68,7 +68,9 @@
 		<None Include="Views\EmailTemplates\CreateAccountEmail\CreateAccountEmail.cshtml" />
 		<None Include="Views\EmailTemplates\ResetPasswordEmail\ResetPasswordEmail.cshtml" />
 		<None Include="Views\Shared\_Layout.cshtml" />
-		<None Include="wwwroot\index.js" />
+		<None Include="wwwroot\index.js">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -76,6 +78,12 @@
 			<ReferenceOutputAssembly>false</ReferenceOutputAssembly>
 		</ProjectReference>
 		<ProjectReference Include="..\Volunterio.Domain\Volunterio.Domain.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Update="wwwroot\index.html">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
 	</ItemGroup>
 
 </Project>

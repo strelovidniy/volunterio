@@ -130,7 +130,6 @@ export default class RoleDialogComponent implements OnInit {
             expanded: true,
             options: [
                 { name: $localize`Delete Users`, index: UserRole.inviteAndDeleteUsers, checked: false, value: [Role.canDeleteUsers] },
-                { name: $localize`Invite Users`, index: UserRole.inviteAndDeleteUsers, checked: false, value: [Role.canInviteUsers] },
                 { name: $localize`Edit User`, index: UserRole.editUsers, checked: false, value: [Role.canEditUsers] }
             ]
         },
@@ -155,7 +154,6 @@ export default class RoleDialogComponent implements OnInit {
             expanded: true,
             options: [
                 { name: $localize`Delete Users`, index: UserRole.inviteAndDeleteUsers, checked: false, value: [Role.canDeleteUsers] },
-                { name: $localize`Invite Users`, index: UserRole.inviteAndDeleteUsers, checked: false, value: [Role.canInviteUsers] },
                 { name: $localize`Edit User`, index: UserRole.editUsers, checked: false, value: [Role.canEditUsers] }
             ]
         },

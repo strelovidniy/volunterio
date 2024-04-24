@@ -13,7 +13,6 @@ public record AccessView(
     bool CanDeleteRoles,
     bool CanSeeAllUsers,
     bool CanSeeUsers,
-    bool CanInviteUsers,
     bool CanSeeAllRoles,
     bool CanSeeRoles,
     bool CanMaintainSystem

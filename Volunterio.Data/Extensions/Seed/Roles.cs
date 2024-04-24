@@ -26,8 +26,7 @@ internal static class Roles
                 CanSeeAllRoles = true,
                 CanSeeRoles = true,
                 CanSeeUsers = true,
-                CanMaintainSystem = true,
-                CanInviteUsers = true
+                CanMaintainSystem = true
             },
             new Role
             {

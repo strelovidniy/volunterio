@@ -20,7 +20,6 @@ internal class RoleAccessViewConverter : ITypeConverter<Data.Entities.Role, Acce
         role.CanDeleteRoles,
         role.CanSeeAllUsers,
         role.CanSeeUsers,
-        role.CanInviteUsers,
         role.CanSeeAllRoles,
         role.CanSeeRoles,
         role.CanMaintainSystem

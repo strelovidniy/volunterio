@@ -122,12 +122,6 @@ internal class RoleService(
             role.UpdatedAt = DateTime.UtcNow;
         }
 
-        if (role.CanInviteUsers != updateRoleModel.CanInviteUsers)
-        {
-            role.CanInviteUsers = updateRoleModel.CanInviteUsers;
-            role.UpdatedAt = DateTime.UtcNow;
-        }
-
         if (role.CanSeeAllRoles != updateRoleModel.CanSeeAllRoles)
         {
             role.CanSeeAllRoles = updateRoleModel.CanSeeAllRoles && currentUser.Role?.Type is RoleType.Admin;
@@ -169,7 +163,6 @@ internal class RoleService(
                 CanDeleteRoles = createRoleModel.CanDeleteRoles,
                 CanSeeAllUsers = createRoleModel.CanSeeAllUsers,
                 CanSeeUsers = createRoleModel.CanSeeUsers,
-                CanInviteUsers = createRoleModel.CanInviteUsers,
                 CanSeeAllRoles = createRoleModel.CanSeeAllRoles,
                 CanSeeRoles = createRoleModel.CanSeeRoles,
                 CanMaintainSystem = createRoleModel.CanMaintainSystem

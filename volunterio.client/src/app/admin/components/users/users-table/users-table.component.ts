@@ -175,10 +175,6 @@ export default class UsersTableComponent implements OnInit, OnDestroy {
         return this.authService.checkRole(Role.canEditUsers);
     }
 
-    public get canInviteUser(): boolean {
-        return this.authService.checkRole(Role.canInviteUsers);
-    }
-
     public get currentUserId(): string {
         return this.authService?.currentUser?.id;
     }

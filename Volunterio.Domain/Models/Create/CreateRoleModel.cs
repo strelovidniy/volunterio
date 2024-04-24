@@ -13,7 +13,6 @@ public record CreateRoleModel(
     bool CanDeleteRoles = false,
     bool CanSeeAllUsers = false,
     bool CanSeeUsers = false,
-    bool CanInviteUsers = false,
     bool CanSeeAllRoles = false,
     bool CanSeeRoles = false,
     bool CanMaintainSystem = false

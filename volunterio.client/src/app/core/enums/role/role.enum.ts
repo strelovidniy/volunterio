@@ -9,8 +9,7 @@ enum Role {
     canSeeAllRoles = 'canSeeAllRoles',
     canSeeUsers = 'canSeeUsers',
     canSeeRoles = 'canSeeRoles',
-    canMaintainSystem = 'canMaintainSystem',
-    canInviteUsers = 'canInviteUsers'
+    canMaintainSystem = 'canMaintainSystem'
 }
 
 export default Role;

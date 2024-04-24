@@ -27,8 +27,6 @@ public class Role : EntityBase, IEntity
 
     public bool CanSeeUsers { get; set; }
 
-    public bool CanInviteUsers { get; set; }
-
     public bool CanSeeRoles { get; set; }
 
     public bool CanSeeAllRoles { get; set; }

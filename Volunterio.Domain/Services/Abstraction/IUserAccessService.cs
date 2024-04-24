@@ -33,9 +33,4 @@ public interface IUserAccessService
     public Task CheckIfUserCanSeeRolesAsync(
         CancellationToken cancellationToken = default
     );
-
-
-    public Task CheckIfUserCanInviteUsersAsync(
-        CancellationToken cancellationToken = default
-    );
 }

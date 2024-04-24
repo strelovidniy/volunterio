@@ -77,11 +77,6 @@ internal class RoleConfiguration : IEntityTypeConfiguration<Role>
             .HasDefaultValue(false);
 
         builder
-            .Property(role => role.CanInviteUsers)
-            .IsRequired()
-            .HasDefaultValue(false);
-
-        builder
             .Property(role => role.CanSeeAllRoles)
             .IsRequired()
             .HasDefaultValue(false);

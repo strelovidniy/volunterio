@@ -10,9 +10,6 @@ public class EmailSubject : RichEnum<string>
     public static EmailSubject CreateAccount =>
         new("Create your account");
 
-    public static EmailSubject CompleteRegistration =>
-        new("Complete Registration");
-
     private EmailSubject(string value) : base(value)
     {
     }

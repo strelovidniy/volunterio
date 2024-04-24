@@ -1,0 +1,15 @@
+<div class="color-selector-container">
+    @for(color of colors; track color){
+        <volunterio-color-circle [color]="color"
+                          [selected]="selectedColor === color"
+                          (click)="selectColor(color)">
+        </volunterio-color-circle>
+    }
+    @if (allowCustom) {
+        <volunterio-color-circle [selected]="!colors.includes(selectedColor)"
+                          (customColorChange)="selectColor($event)"
+                          [customColor]="allowCustom"
+                          [color]="selectedColor">
+        </volunterio-color-circle>
+    }
+</div>

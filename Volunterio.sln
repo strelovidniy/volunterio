@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Volunterio.Server", "Volunt
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "volunterio.client", "volunterio.client\volunterio.client.esproj", "{7A4D6A3D-300A-4B45-A77C-5BCE1EA31270}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Volunterio.Data", "Volunterio.Data\Volunterio.Data.csproj", "{8A307087-6AD7-4402-8D98-3B4162BB5AE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Volunterio.Domain", "Volunterio.Domain\Volunterio.Domain.csproj", "{EB77487A-C603-4ABB-A894-803797D4C848}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +27,14 @@ Global
 		{7A4D6A3D-300A-4B45-A77C-5BCE1EA31270}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A4D6A3D-300A-4B45-A77C-5BCE1EA31270}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7A4D6A3D-300A-4B45-A77C-5BCE1EA31270}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{8A307087-6AD7-4402-8D98-3B4162BB5AE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A307087-6AD7-4402-8D98-3B4162BB5AE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A307087-6AD7-4402-8D98-3B4162BB5AE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A307087-6AD7-4402-8D98-3B4162BB5AE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB77487A-C603-4ABB-A894-803797D4C848}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB77487A-C603-4ABB-A894-803797D4C848}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB77487A-C603-4ABB-A894-803797D4C848}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB77487A-C603-4ABB-A894-803797D4C848}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

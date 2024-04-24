@@ -375,3 +375,8 @@ FodyWeavers.xsd
 /volunterio.client/.angular
 /volunterio.client/dist
 /Volunterio.Server/Volunterio.Server.csproj.DotSettings
+/Volunterio.Server/Volunterio.Server.csproj.DotSettings.user
+/Volunterio.Server/appsettings.json
+/Volunterio.Server/appsettings.Development.json
+/Volunterio.Server/appsettings.Staging.json
+/Volunterio.Server/appsettings.Production.json

@@ -1,17 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template" target-language="ja">
     <body>
       <trans-unit id="718664953917016933" datatype="html">
-        <source> <x id="INTERPOLATION" equiv-text="{{data.isEdit? &apos;Edit Role&apos; : &apos;Create New Role&apos;}}"/>
-</source>
+        <source> <x id="INTERPOLATION" equiv-text="{{data.isEdit? 'Edit Role' : 'Create New Role'}}" />
+</source><target> <x id="INTERPOLATION" equiv-text="{{data.isEdit? 'Edit Role' : 'Create New Role'}}" />
+</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/roles/role-dialog/role-dialog.component.html</context>
           <context context-type="linenumber">3,5</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8778616811237742446" datatype="html">
-        <source> Name </source>
+        <source> Name </source><target>名称</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/roles/role-dialog/role-dialog.component.html</context>
           <context context-type="linenumber">9,10</context>
@@ -22,14 +23,14 @@
         </context-group>
       </trans-unit>
       <trans-unit id="4740845086911864105" datatype="html">
-        <source> Role name is required </source>
+        <source> Role name is required </source><target>役割名は必須</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/roles/role-dialog/role-dialog.component.html</context>
           <context context-type="linenumber">15,16</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2746300791637568581" datatype="html">
-        <source> Role Type </source>
+        <source> Role Type </source><target>役割タイプ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/roles/role-dialog/role-dialog.component.html</context>
           <context context-type="linenumber">20,21</context>
@@ -40,7 +41,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="5041354590769758251" datatype="html">
-        <source>Admin</source>
+        <source>Admin</source><target>管理者</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/roles/role-dialog/role-dialog.component.ts</context>
           <context context-type="linenumber">37</context>
@@ -51,7 +52,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="2392488717875840729" datatype="html">
-        <source>User</source>
+        <source>User</source><target>ユーザー</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/roles/role-dialog/role-dialog.component.ts</context>
           <context context-type="linenumber">41</context>
@@ -66,7 +67,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="9091381429305665620" datatype="html">
-        <source>Helper</source>
+        <source>Helper</source><target>ヘルパー</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/roles/role-dialog/role-dialog.component.ts</context>
           <context context-type="linenumber">45</context>
@@ -81,7 +82,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="7590013429208346303" datatype="html">
-        <source>Custom</source>
+        <source>Custom</source><target>カスタム</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/roles/role-dialog/role-dialog.component.ts</context>
           <context context-type="linenumber">52</context>
@@ -96,7 +97,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="6362392309535777035" datatype="html">
-        <source>Users Management</source>
+        <source>Users Management</source><target>ユーザー管理</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/roles/role-dialog/role-dialog.component.ts</context>
           <context context-type="linenumber">93</context>
@@ -115,14 +116,14 @@
         </context-group>
       </trans-unit>
       <trans-unit id="5350466440923419073" datatype="html">
-        <source>View Users</source>
+        <source>View Users</source><target>ユーザーを見る</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/roles/role-dialog/role-dialog.component.ts</context>
           <context context-type="linenumber">98</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6642377239076032561" datatype="html">
-        <source>Delete Users</source>
+        <source>Delete Users</source><target>ユーザーの削除</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/roles/role-dialog/role-dialog.component.ts</context>
           <context context-type="linenumber">99</context>
@@ -137,7 +138,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="1211169124143348857" datatype="html">
-        <source>Edit User</source>
+        <source>Edit User</source><target>編集ユーザー</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/roles/role-dialog/role-dialog.component.ts</context>
           <context context-type="linenumber">100</context>
@@ -152,7 +153,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="1013220359801966392" datatype="html">
-        <source>Roles Management</source>
+        <source>Roles Management</source><target>役割管理</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/roles/role-dialog/role-dialog.component.ts</context>
           <context context-type="linenumber">104</context>
@@ -167,7 +168,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="7316434334385804925" datatype="html">
-        <source>View Roles</source>
+        <source>View Roles</source><target>役割を見る</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/roles/role-dialog/role-dialog.component.ts</context>
           <context context-type="linenumber">109</context>
@@ -182,7 +183,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="134744899032494413" datatype="html">
-        <source>Create and Delete Roles</source>
+        <source>Create and Delete Roles</source><target>ロールの作成と削除</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/roles/role-dialog/role-dialog.component.ts</context>
           <context context-type="linenumber">110</context>
@@ -197,7 +198,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="2504553860600865045" datatype="html">
-        <source>Edit Roles</source>
+        <source>Edit Roles</source><target>役割の編集</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/roles/role-dialog/role-dialog.component.ts</context>
           <context context-type="linenumber">111</context>
@@ -212,21 +213,21 @@
         </context-group>
       </trans-unit>
       <trans-unit id="5075614928411823465" datatype="html">
-        <source>System Maintenance</source>
+        <source>System Maintenance</source><target>システムメンテナンス</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/roles/role-dialog/role-dialog.component.ts</context>
           <context context-type="linenumber">115</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4069085231351219294" datatype="html">
-        <source>Maintain System</source>
+        <source>Maintain System</source><target>システム維持</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/roles/role-dialog/role-dialog.component.ts</context>
           <context context-type="linenumber">120</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1418231587119878043" datatype="html">
-        <source>You can&apos;t create role without selecting permissions.</source>
+        <source>You can't create role without selecting permissions.</source><target>権限を選択しなければ、ロールを作成することはできません。</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/roles/role-dialog/role-dialog.component.ts</context>
           <context context-type="linenumber">322</context>
@@ -237,7 +238,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="2212695292809375179" datatype="html">
-        <source> Search </source>
+        <source> Search </source><target>検索</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/roles/roles-table/roles-table.component.html</context>
           <context context-type="linenumber">5</context>
@@ -248,28 +249,28 @@
         </context-group>
       </trans-unit>
       <trans-unit id="5567813000365494842" datatype="html">
-        <source> Add New Role </source>
+        <source> Add New Role </source><target>新しい役割を追加する</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/roles/roles-table/roles-table.component.html</context>
           <context context-type="linenumber">27</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6783769952742707282" datatype="html">
-        <source> Created At </source>
+        <source> Created At </source><target>作成日時</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/roles/roles-table/roles-table.component.html</context>
           <context context-type="linenumber">71</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7232536697846573498" datatype="html">
-        <source> Updated At </source>
+        <source> Updated At </source><target>更新日時</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/roles/roles-table/roles-table.component.html</context>
           <context context-type="linenumber">84</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4360239040231802726" datatype="html">
-        <source> Actions </source>
+        <source> Actions </source><target>行動</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/roles/roles-table/roles-table.component.html</context>
           <context context-type="linenumber">97</context>
@@ -280,7 +281,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="8754660144640453200" datatype="html">
-        <source>Are you sure you want to delete this role?</source>
+        <source>Are you sure you want to delete this role?</source><target>本当にこの役割を削除しますか？</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/roles/roles-table/roles-table.component.ts</context>
           <context context-type="linenumber">116</context>
@@ -288,14 +289,15 @@
       </trans-unit>
       <trans-unit id="5169418173446318694" datatype="html">
         <source> Change Role
-</source>
+</source><target>役割の変更
+</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/users/set-role-dialog/set-role-dialog.component.html</context>
           <context context-type="linenumber">3,5</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2803298218425845065" datatype="html">
-        <source> Role </source>
+        <source> Role </source><target>役割</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/users/set-role-dialog/set-role-dialog.component.html</context>
           <context context-type="linenumber">9,10</context>
@@ -306,21 +308,21 @@
         </context-group>
       </trans-unit>
       <trans-unit id="4369218061762633918" datatype="html">
-        <source>Select role</source>
+        <source>Select role</source><target>役割を選択</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/users/set-role-dialog/set-role-dialog.component.html</context>
           <context context-type="linenumber">12,13</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4200033956427790116" datatype="html">
-        <source> Role is required </source>
+        <source> Role is required </source><target>役割は必須</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/users/set-role-dialog/set-role-dialog.component.html</context>
           <context context-type="linenumber">20,21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5547981558491672240" datatype="html">
-        <source> Close </source>
+        <source> Close </source><target>閉じる</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/users/set-role-dialog/set-role-dialog.component.html</context>
           <context context-type="linenumber">39,40</context>
@@ -339,7 +341,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="3620188369327429839" datatype="html">
-        <source> Save </source>
+        <source> Save </source><target>セーブ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/users/set-role-dialog/set-role-dialog.component.html</context>
           <context context-type="linenumber">46,47</context>
@@ -350,7 +352,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="7817163188308824825" datatype="html">
-        <source> Email </source>
+        <source> Email </source><target>電子メール</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/users/user-editor/user-editor.component.html</context>
           <context context-type="linenumber">9,10</context>
@@ -377,7 +379,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="4487126997625614310" datatype="html">
-        <source> First Name </source>
+        <source> First Name </source><target>名前</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/users/user-editor/user-editor.component.html</context>
           <context context-type="linenumber">17,18</context>
@@ -396,7 +398,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="2995600988434044148" datatype="html">
-        <source> First Name is required </source>
+        <source> First Name is required </source><target>名前は必須</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/users/user-editor/user-editor.component.html</context>
           <context context-type="linenumber">23,24</context>
@@ -407,7 +409,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="7706634333716604521" datatype="html">
-        <source> Last Name </source>
+        <source> Last Name </source><target>ラストネーム</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/users/user-editor/user-editor.component.html</context>
           <context context-type="linenumber">29,30</context>
@@ -426,7 +428,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="1089712056650720142" datatype="html">
-        <source> Last Name is required </source>
+        <source> Last Name is required </source><target>姓は必須</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/users/user-editor/user-editor.component.html</context>
           <context context-type="linenumber">35,36</context>
@@ -437,112 +439,112 @@
         </context-group>
       </trans-unit>
       <trans-unit id="2330577642930707695" datatype="html">
-        <source> Cancel </source>
+        <source> Cancel </source><target>キャンセル</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/users/user-editor/user-editor.component.html</context>
           <context context-type="linenumber">46,47</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5377078063439833222" datatype="html">
-        <source> Edit </source>
+        <source> Edit </source><target>編集</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/users/user-editor/user-editor.component.html</context>
           <context context-type="linenumber">54,55</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8718704900158226218" datatype="html">
-        <source> Company </source>
+        <source> Company </source><target>会社概要</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/users/users-table/users-table.component.html</context>
           <context context-type="linenumber">66</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4282587102956396340" datatype="html">
-        <source> Status </source>
+        <source> Status </source><target>ステータス</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/users/users-table/users-table.component.html</context>
           <context context-type="linenumber">94</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4794731989135207662" datatype="html">
-        <source>Are you sure you want to delete this user?</source>
+        <source>Are you sure you want to delete this user?</source><target>本当にこのユーザーを削除しますか？</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/users/users-table/users-table.component.ts</context>
           <context context-type="linenumber">116</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2637618618170569024" datatype="html">
-        <source>auth image</source>
+        <source>auth image</source><target>認証イメージ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/auth-layout/auth-layout.component.html</context>
           <context context-type="linenumber">4,5</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6527099197989433339" datatype="html">
-        <source> Choosse your way </source>
+        <source> Choosse your way </source><target>道を選ぶ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/confirm-email/confirm-email.component.html</context>
           <context context-type="linenumber">5</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6366268958460678214" datatype="html">
-        <source> This cannot be changed in future. <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/> Choosse wisely. </source>
+        <source> This cannot be changed in future. <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" /> Choosse wisely. </source><target>これは今後も変更できない。<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />賢明な選択を。</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/confirm-email/confirm-email.component.html</context>
           <context context-type="linenumber">8,9</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6362448141787694998" datatype="html">
-        <source> Helper way </source>
+        <source> Helper way </source><target>ヘルパー道</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/confirm-email/confirm-email.component.html</context>
           <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7700027149036129965" datatype="html">
-        <source> Regular way </source>
+        <source> Regular way </source><target>通常の方法</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/confirm-email/confirm-email.component.html</context>
           <context context-type="linenumber">22</context>
         </context-group>
       </trans-unit>
       <trans-unit id="898808380963561446" datatype="html">
-        <source> Confirming email... </source>
+        <source> Confirming email... </source><target>メールの確認</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/confirm-email/confirm-email.component.html</context>
           <context context-type="linenumber">32</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2916065101403527189" datatype="html">
-        <source> Success </source>
+        <source> Success </source><target>成功</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/confirm-email/confirm-email.component.html</context>
           <context context-type="linenumber">38</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7573502687326836988" datatype="html">
-        <source> Your email has been confirmed. <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br /&gt;"/> You will be redirected to the login page in a few seconds. </source>
+        <source> Your email has been confirmed. <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br /&gt;" /> You will be redirected to the login page in a few seconds. </source><target>メールが確認されました。<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br /&gt;" />数秒後にログインページにリダイレクトされます。</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/confirm-email/confirm-email.component.html</context>
           <context context-type="linenumber">41,43</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4372456587721432762" datatype="html">
-        <source> Oops, something went wrong. </source>
+        <source> Oops, something went wrong. </source><target>おっと、何かが間違っていたようだ。</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/confirm-email/confirm-email.component.html</context>
           <context context-type="linenumber">47</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8749413280838666156" datatype="html">
-        <source> Please try again later or contact support. </source>
+        <source> Please try again later or contact support. </source><target>後でもう一度お試しいただくか、サポートまでご連絡ください。</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/confirm-email/confirm-email.component.html</context>
           <context context-type="linenumber">50</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6402135377436796061" datatype="html">
-        <source>Email confirmed successfully</source>
+        <source>Email confirmed successfully</source><target>メールの確認に成功</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/confirm-email/confirm-email.component.ts</context>
           <context context-type="linenumber">55</context>
@@ -550,14 +552,15 @@
       </trans-unit>
       <trans-unit id="1401788023899524482" datatype="html">
         <source> Forgot password ?
-</source>
+</source><target>パスワードをお忘れですか？
+</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/forgot-password-dialog/forgot-password-dialog.component.html</context>
           <context context-type="linenumber">4,6</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7541853859084507047" datatype="html">
-        <source> Email is required </source>
+        <source> Email is required </source><target>Eメールは必須</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/forgot-password-dialog/forgot-password-dialog.component.html</context>
           <context context-type="linenumber">18,19</context>
@@ -568,35 +571,35 @@
         </context-group>
       </trans-unit>
       <trans-unit id="2677873999927804719" datatype="html">
-        <source> Invalid email </source>
+        <source> Invalid email </source><target>無効な電子メール</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/forgot-password-dialog/forgot-password-dialog.component.html</context>
           <context context-type="linenumber">22,23</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7563035552061651664" datatype="html">
-        <source> Send </source>
+        <source> Send </source><target>送信</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/forgot-password-dialog/forgot-password-dialog.component.html</context>
           <context context-type="linenumber">45,46</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8552587679160911578" datatype="html">
-        <source>Email is required</source>
+        <source>Email is required</source><target>Eメールは必須</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/forgot-password-dialog/forgot-password-dialog.component.ts</context>
           <context context-type="linenumber">43</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1140599166278569579" datatype="html">
-        <source>Invalid email</source>
+        <source>Invalid email</source><target>無効な電子メール</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/forgot-password-dialog/forgot-password-dialog.component.ts</context>
           <context context-type="linenumber">46</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2715185765061607307" datatype="html">
-        <source> Log in </source>
+        <source> Log in </source><target>ログイン</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/login/login.component.html</context>
           <context context-type="linenumber">3,4</context>
@@ -607,7 +610,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="855019982672967729" datatype="html">
-        <source> Enter your details to countinue </source>
+        <source> Enter your details to countinue </source><target>詳細を入力してください。</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/login/login.component.html</context>
           <context context-type="linenumber">6,7</context>
@@ -618,14 +621,14 @@
         </context-group>
       </trans-unit>
       <trans-unit id="1689226013316043367" datatype="html">
-        <source> Please provide a valid email address </source>
+        <source> Please provide a valid email address </source><target>有効なEメールアドレスをご記入ください。</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/login/login.component.html</context>
           <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1557080315836233628" datatype="html">
-        <source> Password </source>
+        <source> Password </source><target>パスワード</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/login/login.component.html</context>
           <context context-type="linenumber">25</context>
@@ -636,56 +639,56 @@
         </context-group>
       </trans-unit>
       <trans-unit id="291274129102815169" datatype="html">
-        <source> Please provide a valid password </source>
+        <source> Please provide a valid password </source><target>有効なパスワードを入力してください。</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/login/login.component.html</context>
           <context context-type="linenumber">37</context>
         </context-group>
       </trans-unit>
       <trans-unit id="931252989873527145" datatype="html">
-        <source>Remember me</source>
+        <source>Remember me</source><target>リメンバー・ミー</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/login/login.component.html</context>
           <context context-type="linenumber">42,43</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1763183285462816981" datatype="html">
-        <source> Forgot password ? </source>
+        <source> Forgot password ? </source><target>パスワードをお忘れですか？</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/login/login.component.html</context>
           <context context-type="linenumber">48</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4166166242155319722" datatype="html">
-        <source> Log In </source>
+        <source> Log In </source><target>ログイン</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/login/login.component.html</context>
           <context context-type="linenumber">56</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8585498879886389741" datatype="html">
-        <source> I don&apos;t have an account. <x id="START_LINK" ctype="x-a" equiv-text="&lt;a [routerLink]=&quot;[&apos;/auth/sign-up&apos;]&quot;&gt;"/> Sign up <x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/></source>
+        <source> I don't have an account. <x id="START_LINK" ctype="x-a" equiv-text="&lt;a [routerLink]=&quot;['/auth/sign-up']&quot;&gt;" /> Sign up <x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;" /></source><target>私はアカウントを持っていない。<x id="START_LINK" ctype="x-a" equiv-text="&lt;a [routerLink]=&quot;['/auth/sign-up']&quot;&gt;" />登録する<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;" /></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/login/login.component.html</context>
           <context context-type="linenumber">61,65</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7462487223286693868" datatype="html">
-        <source> Create New Password </source>
+        <source> Create New Password </source><target>新しいパスワードの作成</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/reset-password/reset-password.component.html</context>
           <context context-type="linenumber">3,4</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8417228520586710560" datatype="html">
-        <source> Enter your new password </source>
+        <source> Enter your new password </source><target>新しいパスワードを入力してください。</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/reset-password/reset-password.component.html</context>
           <context context-type="linenumber">6,7</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7418490917404309369" datatype="html">
-        <source> New Password </source>
+        <source> New Password </source><target>新しいパスワード</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/reset-password/reset-password.component.html</context>
           <context context-type="linenumber">12</context>
@@ -696,7 +699,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="5369920627358273054" datatype="html">
-        <source> Must be at least 8 characters! </source>
+        <source> Must be at least 8 characters! </source><target>8文字以上でなければならない！</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/reset-password/reset-password.component.html</context>
           <context context-type="linenumber">29</context>
@@ -711,7 +714,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="7410633045542481461" datatype="html">
-        <source> Must contain at least 1 number! </source>
+        <source> Must contain at least 1 number! </source><target>少なくとも1つの数字が含まれていなければならない！</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/reset-password/reset-password.component.html</context>
           <context context-type="linenumber">38</context>
@@ -726,7 +729,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="8493464027750383400" datatype="html">
-        <source> Must contain at least 1 in Capital Case! </source>
+        <source> Must contain at least 1 in Capital Case! </source><target>少なくとも1つは大文字でなければならない！</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/reset-password/reset-password.component.html</context>
           <context context-type="linenumber">47</context>
@@ -741,7 +744,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="2258921919106862490" datatype="html">
-        <source> Must contain at least 1 Letter in Small Case! </source>
+        <source> Must contain at least 1 Letter in Small Case! </source><target>小文字のアルファベットを1文字以上含むこと！</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/reset-password/reset-password.component.html</context>
           <context context-type="linenumber">56</context>
@@ -756,7 +759,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="557266519373087159" datatype="html">
-        <source> Confirm New Password </source>
+        <source> Confirm New Password </source><target>新しいパスワードの確認</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/reset-password/reset-password.component.html</context>
           <context context-type="linenumber">63</context>
@@ -767,7 +770,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="6109295095296575105" datatype="html">
-        <source> Field is required </source>
+        <source> Field is required </source><target>フィールドは必須</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/reset-password/reset-password.component.html</context>
           <context context-type="linenumber">73</context>
@@ -790,7 +793,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="4314910104023472121" datatype="html">
-        <source> Passwords do not match </source>
+        <source> Passwords do not match </source><target>パスワードが一致しない</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/reset-password/reset-password.component.html</context>
           <context context-type="linenumber">77</context>
@@ -805,21 +808,21 @@
         </context-group>
       </trans-unit>
       <trans-unit id="5273532907254625451" datatype="html">
-        <source> Reset Password </source>
+        <source> Reset Password </source><target>パスワードのリセット</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/reset-password/reset-password.component.html</context>
           <context context-type="linenumber">87</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5856307147839827252" datatype="html">
-        <source> Back to login </source>
+        <source> Back to login </source><target>ログインに戻る</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/reset-password/reset-password.component.html</context>
           <context context-type="linenumber">94</context>
         </context-group>
       </trans-unit>
       <trans-unit id="744750008248382275" datatype="html">
-        <source> Sign Up </source>
+        <source> Sign Up </source><target>会員登録</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/sign-up/sign-up.component.html</context>
           <context context-type="linenumber">3,4</context>
@@ -830,455 +833,455 @@
         </context-group>
       </trans-unit>
       <trans-unit id="5071992827680463456" datatype="html">
-        <source> Company Name </source>
+        <source> Company Name </source><target>会社名</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/sign-up/sign-up.component.html</context>
           <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1928524315981067005" datatype="html">
-        <source> Company Name is required </source>
+        <source> Company Name is required </source><target>会社名は必須</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/sign-up/sign-up.component.html</context>
           <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6240408434043010840" datatype="html">
-        <source> First Name cannot contains space </source>
+        <source> First Name cannot contains space </source><target>名前にスペースを含めることはできません</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/sign-up/sign-up.component.html</context>
           <context context-type="linenumber">34</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3771783137658181988" datatype="html">
-        <source> Last Name cannot contains space </source>
+        <source> Last Name cannot contains space </source><target>姓にスペースを含めることはできません</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/sign-up/sign-up.component.html</context>
           <context context-type="linenumber">50</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6034227631163939128" datatype="html">
-        <source> Incorrect email format </source>
+        <source> Incorrect email format </source><target>誤ったEメールフォーマット</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/sign-up/sign-up.component.html</context>
           <context context-type="linenumber">66</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8611631653261669641" datatype="html">
-        <source> Confirm Password </source>
+        <source> Confirm Password </source><target>パスワードの確認</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/sign-up/sign-up.component.html</context>
           <context context-type="linenumber">123</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1485410082721015205" datatype="html">
-        <source> Confirm Password is required </source>
+        <source> Confirm Password is required </source><target>パスワードの確認が必要です</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/sign-up/sign-up.component.html</context>
           <context context-type="linenumber">139</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7741310431486070608" datatype="html">
-        <source>I agree to the Terms and Conditions</source>
+        <source>I agree to the Terms and Conditions</source><target>利用規約に同意します</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/sign-up/sign-up.component.html</context>
           <context context-type="linenumber">146,147</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7706521662003490351" datatype="html">
-        <source> You already have an account? <x id="START_LINK" ctype="x-a" equiv-text="&lt;a (click)=&quot;logIn()&quot;&gt;"/> Log in <x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/></source>
+        <source> You already have an account? <x id="START_LINK" ctype="x-a" equiv-text="&lt;a (click)=&quot;logIn()&quot;&gt;" /> Log in <x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;" /></source><target>すでにアカウントをお持ちですか？<x id="START_LINK" ctype="x-a" equiv-text="&lt;a (click)=&quot;logIn()&quot;&gt;" />ログイン<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;" /></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/sign-up/sign-up.component.html</context>
           <context context-type="linenumber">163,167</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6728151950426006605" datatype="html">
-        <source>Something wrong with one or more fields</source>
+        <source>Something wrong with one or more fields</source><target>1つまたは複数のフィールドに何か問題がある</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/sign-up/sign-up.component.ts</context>
           <context context-type="linenumber">83</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1724515053943071645" datatype="html">
-        <source>You have successfully registered. Please check your email to confirm your account</source>
+        <source>You have successfully registered. Please check your email to confirm your account</source><target>登録に成功しました。アカウントの確認のため、Eメールをご確認ください。</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/sign-up/sign-up.component.ts</context>
           <context context-type="linenumber">97</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8912415299590188323" datatype="html">
-        <source> Welcome to the app <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/> &amp; let&apos;s get started </source>
+        <source> Welcome to the app <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;" /> &amp; let's get started </source><target>アプリへようこそ<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;" /> &amp; 始めましょう</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/welcome/welcome.component.html</context>
           <context context-type="linenumber">3,5</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7121326823691725766" datatype="html">
-        <source> This app is the best app, thank you for downloading it. <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/> You won&apos;t regret using it. </source>
+        <source> This app is the best app, thank you for downloading it. <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;" /> You won't regret using it. </source><target>このアプリは最高のアプリです。ダウンロードしてくれてありがとう。<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;" />使って後悔することはないだろう。</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/welcome/welcome.component.html</context>
           <context context-type="linenumber">7,9</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7203320122205058413" datatype="html">
-        <source> Sign up </source>
+        <source> Sign up </source><target>登録する</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/welcome/welcome.component.html</context>
           <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6812764785062836800" datatype="html">
-        <source> By signing up, I agree to the Terms and Conditions <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/> and Privacy Policy </source>
+        <source> By signing up, I agree to the Terms and Conditions <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;" /> and Privacy Policy </source><target>登録することにより、利用規約<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;" /> およびプライバシーポリシーに同意します。</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/welcome/welcome.component.html</context>
           <context context-type="linenumber">28,30</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1979014651283785752" datatype="html">
-        <source>Method not available</source>
+        <source>Method not available</source><target>方法は不明</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">74</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1834844445344817694" datatype="html">
-        <source>Unauthorized</source>
+        <source>Unauthorized</source><target>無許可</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">76</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3511239665776204882" datatype="html">
-        <source>Forbidden</source>
+        <source>Forbidden</source><target>禁止</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">78</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5250569740790418380" datatype="html">
-        <source>User not found</source>
+        <source>User not found</source><target>ユーザーが見つかりません</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">80</context>
         </context-group>
       </trans-unit>
       <trans-unit id="421900411230934063" datatype="html">
-        <source>Role not found</source>
+        <source>Role not found</source><target>役割が見つかりません</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">82</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5462089967779684272" datatype="html">
-        <source>Helper role not found</source>
+        <source>Helper role not found</source><target>ヘルパーの役割が見つかりません</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">84</context>
         </context-group>
       </trans-unit>
       <trans-unit id="845243104075309541" datatype="html">
-        <source>User role not found</source>
+        <source>User role not found</source><target>ユーザー・ロールが見つかりません</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">86</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4463855801276414032" datatype="html">
-        <source>Query result error</source>
+        <source>Query result error</source><target>クエリー結果エラー</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">88</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2244477232044356467" datatype="html">
-        <source>Email sending error</source>
+        <source>Email sending error</source><target>メール送信エラー</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">90</context>
         </context-group>
       </trans-unit>
       <trans-unit id="710491422371085269" datatype="html">
-        <source>User has no role</source>
+        <source>User has no role</source><target>ユーザーには役割がない</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">92</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5095965352944474017" datatype="html">
-        <source>File has an unacceptable format</source>
+        <source>File has an unacceptable format</source><target>ファイルの形式が不適切</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">94</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5517105742103027543" datatype="html">
-        <source>Role type required</source>
+        <source>Role type required</source><target>必要な役割タイプ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">96</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8206838816900484440" datatype="html">
-        <source>Role ID required</source>
+        <source>Role ID required</source><target>役割IDが必要</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">98</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5149071356212639765" datatype="html">
-        <source>User ID required</source>
+        <source>User ID required</source><target>ユーザーIDが必要</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">100</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7370612364329236190" datatype="html">
-        <source>Last name required</source>
+        <source>Last name required</source><target>姓必須</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">102</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6347682965010507176" datatype="html">
-        <source>First name required</source>
+        <source>First name required</source><target>名 必須</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">104</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7457515156150802557" datatype="html">
-        <source>Invitation token required</source>
+        <source>Invitation token required</source><target>招待状が必要</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">106</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3771803775262910212" datatype="html">
-        <source>Password required</source>
+        <source>Password required</source><target>パスワードが必要</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">108</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1786658998777213185" datatype="html">
-        <source>Email required</source>
+        <source>Email required</source><target>Eメール必須</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">110</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8768947177057811281" datatype="html">
-        <source>Role name required</source>
+        <source>Role name required</source><target>役割名必須</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">112</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5078812750026216642" datatype="html">
-        <source>Verification code required</source>
+        <source>Verification code required</source><target>検証コードが必要</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">114</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1504939542037918905" datatype="html">
-        <source>Confirm password required</source>
+        <source>Confirm password required</source><target>パスワードの確認が必要</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">116</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6978682016965227975" datatype="html">
-        <source>Password length exceeded</source>
+        <source>Password length exceeded</source><target>パスワード長超過</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">118</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8079029867217791014" datatype="html">
-        <source>Password must have at least 8 characters</source>
+        <source>Password must have at least 8 characters</source><target>パスワードは8文字以上</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">120</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4668044409648535249" datatype="html">
-        <source>Password must have not more than 32 characters</source>
+        <source>Password must have not more than 32 characters</source><target>パスワードは32文字以内</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">122</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1551649626216631454" datatype="html">
-        <source>Password must have at least one uppercase letter</source>
+        <source>Password must have at least one uppercase letter</source><target>パスワードには少なくとも1つの大文字が必要です。</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">124</context>
         </context-group>
       </trans-unit>
       <trans-unit id="119935913668607411" datatype="html">
-        <source>Password must have at least one lowercase letter</source>
+        <source>Password must have at least one lowercase letter</source><target>パスワードには小文字を1文字以上使用すること</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">126</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1214131556703064471" datatype="html">
-        <source>Password must have at least one digit</source>
+        <source>Password must have at least one digit</source><target>パスワードは1桁以上でなければならない</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">128</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5786537772037957209" datatype="html">
-        <source>Invalid role type</source>
+        <source>Invalid role type</source><target>無効なロールタイプ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">130</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8469785673993357121" datatype="html">
-        <source>Invalid sort by property</source>
+        <source>Invalid sort by property</source><target>無効な並べ替えプロパティ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">132</context>
         </context-group>
       </trans-unit>
       <trans-unit id="9101414325523592047" datatype="html">
-        <source>Invalid expand property</source>
+        <source>Invalid expand property</source><target>無効な展開プロパティ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">134</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2601145525349175931" datatype="html">
-        <source>Invalid email format</source>
+        <source>Invalid email format</source><target>無効な電子メール形式</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">136</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8980221014937124355" datatype="html">
-        <source>Invalid email model</source>
+        <source>Invalid email model</source><target>無効なメールモデル</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">138</context>
         </context-group>
       </trans-unit>
       <trans-unit id="748940798376870184" datatype="html">
-        <source>Invalid verification code</source>
+        <source>Invalid verification code</source><target>無効な認証コード</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">140</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3311244099329924622" datatype="html">
-        <source>Invalid file</source>
+        <source>Invalid file</source><target>無効なファイル</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">142</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7652941079361707565" datatype="html">
-        <source>First name should not contain white space</source>
+        <source>First name should not contain white space</source><target>ファーストネームは空白を含まないこと</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">144</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5370339419863692674" datatype="html">
-        <source>Last name should not contain white space</source>
+        <source>Last name should not contain white space</source><target>姓は空白を含まないこと</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">146</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6594549486144347518" datatype="html">
-        <source>Incorrect password</source>
+        <source>Incorrect password</source><target>パスワードの誤り</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">148</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6451269955734195952" datatype="html">
-        <source>Passwords do not match</source>
+        <source>Passwords do not match</source><target>パスワードが一致しない</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">150</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8665968141106992972" datatype="html">
-        <source>Old password incorrect</source>
+        <source>Old password incorrect</source><target>旧パスワードの誤り</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">152</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8237453520946506968" datatype="html">
-        <source>User already exists</source>
+        <source>User already exists</source><target>ユーザーが既に存在する</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">154</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1981192748964022844" datatype="html">
-        <source>Role already exists</source>
+        <source>Role already exists</source><target>役割はすでに存在する</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">156</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8156526526725995942" datatype="html">
-        <source>Email already exists</source>
+        <source>Email already exists</source><target>電子メールはすでに存在する</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">158</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6291920813981353272" datatype="html">
-        <source>Role cannot be updated</source>
+        <source>Role cannot be updated</source><target>役割は更新できません</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">160</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8225933013399455727" datatype="html">
-        <source>Role cannot be deleted</source>
+        <source>Role cannot be deleted</source><target>役割は削除できません</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">162</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2442111313463228893" datatype="html">
-        <source>User role cannot be changed</source>
+        <source>User role cannot be changed</source><target>ユーザーの役割は変更できません</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">164</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2010276488609596104" datatype="html">
-        <source>First name too long</source>
+        <source>First name too long</source><target>長すぎるファーストネーム</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">166</context>
         </context-group>
       </trans-unit>
       <trans-unit id="937721641965225736" datatype="html">
-        <source>Last name too long</source>
+        <source>Last name too long</source><target>名字が長すぎる</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">168</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5432127923813972498" datatype="html">
-        <source>File is too large</source>
+        <source>File is too large</source><target>ファイルが大きすぎる</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">170</context>
         </context-group>
       </trans-unit>
       <trans-unit id="971856130025920217" datatype="html">
-        <source>Email too long</source>
+        <source>Email too long</source><target>メールが長すぎる</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">172</context>
@@ -1286,7 +1289,8 @@
       </trans-unit>
       <trans-unit id="4503390757971735866" datatype="html">
         <source> Requests
-</source>
+</source><target>リクエスト
+</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/requests/requests.component.html</context>
           <context context-type="linenumber">2,3</context>
@@ -1294,28 +1298,29 @@
       </trans-unit>
       <trans-unit id="5208762166158567179" datatype="html">
         <source> Change Password
-</source>
+</source><target>パスワードの変更
+</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/dialogs/change-password-dialog/change-password-dialog.component.html</context>
           <context context-type="linenumber">4,5</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3505336733048964589" datatype="html">
-        <source> Old Password </source>
+        <source> Old Password </source><target>旧パスワード</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/dialogs/change-password-dialog/change-password-dialog.component.html</context>
           <context context-type="linenumber">11</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1481645236299803925" datatype="html">
-        <source> Change Password </source>
+        <source> Change Password </source><target>パスワードの変更</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/dialogs/change-password-dialog/change-password-dialog.component.html</context>
           <context context-type="linenumber">118</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1513730976934438925" datatype="html">
-        <source>Something&apos;s wrong with one or more fields</source>
+        <source>Something's wrong with one or more fields</source><target>1つまたは複数のフィールドがおかしい</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/dialogs/change-password-dialog/change-password-dialog.component.ts</context>
           <context context-type="linenumber">32</context>
@@ -1326,70 +1331,70 @@
         </context-group>
       </trans-unit>
       <trans-unit id="3603720768157919481" datatype="html">
-        <source> No </source>
+        <source> No </source><target>いいえ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/dialogs/confirm-dialog/confirm-dialog.component.html</context>
           <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4861926948802653243" datatype="html">
-        <source> Yes </source>
+        <source> Yes </source><target>はい</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/dialogs/confirm-dialog/confirm-dialog.component.html</context>
           <context context-type="linenumber">24</context>
         </context-group>
       </trans-unit>
       <trans-unit id="496016127703941341" datatype="html">
-        <source>Confirm Action</source>
+        <source>Confirm Action</source><target>行動を確認する</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/dialogs/confirm-dialog/confirm-dialog.component.ts</context>
           <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2932410011345905372" datatype="html">
-        <source>Are you sure you want do this?</source>
+        <source>Are you sure you want do this?</source><target>本当にやりたいのか？</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/dialogs/confirm-dialog/confirm-dialog.component.ts</context>
           <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3765886400143289586" datatype="html">
-        <source> Copy </source>
+        <source> Copy </source><target>コピー</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/dialogs/copy-dialog/copy-dialog.component.html</context>
           <context context-type="linenumber">3,5</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8280328410153194407" datatype="html">
-        <source>close dialog</source>
+        <source>close dialog</source><target>ダイアログを閉じる</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/dialogs/copy-dialog/copy-dialog.component.html</context>
           <context context-type="linenumber">6,7</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7708270344948043036" datatype="html">
-        <source> <x id="INTERPOLATION" equiv-text="{{textToCopy.label}}"/> </source>
+        <source> <x id="INTERPOLATION" equiv-text="{{textToCopy.label}}" /> </source><target> <x id="INTERPOLATION" equiv-text="{{textToCopy.label}}" /> </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/dialogs/copy-dialog/copy-dialog.component.html</context>
           <context context-type="linenumber">21,22</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1365421084226139978" datatype="html">
-        <source>Text Copied</source>
+        <source>Text Copied</source><target>テキストをコピー</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/dialogs/copy-dialog/copy-dialog.component.ts</context>
           <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7856196625590027574" datatype="html">
-        <source> close </source>
+        <source> close </source><target>閉じる</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/dialogs/image-dialog/image-dialog.component.html</context>
           <context context-type="linenumber">5,6</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3012906865384504293" datatype="html">
-        <source>Image</source>
+        <source>Image</source><target>画像</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/dialogs/image-dialog/image-dialog.component.html</context>
           <context context-type="linenumber">9</context>
@@ -1397,28 +1402,29 @@
       </trans-unit>
       <trans-unit id="7580041397542765488" datatype="html">
         <source> Profile Settings
-</source>
+</source><target>プロフィール設定
+</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/dialogs/profile-dialog/profile-dialog.component.html</context>
           <context context-type="linenumber">4,5</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3781733569549468335" datatype="html">
-        <source>No records found</source>
+        <source>No records found</source><target>記録なし</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/no-data-message/no-data-message.component.ts</context>
           <context context-type="linenumber">40</context>
         </context-group>
       </trans-unit>
       <trans-unit id="189395343509305217" datatype="html">
-        <source>Company Logo</source>
+        <source>Company Logo</source><target>会社ロゴ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/side-nav-wrapper/side-nav-wrapper.component.html</context>
           <context context-type="linenumber">12,13</context>
         </context-group>
       </trans-unit>
       <trans-unit id="924198820631037410" datatype="html">
-        <source>Company Avatar</source>
+        <source>Company Avatar</source><target>会社アバター</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/side-nav-wrapper/side-nav-wrapper.component.html</context>
           <context context-type="linenumber">20,21</context>
@@ -1429,7 +1435,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="4930506384627295710" datatype="html">
-        <source>Settings</source>
+        <source>Settings</source><target>設定</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/side-nav-wrapper/side-nav-wrapper.component.html</context>
           <context context-type="linenumber">28,29</context>
@@ -1440,14 +1446,14 @@
         </context-group>
       </trans-unit>
       <trans-unit id="3797778920049399855" datatype="html">
-        <source>Logout</source>
+        <source>Logout</source><target>ログアウト</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/side-nav-wrapper/side-nav-wrapper.component.html</context>
           <context context-type="linenumber">37</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5799438277111148696" datatype="html">
-        <source> Profile </source>
+        <source> Profile </source><target>プロフィール</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/side-nav-wrapper/side-nav-wrapper.component.html</context>
           <context context-type="linenumber">50</context>
@@ -1458,7 +1464,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="8626615958100222841" datatype="html">
-        <source> Change password </source>
+        <source> Change password </source><target>パスワードの変更</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/side-nav-wrapper/side-nav-wrapper.component.html</context>
           <context context-type="linenumber">59</context>
@@ -1469,7 +1475,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="7504940227782988572" datatype="html">
-        <source> Logout </source>
+        <source> Logout </source><target>ログアウト</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/side-nav-wrapper/side-nav-wrapper.component.html</context>
           <context context-type="linenumber">68</context>
@@ -1480,70 +1486,70 @@
         </context-group>
       </trans-unit>
       <trans-unit id="2398407606701767789" datatype="html">
-        <source>Requests</source>
+        <source>Requests</source><target>リクエスト</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/side-nav-wrapper/side-nav-wrapper.component.html</context>
           <context context-type="linenumber">126,127</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7759944254842286934" datatype="html">
-        <source> Requests </source>
+        <source> Requests </source><target>リクエスト</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/side-nav-wrapper/side-nav-wrapper.component.html</context>
           <context context-type="linenumber">138</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3385084555998082531" datatype="html">
-        <source>Account Preferences</source>
+        <source>Account Preferences</source><target>アカウント設定</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/side-nav-wrapper/side-nav-wrapper.component.html</context>
           <context context-type="linenumber">142,143</context>
         </context-group>
       </trans-unit>
       <trans-unit id="937311414278320517" datatype="html">
-        <source> Account Preferences </source>
+        <source> Account Preferences </source><target>アカウント設定</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/side-nav-wrapper/side-nav-wrapper.component.html</context>
           <context context-type="linenumber">154</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8404124201504944571" datatype="html">
-        <source> Admin panel </source>
+        <source> Admin panel </source><target>管理画面</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/side-nav-wrapper/side-nav-wrapper.component.html</context>
           <context context-type="linenumber">170</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4303025172810254586" datatype="html">
-        <source> Users Management </source>
+        <source> Users Management </source><target>ユーザー管理</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/side-nav-wrapper/side-nav-wrapper.component.html</context>
           <context context-type="linenumber">190</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3864231224436185235" datatype="html">
-        <source>Roles &amp; Permissions</source>
+        <source>Roles &amp; Permissions</source><target>役割と権限</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/side-nav-wrapper/side-nav-wrapper.component.html</context>
           <context context-type="linenumber">198,199</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3093862407686203114" datatype="html">
-        <source> Roles &amp; Permissions </source>
+        <source> Roles &amp; Permissions </source><target>役割と権限</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/side-nav-wrapper/side-nav-wrapper.component.html</context>
           <context context-type="linenumber">205</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3465942650835858981" datatype="html">
-        <source>Maintenance</source>
+        <source>Maintenance</source><target>メンテナンス</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/side-nav-wrapper/side-nav-wrapper.component.html</context>
           <context context-type="linenumber">213,214</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8606640441344611836" datatype="html">
-        <source> Maintenance </source>
+        <source> Maintenance </source><target>メンテナンス</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/side-nav-wrapper/side-nav-wrapper.component.html</context>
           <context context-type="linenumber">220</context>

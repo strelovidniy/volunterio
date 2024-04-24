@@ -361,3 +361,17 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# System Defined
+/Volunterio.Data/Volunterio.Data.csproj.DotSettings
+/Volunterio.Domain/Volunterio.Domain.csproj.DotSettings
+/Volunterio.Server/Volunterio.Web.csproj.DotSettings
+/Volunterio.Server/.editorconfig
+/Volunterio.Server/.config
+/Volunterio.client/package-lock.json
+/Volunterio.Server/.config
+*.editorconfig
+/Volunterio.client/.vscode
+/Volunterio.client/.angular
+/Volunterio.client/dist
+/Volunterio.Server/Volunterio.Server.csproj.DotSettings

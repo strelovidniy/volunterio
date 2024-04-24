@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34814.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Volunterio.Server", "Volunterio.Server\Volunterio.Server.csproj", "{455ED2E9-BEBF-43E8-ABA2-BE28F1A710E4}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "volunterio.client", "volunterio.client\volunterio.client.esproj", "{7A4D6A3D-300A-4B45-A77C-5BCE1EA31270}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{455ED2E9-BEBF-43E8-ABA2-BE28F1A710E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{455ED2E9-BEBF-43E8-ABA2-BE28F1A710E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{455ED2E9-BEBF-43E8-ABA2-BE28F1A710E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{455ED2E9-BEBF-43E8-ABA2-BE28F1A710E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A4D6A3D-300A-4B45-A77C-5BCE1EA31270}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A4D6A3D-300A-4B45-A77C-5BCE1EA31270}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A4D6A3D-300A-4B45-A77C-5BCE1EA31270}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7A4D6A3D-300A-4B45-A77C-5BCE1EA31270}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A4D6A3D-300A-4B45-A77C-5BCE1EA31270}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A4D6A3D-300A-4B45-A77C-5BCE1EA31270}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B9B0BED5-4C68-4129-A2A3-E1DDA9898B68}
+	EndGlobalSection
+EndGlobal

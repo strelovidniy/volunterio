@@ -15,7 +15,8 @@
           "fr-FR": "src/locale/messages.fr.xlf",
           "it-IT": "src/locale/messages.it.xlf",
           "ja-JP": "src/locale/messages.ja.xlf",
-          "es-ES": "src/locale/messages.es.xlf"
+          "es-ES": "src/locale/messages.es.xlf",
+          "uk-UA": "src/locale/messages.uk.xlf"
         }
       },
       "projectType": "application",
@@ -43,7 +44,8 @@
               "fr-FR",
               "it-IT",
               "ja-JP",
-              "es-ES"
+              "es-ES",
+              "uk-UA"
             ],
             "outputPath": "dist/volunterio.client",
             "index": "src/index.html",

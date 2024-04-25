@@ -4,7 +4,8 @@ const supportedLanguages = [
     "fr-FR",
     "es-ES",
     "it-IT",
-    "ja-JP"
+    "ja-JP",
+    "uk-UA"
 ]
 
 const handleOnLoad = () => {

@@ -14,9 +14,9 @@ const handleOnLoad = () => {
     let supportedLanguage = getSupportedLanguage(languages);
 
     const href = window.location.href;
-    const orgign = window.location.origin;
+    const origin = window.location.origin;
 
-    const path = href.replace(orgign, '');
+    const path = href.replace(origin, '');
 
     supportedLanguage = supportedLanguage || getSupportedLanguage([navigator.language.split('-')[0]]);
 

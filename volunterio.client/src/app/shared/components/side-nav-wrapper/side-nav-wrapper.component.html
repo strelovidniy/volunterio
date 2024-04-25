@@ -9,15 +9,16 @@
         </button>
         <div class="logo">
             <img src="assets/img/logo.svg"
-                 alt="Company Logo"
+                 alt="App Logo"
                  i18n-alt>
         </div>
         <div class="toolbar-right-side">
             <div *ngIf="userName" 
                  class="user-info">
                 <div class="user-avatar">
-                    <img [src]="companyAvatarUrl"
-                         alt="Company Avatar"
+                    <img [defaultImage]="avatarThumbnailUrl"
+                         [lazyLoad]="avatarUrl"
+                         alt="User Avatar"
                          i18n-alt>
                 </div>
                 <span class="user-name">
@@ -83,8 +84,8 @@
             <div *ngIf="userName" 
                  class="user-info">
                 <div class="user-avatar">
-                    <img [src]="companyAvatarUrl"
-                         alt="Company Avatar"
+                    <img [src]="avatarUrl"
+                         alt="User Avatar"
                          i18n-alt>
                 </div>
                 <span class="user-name">
@@ -203,21 +204,6 @@
                     </mat-icon> -->
                     <span i18n>
                         Roles & Permissions
-                    </span>
-                </mat-list-item>
-
-                <mat-list-item routerLink="/admin/maintenance"
-                               class="submenu-item"
-                               routerLinkActive="active-link"
-                               *ngIf="showMaintenance"
-                               matTooltip="Maintenance"
-                               i18n-matTooltip
-                               (click)="closeBarIfMobile()">
-                    <!-- <mat-icon mat-list-icon>
-                        engineering
-                    </mat-icon> -->
-                    <span i18n>
-                        Maintenance
                     </span>
                 </mat-list-item>
             </div> 

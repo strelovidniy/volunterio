@@ -3,7 +3,7 @@ using Volunterio.Domain.Models.Views;
 
 namespace Volunterio.Domain.Mapper.Converters.User;
 
-internal class UserUserViewConverter : ITypeConverter<Data.Entities.User, UserView>
+internal class UserToUserViewConverter : ITypeConverter<Data.Entities.User, UserView>
 {
     public UserView Convert(
         Data.Entities.User user,
@@ -14,6 +14,7 @@ internal class UserUserViewConverter : ITypeConverter<Data.Entities.User, UserVi
         user.FirstName,
         user.LastName,
         user.Email,
-        context.Mapper.Map<AccessView>(user.Role)
+        context.Mapper.Map<AccessView>(user.Role),
+        context.Mapper.Map<UserDetailsView>(user.Details)
     );
 }

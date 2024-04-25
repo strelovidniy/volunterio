@@ -9,6 +9,6 @@ internal class RoleMapperProfile : Profile
 {
     public RoleMapperProfile()
     {
-        CreateMap<Role, AccessView>().ConvertUsing(new RoleAccessViewConverter());
+        CreateMap<Role, AccessView>().ConvertUsing(new RoleToAccessViewConverter());
     }
 }

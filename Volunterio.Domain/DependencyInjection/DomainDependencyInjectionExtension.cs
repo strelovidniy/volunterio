@@ -36,7 +36,9 @@ public static class DomainDependencyInjectionExtension
         .AddScoped<IRazorViewToStringRenderer, RazorViewToStringRenderer>()
         .AddScoped<IEmailService, EmailService>()
         .AddScoped<ICurrentUserService, CurrentUserService>()
-        .AddScoped<IUserAccessService, UserAccessService>();
+        .AddScoped<IUserAccessService, UserAccessService>()
+        .AddScoped<IUserDetailsService, UserDetailsService>()
+        .AddScoped<IStorageService, StorageService>();
 
     private static IServiceCollection AddValidators(
         this IServiceCollection services
@@ -52,7 +54,9 @@ public static class DomainDependencyInjectionExtension
         .AddValidator<UpdateUserModel, UpdateUserModelValidator>()
         .AddValidator<ChangeUserRoleModel, ChangeUserRolesModelValidator>()
         .AddValidator<UpdateProfileModel, UpdateProfileModelValidator>()
-        .AddValidator<CompleteRegistrationModel, CompleteRegistrationModelValidator>();
+        .AddValidator<CompleteRegistrationModel, CompleteRegistrationModelValidator>()
+        .AddValidator<UpdateAddressModel, UpdateAddressModelValidator>()
+        .AddValidator<SetUserAvatarModel, SetUserAvatarModelValidator>();
 
     private static IServiceCollection AddValidator<TModel, TValidator>(
         this IServiceCollection services
@@ -66,7 +70,9 @@ public static class DomainDependencyInjectionExtension
     ) => services
         .AddAutoMapper(config => config.AddProfiles(
         [
+            new AddressMapperProfile(),
             new RoleMapperProfile(),
+            new UserDetailsMapperProfile(),
             new UserMapperProfile()
         ]));
 

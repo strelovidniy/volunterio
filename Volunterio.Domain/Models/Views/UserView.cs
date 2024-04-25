@@ -5,5 +5,6 @@ public record UserView(
     string? FirstName,
     string? LastName,
     string Email,
-    AccessView Access
+    AccessView Access,
+    UserDetailsView Details
 );

@@ -6,19 +6,7 @@
         Enter your details to countinue
     </span>
     <form [formGroup]="signUpFormGroup" 
-          class="editor-form">
-        <mat-form-field class="form-field">
-            <mat-label i18n>
-                Company Name
-            </mat-label>
-            <input matInput
-                   [formControl]="companyNameFormControl">
-            <mat-error *ngIf="companyNameFormControl.errors?.['required']"
-                       i18n>
-                Company Name is required
-            </mat-error>
-        </mat-form-field>
-        
+          class="editor-form">        
           <mat-form-field class="form-field">
             <mat-label i18n>
                 First Name

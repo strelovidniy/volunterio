@@ -30,4 +30,6 @@ public class User : EntityBase, IEntity
     public Role? Role { get; set; }
 
     public Guid? RoleId { get; set; }
+
+    public UserDetails? Details { get; set; }
 }

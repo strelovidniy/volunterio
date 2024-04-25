@@ -3,7 +3,7 @@ using Volunterio.Domain.Models.Views;
 
 namespace Volunterio.Domain.Mapper.Converters.Role;
 
-internal class RoleAccessViewConverter : ITypeConverter<Data.Entities.Role, AccessView>
+internal class RoleToAccessViewConverter : ITypeConverter<Data.Entities.Role, AccessView>
 {
     public AccessView Convert(
         Data.Entities.Role role,

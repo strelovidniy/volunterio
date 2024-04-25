@@ -66,11 +66,6 @@ export default class SignUpComponent {
         FormValidators.cannotContainSpace
     ]);
 
-    public companyNameFormControl = new FormControl('', [
-        Validators.required
-    ]);
-
-
     public signUpFormGroup = new FormGroup({
         password: this.passwordFormControl,
         confirmPassword: this.confirmPasswordFormControl,

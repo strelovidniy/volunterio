@@ -2,7 +2,7 @@
 
 namespace Volunterio.Data.Enums.RichEnums;
 
-public class EmailViewLocation : RichEnum<string>
+public class EmailViewLocation(string value) : RichEnum<string>(value)
 {
     private const string Base = "/Views/EmailTemplates/";
 
@@ -11,8 +11,4 @@ public class EmailViewLocation : RichEnum<string>
 
     public static EmailViewLocation ResetPasswordEmail =>
         new($"{Base}ResetPasswordEmail/ResetPasswordEmail.cshtml");
-
-    private EmailViewLocation(string value) : base(value)
-    {
-    }
 }

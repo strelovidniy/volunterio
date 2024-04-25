@@ -37,12 +37,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Compile Remove="Files\**" />
 		<Compile Remove="Logs\**" />
+		<Content Remove="Files\**" />
 		<Content Remove="Logs\**" />
 	</ItemGroup>
 
 	<ItemGroup>
+		<EmbeddedResource Remove="Files\**" />
 		<EmbeddedResource Remove="Logs\**" />
+		<None Remove="Files\**" />
 		<None Remove="Logs\**" />
 	</ItemGroup>
 

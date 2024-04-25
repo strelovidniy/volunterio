@@ -26,7 +26,7 @@ import UserEditorComponent from '../user-editor/user-editor.component';
 })
 export default class UsersTableComponent implements OnInit, OnDestroy {
 
-    public displayedColumns: string[] = ['firstName', 'lastName', 'role.name', 'company', 'status', 'email', 'actions'];
+    public displayedColumns: string[] = ['firstName', 'lastName', 'role.name', 'status', 'email', 'actions'];
 
     public users: IUser[] = [];
     public totalCount: number = 0;
@@ -132,7 +132,7 @@ export default class UsersTableComponent implements OnInit, OnDestroy {
             pageSize: this.pageSize,
             sortBy: this.sortFiledName,
             sortAscending: this.sortDirection,
-            expandProperty: 'role,company'
+            expandProperty: 'role'
         };
         const query = this.paginationService.queryBuilder(params);
 

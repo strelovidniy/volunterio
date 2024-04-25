@@ -2,7 +2,7 @@
 
 namespace Volunterio.Data.Enums.RichEnums;
 
-public class ImageLocation : RichEnum<string>
+public class ImageLocation(string value) : RichEnum<string>(value)
 {
     private const string Base = "Volunterio.Server.Views.Images.";
 
@@ -17,8 +17,4 @@ public class ImageLocation : RichEnum<string>
     public static ImageLocation WhiteBackground => new($"{Base}WhiteBackground.png");
 
     public static ImageLocation Divider => new($"{Base}Divider.png");
-
-    private ImageLocation(string value) : base(value)
-    {
-    }
 }

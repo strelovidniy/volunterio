@@ -8,8 +8,10 @@ public enum StatusCode
 
     UserNotFound = 101,
     RoleNotFound = 102,
-    HelperRoleNotFound = 111,
-    UserRoleNotFound = 112,
+    HelperRoleNotFound = 103,
+    UserRoleNotFound = 104,
+    DirectoryNotFound = 105,
+    FileNotFound = 106,
 
     QueryResultError = 201,
 
@@ -27,6 +29,20 @@ public enum StatusCode
     LastNameTooLong = 702,
     FileIsTooLarge = 703,
     EmailTooLong = 704,
+    AddressLine1TooLong = 705,
+    AddressLine2TooLong = 706,
+    CityTooLong = 707,
+    StateTooLong = 708,
+    PostalCodeTooLong = 709,
+    CountryTooLong = 710,
+
+    IncorrectPassword = 801,
+    PasswordsDoNotMatch = 802,
+    OldPasswordIncorrect = 803,
+
+    UserAlreadyExists = 901,
+    RoleAlreadyExists = 902,
+    EmailAlreadyExists = 903,
 
     RoleTypeRequired = 1001,
     RoleIdRequired = 1002,
@@ -39,6 +55,11 @@ public enum StatusCode
     RoleNameRequired = 1009,
     VerificationCodeRequired = 1010,
     ConfirmPasswordRequired = 1011,
+    AddressLine1Required = 1012,
+    CityRequired = 1013,
+    StateRequired = 1014,
+    PostalCodeRequired = 1015,
+    CountryRequired = 1016,
 
     PasswordLengthExceeded = 1101,
 
@@ -57,13 +78,5 @@ public enum StatusCode
     InvalidFile = 1307,
 
     FirstNameShouldNotContainWhiteSpace = 1401,
-    LastNameShouldNotContainWhiteSpace = 1402,
-
-    IncorrectPassword = 1501,
-    PasswordsDoNotMatch = 1502,
-    OldPasswordIncorrect = 1503,
-
-    UserAlreadyExists = 1601,
-    RoleAlreadyExists = 1602,
-    EmailAlreadyExists = 1603
+    LastNameShouldNotContainWhiteSpace = 1402
 }

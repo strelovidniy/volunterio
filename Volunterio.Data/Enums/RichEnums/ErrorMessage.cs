@@ -2,7 +2,7 @@
 
 namespace Volunterio.Data.Enums.RichEnums;
 
-public class ErrorMessage : RichEnum<string>
+public class ErrorMessage(string value) : RichEnum<string>(value)
 {
     public static ErrorMessage ApiExceptionOccurred =>
         new("Api Exception occurred");
@@ -27,11 +27,6 @@ public class ErrorMessage : RichEnum<string>
 
     public static ErrorMessage ProgramStopped =>
         new("Stopped program because of exception");
-
-
-    private ErrorMessage(string value) : base(value)
-    {
-    }
 
     public static ErrorMessage EmailNotSent(
         string? subject,

@@ -22,6 +22,58 @@ namespace Volunterio.Data.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("Volunterio.Data.Entities.Address", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasDefaultValueSql("uuid_generate_v4()");
+
+                    b.Property<string>("AddressLine1")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
+
+                    b.Property<string>("AddressLine2")
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("now() at time zone('utc')");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("PostalCode")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
+
+                    b.Property<string>("State")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Addresses", "dbo");
+                });
+
             modelBuilder.Entity("Volunterio.Data.Entities.Role", b =>
                 {
                     b.Property<Guid>("Id")
@@ -291,6 +343,48 @@ namespace Volunterio.Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("Volunterio.Data.Entities.UserDetails", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasDefaultValueSql("uuid_generate_v4()");
+
+                    b.Property<Guid?>("AddressId")
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("now() at time zone('utc')");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("ImageThumbnailUrl")
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
+
+                    b.Property<string>("ImageUrl")
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AddressId");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("UserDetails", "dbo");
+                });
+
             modelBuilder.Entity("Volunterio.Data.Entities.User", b =>
                 {
                     b.HasOne("Volunterio.Data.Entities.Role", "Role")
@@ -301,9 +395,32 @@ namespace Volunterio.Data.Migrations
                     b.Navigation("Role");
                 });
 
+            modelBuilder.Entity("Volunterio.Data.Entities.UserDetails", b =>
+                {
+                    b.HasOne("Volunterio.Data.Entities.Address", "Address")
+                        .WithMany()
+                        .HasForeignKey("AddressId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("Volunterio.Data.Entities.User", "User")
+                        .WithOne("Details")
+                        .HasForeignKey("Volunterio.Data.Entities.UserDetails", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Address");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Volunterio.Data.Entities.Role", b =>
                 {
                     b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("Volunterio.Data.Entities.User", b =>
+                {
+                    b.Navigation("Details");
                 });
 #pragma warning restore 612, 618
         }

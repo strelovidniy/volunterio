@@ -7,6 +7,7 @@ import RequestsModule from './requests/requests.module';
 
 import PagenotfoundComponent from './shared/components/pagenotfound/pagenotfound.component';
 import SideNavWrapperComponent from './shared/components/side-nav-wrapper/side-nav-wrapper.component';
+import AccountPreferencesModule from './account-preferences/account-preferences.module';
 
 
 @NgModule({
@@ -29,6 +30,10 @@ import SideNavWrapperComponent from './shared/components/side-nav-wrapper/side-n
                         {
                             path: 'requests',
                             loadChildren: (): Promise<any> => import('./requests/requests.module').then((requestsModule): RequestsModule => requestsModule.default),
+                        },
+                        {
+                            path: 'account-preferences',
+                            loadChildren: (): Promise<any> => import('./account-preferences/account-preferences.module').then((accountPreferencesModule): AccountPreferencesModule => accountPreferencesModule.default),
                         }
                     ]
                 },

@@ -410,7 +410,9 @@ internal class UserService(
     private IQueryable<User> GetFullUserQueryable() =>
         userRepository
             .Query()
-            .Include(user => user.Role);
+            .Include(user => user.Role)
+            .Include(user => user.Details)
+            .ThenInclude(details => details!.Address);
 
     private Task SendRegistrationEmailAsync(
         User registeredUser,

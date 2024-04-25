@@ -2,7 +2,7 @@
 
 namespace Volunterio.Data.Enums.RichEnums;
 
-public class ContentType : RichEnum<string>
+public class ContentType(string value) : RichEnum<string>(value)
 {
     public static ContentType ImagePng => new("image/png");
 
@@ -33,8 +33,4 @@ public class ContentType : RichEnum<string>
     public static ContentType ApplicationJson => new("application/json");
 
     public static ContentType ApplicationOctetStream => new("application/octet-stream");
-
-    private ContentType(string value) : base(value)
-    {
-    }
 }

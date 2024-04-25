@@ -36,7 +36,9 @@ public static class DataDependencyInjectionExtension
         this IServiceCollection services
     ) => services
         .CreateRepositoryBuilderWithContext<VolunterioContext>()
+        .AddRepository<Address>()
         .AddRepository<Role>()
         .AddRepository<User>()
+        .AddRepository<UserDetails>()
         .Build();
 }

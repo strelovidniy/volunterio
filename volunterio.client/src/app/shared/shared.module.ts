@@ -6,6 +6,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { ColorPickerModule } from '@iplab/ngx-color-picker';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 import MaterialModule from './material/material.module';
 
@@ -33,7 +34,8 @@ const sharedModules = [
     NgxSkeletonLoaderModule,
     RouterModule,
     ImageCropperModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    LazyLoadImageModule
 ];
 
 const sharedComponents = [

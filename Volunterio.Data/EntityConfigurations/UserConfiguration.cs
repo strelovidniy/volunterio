@@ -81,5 +81,12 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
             .HasForeignKey(user => user.RoleId)
             .HasPrincipalKey(role => role.Id)
             .OnDelete(DeleteBehavior.SetNull);
+
+        builder
+            .HasOne(user => user.Details)
+            .WithOne(details => details.User)
+            .HasForeignKey<UserDetails>(details => details.UserId)
+            .HasPrincipalKey<User>(user => user.Id)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

@@ -9,6 +9,6 @@ internal class UserMapperProfile : Profile
 {
     public UserMapperProfile()
     {
-        CreateMap<User, UserView>().ConvertUsing(new UserUserViewConverter());
+        CreateMap<User, UserView>().ConvertUsing(new UserToUserViewConverter());
     }
 }

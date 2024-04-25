@@ -21,6 +21,11 @@ export default class EndpointService {
     public readonly userUpdate = (): string => `${environment.apiUrl}users/update`;
     public readonly userInfo = (): string => `${environment.apiUrl}users/me`;
 
+    // User Details
+
+    public readonly uploadUserAvatar = (): string => `${environment.apiUrl}user-details/upload-avatar`;
+    public readonly updateAddress = (): string => `${environment.apiUrl}user-details/update-address`;
+
     // Role
     public readonly rolesList = (query?: string ): string => `${environment.apiUrl}roles${query}`;
     public readonly rolesAutocomplete = (searchQuery?: string ): string => `${environment.apiUrl}roles?searchQuery=${searchQuery}`;

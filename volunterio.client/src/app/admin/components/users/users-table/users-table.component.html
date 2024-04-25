@@ -58,19 +58,6 @@
                 </mat-cell>
             </ng-container>
 
-            <ng-container matColumnDef="company">
-                <mat-header-cell mat-sort-header
-                                 *matHeaderCellDef
-                                 class="th-center"
-                                 i18n>
-                    Company
-                </mat-header-cell>
-                <mat-cell *matCellDef="let user"
-                          class=" th-center" >
-                    {{user.company?.name }}
-                </mat-cell>
-            </ng-container>
-
             <ng-container matColumnDef="email">
                 <mat-header-cell mat-sort-header
                                  *matHeaderCellDef

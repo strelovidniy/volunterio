@@ -16,8 +16,10 @@ public class VolunterioContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfiguration(new UserConfiguration());
+        modelBuilder.ApplyConfiguration(new AddressConfiguration());
         modelBuilder.ApplyConfiguration(new RoleConfiguration());
+        modelBuilder.ApplyConfiguration(new UserConfiguration());
+        modelBuilder.ApplyConfiguration(new UserDetailsConfiguration());
 
         modelBuilder.Seed();
 

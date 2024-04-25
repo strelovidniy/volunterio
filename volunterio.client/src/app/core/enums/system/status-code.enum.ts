@@ -5,8 +5,10 @@ enum StatusCode {
 
     userNotFound = 101,
     roleNotFound = 102,
-    helperRoleNotFound = 111,
-    userRoleNotFound = 112,
+    helperRoleNotFound = 103,
+    userRoleNotFound = 104,
+    directoryNotFound = 105,
+    fileNotFound = 106,
 
     queryResultError = 201,
 
@@ -24,6 +26,20 @@ enum StatusCode {
     lastNameTooLong = 702,
     fileIsTooLarge = 703,
     emailTooLong = 704,
+    addressLine1TooLong = 705,
+    addressLine2TooLong = 706,
+    cityTooLong = 707,
+    stateTooLong = 708,
+    postalCodeTooLong = 709,
+    countryTooLong = 710,
+
+    incorrectPassword = 801,
+    passwordsDoNotMatch = 802,
+    oldPasswordIncorrect = 803,
+
+    userAlreadyExists = 901,
+    roleAlreadyExists = 902,
+    emailAlreadyExists = 903,
 
     roleTypeRequired = 1001,
     roleIdRequired = 1002,
@@ -36,6 +52,11 @@ enum StatusCode {
     roleNameRequired = 1009,
     verificationCodeRequired = 1010,
     confirmPasswordRequired = 1011,
+    addressLine1Required = 1012,
+    cityRequired = 1013,
+    stateRequired = 1014,
+    postalCodeRequired = 1015,
+    countryRequired = 1016,
 
     passwordLengthExceeded = 1101,
 
@@ -54,15 +75,7 @@ enum StatusCode {
     invalidFile = 1307,
 
     firstNameShouldNotContainWhiteSpace = 1401,
-    lastNameShouldNotContainWhiteSpace = 1402,
-
-    incorrectPassword = 1501,
-    passwordsDoNotMatch = 1502,
-    oldPasswordIncorrect = 1503,
-
-    userAlreadyExists = 1601,
-    roleAlreadyExists = 1602,
-    emailAlreadyExists = 1603
+    lastNameShouldNotContainWhiteSpace = 1402
 }
 
 export default StatusCode;

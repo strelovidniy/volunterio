@@ -24,7 +24,8 @@ export default class SideNavWrapperComponent implements OnInit, AfterViewInit, O
     public showWidgetsMenu: boolean = false;
 
     public userName: string | null = null;
-    public companyAvatarUrl: string = '';
+    public avatarUrl: string = '';
+    public avatarThumbnailUrl: string = '';
 
     public isContentTransparent: boolean = false;
 
@@ -76,7 +77,8 @@ export default class SideNavWrapperComponent implements OnInit, AfterViewInit, O
 
     private initInfo(): void {
         this.userName = this.authService.currentUser ? `${this.authService.currentUser.firstName} ${this.authService.currentUser.lastName}` : null;
-        this.companyAvatarUrl = this.imageService.defaultImageUrl;
+        this.avatarUrl = this.authService.currentUser.details?.imageUrl ? this.authService.currentUser.details?.imageUrl : this.imageService.defaultImageUrl;
+        this.avatarThumbnailUrl = this.authService.currentUser.details?.imageThumbnailUrl ? this.authService.currentUser.details?.imageThumbnailUrl : this.imageService.defaultImageUrl;
     }
 
     public toggleAdmin(): void {
@@ -159,5 +161,4 @@ export default class SideNavWrapperComponent implements OnInit, AfterViewInit, O
     public get showRequests(): boolean {
         return true;
     }
-
 }

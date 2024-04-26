@@ -12,6 +12,8 @@ public enum StatusCode
     UserRoleNotFound = 104,
     DirectoryNotFound = 105,
     FileNotFound = 106,
+    HelpRequestNotFound = 107,
+    ImageNotFound = 108,
 
     QueryResultError = 201,
 
@@ -24,6 +26,7 @@ public enum StatusCode
     RoleCannotBeUpdated = 601,
     RoleCannotBeDeleted = 602,
     UserRoleCannotBeChanged = 603,
+    TagCannotBeEmpty = 604,
 
     FirstNameTooLong = 701,
     LastNameTooLong = 702,
@@ -35,6 +38,16 @@ public enum StatusCode
     StateTooLong = 708,
     PostalCodeTooLong = 709,
     CountryTooLong = 710,
+    InstagramTooLong = 711,
+    LinkedInTooLong = 712,
+    PhoneNumberTooLong = 713,
+    SkypeTooLong = 714,
+    TelegramTooLong = 715,
+    OtherTooLong = 716,
+    TitleTooLong = 717,
+    DescriptionTooLong = 718,
+    TagTooLong = 719,
+
 
     IncorrectPassword = 801,
     PasswordsDoNotMatch = 802,
@@ -60,6 +73,9 @@ public enum StatusCode
     StateRequired = 1014,
     PostalCodeRequired = 1015,
     CountryRequired = 1016,
+    ImagesRequired = 1017,
+    DescriptionRequired = 1018,
+    TitleRequired = 1019,
 
     PasswordLengthExceeded = 1101,
 
@@ -76,7 +92,10 @@ public enum StatusCode
     InvalidEmailModel = 1305,
     InvalidVerificationCode = 1306,
     InvalidFile = 1307,
+    InvalidPhoneNumber = 1308,
 
     FirstNameShouldNotContainWhiteSpace = 1401,
-    LastNameShouldNotContainWhiteSpace = 1402
+    LastNameShouldNotContainWhiteSpace = 1402,
+
+    HelpRequestRemoved = 1501
 }

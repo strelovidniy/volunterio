@@ -12,6 +12,7 @@ internal class UserDetailsToUserDetailsViewConverter : ITypeConverter<Data.Entit
     ) => new(
         userDetails.ImageUrl,
         userDetails.ImageThumbnailUrl,
-        context.Mapper.Map<AddressView>(userDetails.Address)
+        context.Mapper.Map<AddressView>(userDetails.Address),
+        context.Mapper.Map<ContactInfoView>(userDetails.ContactInfo)
     );
 }

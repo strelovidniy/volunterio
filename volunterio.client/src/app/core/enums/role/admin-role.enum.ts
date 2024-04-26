@@ -6,7 +6,10 @@ enum AdminRole {
     createDeleteRole = 'createDeleteRole',
     editRole = 'editRole',
 
-    canMaintainSystem = 'canMaintainSystem'
+    canMaintainSystem = 'canMaintainSystem',
+
+    canCreateHelpRequest = 'canCreateHelpRequest',
+    canSeeHelpRequests = 'canSeeHelpRequests'
 }
 
 export default AdminRole;

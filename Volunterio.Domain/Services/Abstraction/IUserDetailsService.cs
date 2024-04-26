@@ -14,4 +14,9 @@ public interface IUserDetailsService
         SetUserAvatarModel model,
         CancellationToken cancellationToken = default
     );
+
+    public Task UpdateContactInfoAsync(
+        UpdateContactInfoModel updateContactInfoModel,
+        CancellationToken cancellationToken = default
+    );
 }

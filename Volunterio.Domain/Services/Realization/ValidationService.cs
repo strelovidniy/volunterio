@@ -116,6 +116,13 @@ internal class ValidationService(
         .Query()
         .AnyAsync(user => user.Id == id && !user.Role!.IsHidden, cancellationToken);
 
+    public Task<int> CountImagesAsync(
+        Guid id,
+        CancellationToken cancellationToken = default
+    ) => GetRepository<HelpRequestImage>()
+        .Query()
+        .CountAsync(helpRequestImage => helpRequestImage.HelpRequestId == id, cancellationToken);
+
     private IRepository<T> GetRepository<T>() where T : class, IEntity
         => services
             .GetRequiredService<IRepository<T>>();

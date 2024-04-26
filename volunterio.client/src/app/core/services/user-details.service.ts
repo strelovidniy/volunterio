@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import EndpointService from './endpoint.service';
 
 import IUpdateAddressRequest from '../interfaces/user/update-address-request.interface';
+import IUpdateContactDetailsRequest from '../interfaces/user/update-contact-details-request.interface';
 
 
 @Injectable({
@@ -34,6 +35,21 @@ export default class UserDetailsService {
 
     public updateAddress(request: IUpdateAddressRequest, callback?: () => void, errorCallback?: () => void): void {
         this.http.put(this.endpointService.updateAddress(), request).subscribe({
+            next: (): void => {
+                if (callback) {
+                    callback();
+                }
+            },
+            error: (): void => {
+                if (errorCallback) {
+                    errorCallback();
+                }
+            }
+        });
+    }
+
+    public updateContactDetails(request: IUpdateContactDetailsRequest, callback?: () => void, errorCallback?: () => void): void {
+        this.http.put(this.endpointService.updateContactDetails(), request).subscribe({
             next: (): void => {
                 if (callback) {
                     callback();

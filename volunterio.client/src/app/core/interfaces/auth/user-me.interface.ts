@@ -8,7 +8,7 @@ interface IUserMe {
     firstName: string;
     id: string;
     lastName: string;
-    details: IUserDetails;
+    details?: IUserDetails;
 }
 
 export default IUserMe;

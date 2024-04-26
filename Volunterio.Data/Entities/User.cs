@@ -32,4 +32,6 @@ public class User : EntityBase, IEntity
     public Guid? RoleId { get; set; }
 
     public UserDetails? Details { get; set; }
+
+    public IEnumerable<HelpRequest> IssuedRequests { get; set; } = [];
 }

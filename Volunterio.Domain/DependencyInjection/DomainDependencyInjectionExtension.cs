@@ -38,7 +38,8 @@ public static class DomainDependencyInjectionExtension
         .AddScoped<ICurrentUserService, CurrentUserService>()
         .AddScoped<IUserAccessService, UserAccessService>()
         .AddScoped<IUserDetailsService, UserDetailsService>()
-        .AddScoped<IStorageService, StorageService>();
+        .AddScoped<IStorageService, StorageService>()
+        .AddScoped<IHelpRequestService, HelpRequestService>();
 
     private static IServiceCollection AddValidators(
         this IServiceCollection services
@@ -56,7 +57,10 @@ public static class DomainDependencyInjectionExtension
         .AddValidator<UpdateProfileModel, UpdateProfileModelValidator>()
         .AddValidator<CompleteRegistrationModel, CompleteRegistrationModelValidator>()
         .AddValidator<UpdateAddressModel, UpdateAddressModelValidator>()
-        .AddValidator<SetUserAvatarModel, SetUserAvatarModelValidator>();
+        .AddValidator<SetUserAvatarModel, SetUserAvatarModelValidator>()
+        .AddValidator<UpdateContactInfoModel, UpdateContactInfoModelValidator>()
+        .AddValidator<CreateHelpRequestModel, CreateHelpRequestModelValidator>()
+        .AddValidator<UpdateHelpRequestModel, UpdateHelpRequestModelValidator>();
 
     private static IServiceCollection AddValidator<TModel, TValidator>(
         this IServiceCollection services
@@ -71,6 +75,9 @@ public static class DomainDependencyInjectionExtension
         .AddAutoMapper(config => config.AddProfiles(
         [
             new AddressMapperProfile(),
+            new ContactInfoMapperProfile(),
+            new HelpRequestImageMapperProfile(),
+            new HelpRequestMapperProfile(),
             new RoleMapperProfile(),
             new UserDetailsMapperProfile(),
             new UserMapperProfile()

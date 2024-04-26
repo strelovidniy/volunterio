@@ -15,5 +15,7 @@ public record AccessView(
     bool CanSeeUsers,
     bool CanSeeAllRoles,
     bool CanSeeRoles,
-    bool CanMaintainSystem
+    bool CanMaintainSystem,
+    bool CanCreateHelpRequest,
+    bool CanSeeHelpRequests
 );

@@ -25,6 +25,7 @@ export default class EndpointService {
 
     public readonly uploadUserAvatar = (): string => `${environment.apiUrl}user-details/upload-avatar`;
     public readonly updateAddress = (): string => `${environment.apiUrl}user-details/update-address`;
+    public readonly updateContactDetails = (): string => `${environment.apiUrl}user-details/update-contact-details`;
 
     // Role
     public readonly rolesList = (query?: string ): string => `${environment.apiUrl}roles${query}`;

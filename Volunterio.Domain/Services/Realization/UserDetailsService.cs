@@ -14,6 +14,7 @@ internal class UserDetailsService(
     ICurrentUserService currentUserService,
     IRepository<UserDetails> userDetailsRepository,
     IRepository<Address> addressRepository,
+    IRepository<ContactInfo> contactInfoRepository,
     IStorageService storageService
 ) : IUserDetailsService
 {
@@ -104,7 +105,7 @@ internal class UserDetailsService(
             }
         }
 
-        await addressRepository.SaveChangesAsync(cancellationToken);
+        await userDetailsRepository.SaveChangesAsync(cancellationToken);
     }
 
     public async Task SetUserAvatarAsync(
@@ -236,5 +237,95 @@ internal class UserDetailsService(
         }
 
         await userDetailsRepository.SaveChangesAsync(cancellationToken);
+    }
+
+    public async Task UpdateContactInfoAsync(
+        UpdateContactInfoModel updateContactInfoModel,
+        CancellationToken cancellationToken = default
+    )
+    {
+        var userId = (await currentUserService.GetCurrentUserAsync(cancellationToken)).Id;
+
+        var userDetails = await userDetailsRepository
+            .Query()
+            .Include(details => details.Address)
+            .FirstOrDefaultAsync(
+                details => details.UserId == userId,
+                cancellationToken
+            );
+
+        if (userDetails is null)
+        {
+            userDetails = await userDetailsRepository.AddAsync(
+                new UserDetails
+                {
+                    UserId = userId
+                },
+                cancellationToken
+            );
+
+            await userDetailsRepository.SaveChangesAsync(cancellationToken);
+        }
+
+        if (userDetails.ContactInfo is null)
+        {
+            var contactInfo = await contactInfoRepository
+                .AddAsync(
+                    new ContactInfo
+                    {
+                        Instagram = updateContactInfoModel.Instagram,
+                        LinkedIn = updateContactInfoModel.LinkedIn,
+                        Other = updateContactInfoModel.Other,
+                        PhoneNumber = updateContactInfoModel.PhoneNumber,
+                        Skype = updateContactInfoModel.Skype,
+                        Telegram = updateContactInfoModel.Telegram
+                    },
+                    cancellationToken
+                );
+
+            await contactInfoRepository.SaveChangesAsync(cancellationToken);
+
+            userDetails.ContactInfoId = contactInfo.Id;
+        }
+        else
+        {
+            if (updateContactInfoModel.Instagram != userDetails.ContactInfo.Instagram)
+            {
+                userDetails.ContactInfo.Instagram = updateContactInfoModel.Instagram;
+                userDetails.ContactInfo.UpdatedAt = DateTime.UtcNow;
+            }
+
+            if (updateContactInfoModel.LinkedIn != userDetails.ContactInfo.LinkedIn)
+            {
+                userDetails.ContactInfo.LinkedIn = updateContactInfoModel.LinkedIn;
+                userDetails.ContactInfo.UpdatedAt = DateTime.UtcNow;
+            }
+
+            if (updateContactInfoModel.Other != userDetails.ContactInfo.Other)
+            {
+                userDetails.ContactInfo.Other = updateContactInfoModel.Other;
+                userDetails.ContactInfo.UpdatedAt = DateTime.UtcNow;
+            }
+
+            if (updateContactInfoModel.PhoneNumber != userDetails.ContactInfo.PhoneNumber)
+            {
+                userDetails.ContactInfo.PhoneNumber = updateContactInfoModel.PhoneNumber;
+                userDetails.ContactInfo.UpdatedAt = DateTime.UtcNow;
+            }
+
+            if (updateContactInfoModel.Skype != userDetails.ContactInfo.Skype)
+            {
+                userDetails.ContactInfo.Skype = updateContactInfoModel.Skype;
+                userDetails.ContactInfo.UpdatedAt = DateTime.UtcNow;
+            }
+
+            if (updateContactInfoModel.Telegram != userDetails.ContactInfo.Telegram)
+            {
+                userDetails.ContactInfo.Telegram = updateContactInfoModel.Telegram;
+                userDetails.ContactInfo.UpdatedAt = DateTime.UtcNow;
+            }
+        }
+
+        await addressRepository.SaveChangesAsync(cancellationToken);
     }
 }

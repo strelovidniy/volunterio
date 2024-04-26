@@ -3,5 +3,6 @@
 public record UserDetailsView(
     string? ImageUrl,
     string? ImageThumbnailUrl,
-    AddressView Address
+    AddressView Address,
+    ContactInfoView ContactInfo
 );

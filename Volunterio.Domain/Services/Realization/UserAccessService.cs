@@ -84,6 +84,18 @@ internal class UserAccessService(
         );
     }
 
+    public async Task CheckIfUserCanCreateHelpRequestsAsync(
+        CancellationToken cancellationToken = default
+    )
+    {
+        var user = await GetCurrentUserAsync(cancellationToken);
+
+        RuntimeValidator.Assert(
+            user.Role!.CanCreateHelpRequest,
+            StatusCode.Forbidden
+        );
+    }
+
     private async Task<User> GetCurrentUserAsync(
         CancellationToken cancellationToken = default
     )

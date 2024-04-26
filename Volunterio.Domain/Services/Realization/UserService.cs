@@ -412,7 +412,9 @@ internal class UserService(
             .Query()
             .Include(user => user.Role)
             .Include(user => user.Details)
-            .ThenInclude(details => details!.Address);
+            .ThenInclude(details => details!.Address)
+            .Include(user => user.Details)
+            .ThenInclude(details => details!.ContactInfo);
 
     private Task SendRegistrationEmailAsync(
         User registeredUser,
@@ -510,7 +512,7 @@ internal class UserService(
         }
         catch (Exception e)
         {
-            logger.LogError(e, "Error while getting users");
+            logger.LogError(e, ErrorMessage.UsersGettingError);
 
             throw new ApiException(StatusCode.QueryResultError);
         }

@@ -72,4 +72,9 @@ public interface IValidationService
         Guid id,
         CancellationToken cancellationToken = default
     );
+
+    public Task<int> CountImagesAsync(
+        Guid id,
+        CancellationToken cancellationToken = default
+    );
 }

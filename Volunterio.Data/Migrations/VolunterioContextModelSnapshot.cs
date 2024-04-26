@@ -74,12 +74,159 @@ namespace Volunterio.Data.Migrations
                     b.ToTable("Addresses", "dbo");
                 });
 
+            modelBuilder.Entity("Volunterio.Data.Entities.ContactInfo", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasDefaultValueSql("uuid_generate_v4()");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("now() at time zone('utc')");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Instagram")
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
+
+                    b.Property<string>("LinkedIn")
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
+
+                    b.Property<string>("Other")
+                        .HasMaxLength(1000)
+                        .HasColumnType("character varying(1000)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.Property<string>("Skype")
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
+
+                    b.Property<string>("Telegram")
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ContactInfos", "dbo");
+                });
+
+            modelBuilder.Entity("Volunterio.Data.Entities.HelpRequest", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasDefaultValueSql("uuid_generate_v4()");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("now() at time zone('utc')");
+
+                    b.Property<DateTime?>("Deadline")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(2000)
+                        .HasColumnType("character varying(2000)");
+
+                    b.Property<Guid>("IssuerId")
+                        .HasColumnType("uuid");
+
+                    b.Property<double?>("Latitude")
+                        .HasColumnType("double precision");
+
+                    b.Property<double?>("Longitude")
+                        .HasColumnType("double precision");
+
+                    b.Property<bool>("ShowContactInfo")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("Tags")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IssuerId");
+
+                    b.ToTable("HelpRequests", "dbo");
+                });
+
+            modelBuilder.Entity("Volunterio.Data.Entities.HelpRequestImage", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasDefaultValueSql("uuid_generate_v4()");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("now() at time zone('utc')");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid>("HelpRequestId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("ImageThumbnailUrl")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
+
+                    b.Property<int>("Position")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("HelpRequestId");
+
+                    b.ToTable("HelpRequestImages", "dbo");
+                });
+
             modelBuilder.Entity("Volunterio.Data.Entities.Role", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid")
                         .HasDefaultValueSql("uuid_generate_v4()");
+
+                    b.Property<bool>("CanCreateHelpRequest")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("boolean")
+                        .HasDefaultValue(false);
 
                     b.Property<bool>("CanCreateRoles")
                         .ValueGeneratedOnAdd()
@@ -122,6 +269,11 @@ namespace Volunterio.Data.Migrations
                         .HasDefaultValue(false);
 
                     b.Property<bool>("CanSeeAllUsers")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("boolean")
+                        .HasDefaultValue(false);
+
+                    b.Property<bool>("CanSeeHelpRequests")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("boolean")
                         .HasDefaultValue(false);
@@ -173,6 +325,7 @@ namespace Volunterio.Data.Migrations
                         new
                         {
                             Id = new Guid("00000000-0000-0000-0000-000000000001"),
+                            CanCreateHelpRequest = true,
                             CanCreateRoles = true,
                             CanDeleteRoles = true,
                             CanDeleteUsers = true,
@@ -182,6 +335,7 @@ namespace Volunterio.Data.Migrations
                             CanRestoreUsers = true,
                             CanSeeAllRoles = true,
                             CanSeeAllUsers = true,
+                            CanSeeHelpRequests = true,
                             CanSeeRoles = true,
                             CanSeeUsers = true,
                             CreatedAt = new DateTime(2022, 11, 11, 1, 6, 0, 0, DateTimeKind.Utc),
@@ -192,6 +346,7 @@ namespace Volunterio.Data.Migrations
                         new
                         {
                             Id = new Guid("a0a80c03-abbc-eb11-cabb-0022480a1c0a"),
+                            CanCreateHelpRequest = true,
                             CanCreateRoles = false,
                             CanDeleteRoles = false,
                             CanDeleteUsers = false,
@@ -201,6 +356,7 @@ namespace Volunterio.Data.Migrations
                             CanRestoreUsers = false,
                             CanSeeAllRoles = false,
                             CanSeeAllUsers = false,
+                            CanSeeHelpRequests = false,
                             CanSeeRoles = false,
                             CanSeeUsers = false,
                             CreatedAt = new DateTime(2022, 11, 11, 1, 6, 0, 0, DateTimeKind.Utc),
@@ -211,6 +367,7 @@ namespace Volunterio.Data.Migrations
                         new
                         {
                             Id = new Guid("fc1b77aa-0814-4589-80c2-a8090da02163"),
+                            CanCreateHelpRequest = false,
                             CanCreateRoles = false,
                             CanDeleteRoles = false,
                             CanDeleteUsers = false,
@@ -220,6 +377,7 @@ namespace Volunterio.Data.Migrations
                             CanRestoreUsers = false,
                             CanSeeAllRoles = false,
                             CanSeeAllUsers = false,
+                            CanSeeHelpRequests = true,
                             CanSeeRoles = false,
                             CanSeeUsers = false,
                             CreatedAt = new DateTime(2022, 11, 11, 1, 6, 0, 0, DateTimeKind.Utc),
@@ -353,6 +511,9 @@ namespace Volunterio.Data.Migrations
                     b.Property<Guid?>("AddressId")
                         .HasColumnType("uuid");
 
+                    b.Property<Guid?>("ContactInfoId")
+                        .HasColumnType("uuid");
+
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
@@ -379,10 +540,34 @@ namespace Volunterio.Data.Migrations
 
                     b.HasIndex("AddressId");
 
+                    b.HasIndex("ContactInfoId");
+
                     b.HasIndex("UserId")
                         .IsUnique();
 
                     b.ToTable("UserDetails", "dbo");
+                });
+
+            modelBuilder.Entity("Volunterio.Data.Entities.HelpRequest", b =>
+                {
+                    b.HasOne("Volunterio.Data.Entities.User", "Issuer")
+                        .WithMany("IssuedRequests")
+                        .HasForeignKey("IssuerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Issuer");
+                });
+
+            modelBuilder.Entity("Volunterio.Data.Entities.HelpRequestImage", b =>
+                {
+                    b.HasOne("Volunterio.Data.Entities.HelpRequest", "HelpRequest")
+                        .WithMany("Images")
+                        .HasForeignKey("HelpRequestId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("HelpRequest");
                 });
 
             modelBuilder.Entity("Volunterio.Data.Entities.User", b =>
@@ -402,6 +587,11 @@ namespace Volunterio.Data.Migrations
                         .HasForeignKey("AddressId")
                         .OnDelete(DeleteBehavior.Restrict);
 
+                    b.HasOne("Volunterio.Data.Entities.ContactInfo", "ContactInfo")
+                        .WithMany()
+                        .HasForeignKey("ContactInfoId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
                     b.HasOne("Volunterio.Data.Entities.User", "User")
                         .WithOne("Details")
                         .HasForeignKey("Volunterio.Data.Entities.UserDetails", "UserId")
@@ -410,7 +600,14 @@ namespace Volunterio.Data.Migrations
 
                     b.Navigation("Address");
 
+                    b.Navigation("ContactInfo");
+
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Volunterio.Data.Entities.HelpRequest", b =>
+                {
+                    b.Navigation("Images");
                 });
 
             modelBuilder.Entity("Volunterio.Data.Entities.Role", b =>
@@ -421,6 +618,8 @@ namespace Volunterio.Data.Migrations
             modelBuilder.Entity("Volunterio.Data.Entities.User", b =>
                 {
                     b.Navigation("Details");
+
+                    b.Navigation("IssuedRequests");
                 });
 #pragma warning restore 612, 618
         }

@@ -189,7 +189,7 @@ mat-table {
 	transition: all 225ms ease-in-out !important;
 	width: min-content !important;
 
-	&.mat-accent {
+	&.mat-accent:not([disabled]) {
 		border-color: $accent-color !important;
 	}
 }

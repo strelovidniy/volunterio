@@ -15,6 +15,7 @@ import ImageCropperDialogComponent from '../shared/components/dialogs/image-crop
 
 import IUserMe from '../core/interfaces/auth/user-me.interface';
 import IUpdateAddressRequest from '../core/interfaces/user/update-address-request.interface';
+import IUpdateContactDetailsRequest from '../core/interfaces/user/update-contact-details-request.interface';
 
 
 @Component({
@@ -25,6 +26,7 @@ export default class AccountPreferencesComponent implements OnInit, OnDestroy {
     public user?: IUserMe;
 
     public addressForm: FormGroup = {} as FormGroup;
+    public contactDetailsForm: FormGroup = {} as FormGroup;
 
     public addressLine1FormControl = new FormControl('', [
         Validators.maxLength(200),
@@ -53,6 +55,31 @@ export default class AccountPreferencesComponent implements OnInit, OnDestroy {
     public countryFormControl = new FormControl('', [
         Validators.maxLength(200),
         Validators.required,
+    ]);
+
+    public phoneNumberFormControl = new FormControl('', [
+        Validators.maxLength(100),
+        Validators.pattern(/\+?([\d|\(][\s|\(\d{3}\)|\.|\-|\d]{4,}\d)/)
+    ]);
+
+    public linkedInFormControl = new FormControl('', [
+        Validators.maxLength(200),
+    ]);
+
+    public instagramFormControl = new FormControl('', [
+        Validators.maxLength(200),
+    ]);
+
+    public skypeFormControl = new FormControl('', [
+        Validators.maxLength(200),
+    ]);
+
+    public telegramFormControl = new FormControl('', [
+        Validators.maxLength(200),
+    ]);
+
+    public otherFormControl = new FormControl('', [
+        Validators.maxLength(2000),
     ]);
 
     private changeUiSubscription?: Subscription;
@@ -89,6 +116,22 @@ export default class AccountPreferencesComponent implements OnInit, OnDestroy {
         this.postalCodeFormControl.setValue(this.user.details?.address?.postalCode || null);
         this.countryFormControl.setValue(this.user.details?.address?.country || null);
 
+        this.instagramFormControl.setValue(this.user.details?.contactInfo?.instagram || null);
+        this.linkedInFormControl.setValue(this.user.details?.contactInfo?.linkedIn || null);
+        this.phoneNumberFormControl.setValue(this.user.details?.contactInfo?.phoneNumber || null);
+        this.skypeFormControl.setValue(this.user.details?.contactInfo?.skype || null);
+        this.telegramFormControl.setValue(this.user.details?.contactInfo?.telegram || null);
+        this.otherFormControl.setValue(this.user.details?.contactInfo?.other || null);
+
+        this.contactDetailsForm = new FormGroup({
+            phoneNumber: this.phoneNumberFormControl,
+            linkedIn: this.linkedInFormControl,
+            instagram: this.instagramFormControl,
+            skype: this.skypeFormControl,
+            telegram: this.telegramFormControl,
+            other: this.otherFormControl,
+        });
+
         this.addressForm = new FormGroup({
             addressLine1: this.addressLine1FormControl,
             addressLine2: this.addressLine2FormControl,
@@ -121,19 +164,41 @@ export default class AccountPreferencesComponent implements OnInit, OnDestroy {
             this.addressForm.markAllAsTouched();
             this.notifier.warning($localize`Address is invalid and not updated`);
         }
+        if (this.contactDetailsForm.valid) {
+            this.userDetailsService.updateContactDetails(
+                this.contactDetailsForm.value as IUpdateContactDetailsRequest,
+                (): void => {
+                    this.authService.getUserInfo();
+                    this.notifier.success($localize`Contact details updated successfully`);
+                    this.loader.hide();
+                },
+                (): void => {
+                    this.notifier.error($localize`Contact details update failed`);
+                    this.loader.hide();
+                });
+        } else {
+            this.contactDetailsForm.markAllAsTouched();
+            this.notifier.warning($localize`Contact details is invalid and not updated`);
+        }
     }
 
     public isUpdateButtonDisabled(): boolean {
-        if (this.addressForm.invalid) {
+        if (this.addressForm.invalid && this.contactDetailsForm.invalid) {
             return true;
         }
 
-        if ((this.addressForm.value.addressLine1 || '') === (this.user?.details?.address?.addressLine1 || '') &&
-            (this.addressForm.value.addressLine2 || '') === (this.user?.details?.address?.addressLine2 || '') &&
-            (this.addressForm.value.city || '') === (this.user?.details?.address?.city || '') &&
-            (this.addressForm.value.state || '') === (this.user?.details?.address?.state || '') &&
-            (this.addressForm.value.postalCode || '') === (this.user?.details?.address?.postalCode || '') &&
-            (this.addressForm.value.country || '') === (this.user?.details?.address?.country || '')) {
+        if ((this.addressForm.value.addressLine1 || '') === (this.user?.details?.address?.addressLine1 || '')
+            && (this.addressForm.value.addressLine2 || '') === (this.user?.details?.address?.addressLine2 || '')
+            && (this.addressForm.value.city || '') === (this.user?.details?.address?.city || '')
+            && (this.addressForm.value.state || '') === (this.user?.details?.address?.state || '')
+            && (this.addressForm.value.postalCode || '') === (this.user?.details?.address?.postalCode || '')
+            && (this.addressForm.value.country || '') === (this.user?.details?.address?.country || '')
+            && (this.contactDetailsForm.value.phoneNumber || '') === (this.user?.details?.contactInfo?.phoneNumber || '')
+            && (this.contactDetailsForm.value.linkedIn || '') === (this.user?.details?.contactInfo?.linkedIn || '')
+            && (this.contactDetailsForm.value.instagram || '') === (this.user?.details?.contactInfo?.instagram || '')
+            && (this.contactDetailsForm.value.skype || '') === (this.user?.details?.contactInfo?.skype || '')
+            && (this.contactDetailsForm.value.telegram || '') === (this.user?.details?.contactInfo?.telegram || '')
+            && (this.contactDetailsForm.value.other || '') === (this.user?.details?.contactInfo?.other || '')) {
             return true;
         }
 

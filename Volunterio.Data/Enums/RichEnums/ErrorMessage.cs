@@ -28,6 +28,15 @@ public class ErrorMessage(string value) : RichEnum<string>(value)
     public static ErrorMessage ProgramStopped =>
         new("Stopped program because of exception");
 
+    public static ErrorMessage HelpRequestsGettingError =>
+        new("Error while getting help requests");
+
+    public static ErrorMessage UsersGettingError =>
+        new("Error while getting users");
+
+    public static ErrorMessage RolesGettingError =>
+        new("Error while getting roles");
+
     public static ErrorMessage EmailNotSent(
         string? subject,
         string? receiver

@@ -26,7 +26,9 @@ internal static class Roles
                 CanSeeAllRoles = true,
                 CanSeeRoles = true,
                 CanSeeUsers = true,
-                CanMaintainSystem = true
+                CanMaintainSystem = true,
+                CanCreateHelpRequest = true,
+                CanSeeHelpRequests = true
             },
             new Role
             {
@@ -34,7 +36,8 @@ internal static class Roles
                 Name = "User",
                 CreatedAt = new DateTime(2022, 11, 11, 1, 6, 0, DateTimeKind.Utc),
                 Type = RoleType.User,
-                IsHidden = true
+                IsHidden = true,
+                CanCreateHelpRequest = true
             },
             new Role
             {
@@ -42,7 +45,8 @@ internal static class Roles
                 Name = "Helper",
                 CreatedAt = new DateTime(2022, 11, 11, 1, 6, 0, DateTimeKind.Utc),
                 Type = RoleType.Helper,
-                IsHidden = true
+                IsHidden = true,
+                CanSeeHelpRequests = true
             }
         );
     }

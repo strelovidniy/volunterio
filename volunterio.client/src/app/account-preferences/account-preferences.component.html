@@ -19,7 +19,7 @@
             </div>
         </div>
         <button mat-stroked-button 
-                color="primary"
+                color="accent"
                 [disabled]="isUpdateButtonDisabled()"
                 (click)="updateUserDetails()"
                 class="save-button"
@@ -27,6 +27,93 @@
             Save
         </button>
     </div>
+    <div class="column">
+        <h1 i18n>
+            Contact Information
+        </h1>
+        <form class="editor-form"
+              [formGroup]="contactDetailsForm">
+            <mat-form-field class="full-width">
+                <mat-label i18n>
+                    Phone Number
+                </mat-label>
+                <input matInput
+                       placeholder="Phone Number"
+                       formControlName="phoneNumber">
+                <mat-error *ngIf="addressForm.controls['phoneNumber']?.hasError('maxlength')"
+                           i18n>
+                    Phone Number cannot be longer than 100 characters
+                </mat-error>
+                <mat-error *ngIf="addressForm.controls['phoneNumber']?.hasError('pattern')"
+                           i18n>
+                    Invalid Phone Number
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <mat-label i18n>
+                    Telegram
+                </mat-label>
+                <input matInput
+                       placeholder="Telegram"
+                       formControlName="telegram">
+                <mat-error *ngIf="addressForm.controls['telegram']?.hasError('maxlength')"
+                           i18n>
+                    Telegram cannot be longer than 200 characters
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <mat-label i18n>
+                    LinkedIn
+                </mat-label>
+                <input matInput
+                       placeholder="LinkedIn"
+                       formControlName="linkedIn">
+                <mat-error *ngIf="addressForm.controls['linkedIn']?.hasError('maxlength')"
+                           i18n>
+                    LinkedIn cannot be longer than 200 characters
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <mat-label i18n>
+                    Instagram
+                </mat-label>
+                <input matInput
+                       placeholder="Instagram"
+                       formControlName="instagram">
+                <mat-error *ngIf="addressForm.controls['instagram']?.hasError('maxlength')"
+                           i18n>
+                    Instagram cannot be longer than 200 characters
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <mat-label i18n>
+                    Skype
+                </mat-label>
+                <input matInput
+                       placeholder="Skype"
+                       formControlName="skype">
+                <mat-error *ngIf="addressForm.controls['skype']?.hasError('maxlength')"
+                           i18n>
+                    Skype cannot be longer than 200 characters
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <mat-label i18n>
+                    Other
+                </mat-label>
+                <textarea matInput
+                          placeholder="Other"
+                          formControlName="other"
+                          rows="10">
+                </textarea>
+                <mat-error *ngIf="addressForm.controls['other']?.hasError('maxlength')"
+                           i18n>
+                    Other cannot be longer than 2000 characters
+                </mat-error>
+            </mat-form-field>
+        </form>
+    </div>
+    
     <div class="column">
         <h1 i18n>
             Address
@@ -127,7 +214,7 @@
             </mat-form-field>
         </form>
         <button mat-stroked-button 
-                color="primary"
+                color="accent"
                 [disabled]="isUpdateButtonDisabled()"
                 (click)="updateUserDetails()"
                 class="save-button mobile"

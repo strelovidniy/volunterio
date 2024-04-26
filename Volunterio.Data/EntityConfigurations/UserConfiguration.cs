@@ -88,5 +88,12 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
             .HasForeignKey<UserDetails>(details => details.UserId)
             .HasPrincipalKey<User>(user => user.Id)
             .OnDelete(DeleteBehavior.Cascade);
+
+        builder
+            .HasMany(user => user.IssuedRequests)
+            .WithOne(helpRequest => helpRequest.Issuer)
+            .HasForeignKey(helpRequest => helpRequest.IssuerId)
+            .HasPrincipalKey(user => user.Id)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

@@ -46,10 +46,21 @@ internal class UserDetailsConfiguration : IEntityTypeConfiguration<UserDetails>
             .IsRequired(false);
 
         builder
+            .Property(userDetails => userDetails.ContactInfoId)
+            .IsRequired(false);
+
+        builder
             .HasOne(userDetails => userDetails.Address)
             .WithMany()
             .HasForeignKey(userDetails => userDetails.AddressId)
             .HasPrincipalKey(address => address.Id)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        builder
+            .HasOne(userDetails => userDetails.ContactInfo)
+            .WithMany()
+            .HasForeignKey(userDetails => userDetails.ContactInfoId)
+            .HasPrincipalKey(contactInfo => contactInfo.Id)
             .OnDelete(DeleteBehavior.Restrict);
     }
 }

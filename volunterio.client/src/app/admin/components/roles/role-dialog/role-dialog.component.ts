@@ -92,23 +92,23 @@ export default class RoleDialogComponent implements OnInit {
         {
             name: $localize`Users Management`,
             index: 'users',
-            checked: false,
+            checked: true,
             expanded: true,
             options: [
-                { name: $localize`View Users`, index: AdminRole.inviteDeleteUsers, checked: false, value: [Role.canSeeAllUsers, Role.canSeeUsers] },
-                { name: $localize`Delete Users`, index: AdminRole.inviteDeleteUsers, checked: false, value: [Role.canDeleteUsers] },
-                { name: $localize`Edit User`, index: AdminRole.editUsers, checked: false, value: [Role.canEditUsers] }
+                { name: $localize`View Users`, index: AdminRole.inviteDeleteUsers, checked: true, value: [Role.canSeeAllUsers, Role.canSeeUsers] },
+                { name: $localize`Delete Users`, index: AdminRole.inviteDeleteUsers, checked: true, value: [Role.canDeleteUsers] },
+                { name: $localize`Edit User`, index: AdminRole.editUsers, checked: true, value: [Role.canEditUsers] }
             ]
         },
         {
             name: $localize`Roles Management`,
             index: 'roles',
-            checked: false,
+            checked: true,
             expanded: true,
             options: [
-                { name: $localize`View Roles`, index: AdminRole.viewRoles, checked: false, value: [Role.canSeeRoles, Role.canSeeAllRoles] },
-                { name: $localize`Create and Delete Roles`, index: AdminRole.createDeleteRole, checked: false, value: [Role.canCreateRoles, Role.canDeleteRoles] },
-                { name: $localize`Edit Roles`, index: AdminRole.editRole, checked: false, value: [Role.canEditRoles] }
+                { name: $localize`View Roles`, index: AdminRole.viewRoles, checked: true, value: [Role.canSeeRoles, Role.canSeeAllRoles] },
+                { name: $localize`Create and Delete Roles`, index: AdminRole.createDeleteRole, checked: true, value: [Role.canCreateRoles, Role.canDeleteRoles] },
+                { name: $localize`Edit Roles`, index: AdminRole.editRole, checked: true, value: [Role.canEditRoles] }
             ]
         },
         {
@@ -120,52 +120,40 @@ export default class RoleDialogComponent implements OnInit {
                 { name: $localize`Maintain System`, index: AdminRole.canMaintainSystem, checked: false, value: [Role.canMaintainSystem] }
             ]
         },
+        {
+            name: $localize`Help Requests`,
+            index: 'help',
+            checked: true,
+            expanded: true,
+            options: [
+                { name: $localize`Create Help Request`, index: AdminRole.canCreateHelpRequest, checked: true, value: [Role.canCreateHelpRequest] },
+                { name: $localize`View Help Requests`, index: AdminRole.canSeeHelpRequests, checked: true, value: [Role.canSeeHelpRequests] }
+            ]
+        }
     ];
 
     public helperOptions: IRoleOption[] = [
         {
-            name: $localize`Users Management`,
-            index: 'users',
+            name: $localize`Help Requests`,
+            index: 'help',
             checked: false,
             expanded: true,
             options: [
-                { name: $localize`Delete Users`, index: UserRole.inviteAndDeleteUsers, checked: false, value: [Role.canDeleteUsers] },
-                { name: $localize`Edit User`, index: UserRole.editUsers, checked: false, value: [Role.canEditUsers] }
-            ]
-        },
-        {
-            name: $localize`Roles Management`,
-            index: 'roles',
-            checked: false,
-            expanded: true,
-            options: [
-                { name: $localize`View Roles`, index: UserRole.viewRoles, checked: false, value: [Role.canSeeRoles] },
-                { name: $localize`Create and Delete Roles`, index: UserRole.createDeleteRole, checked: false, value: [Role.canCreateRoles, Role.canDeleteRoles] },
-                { name: $localize`Edit Roles`, index: UserRole.editRole, checked: false, value: [Role.canEditRoles] }
+                { name: $localize`Create Help Request`, index: UserRole.canCreateHelpRequest, checked: true, value: [Role.canCreateHelpRequest] },
+                { name: $localize`View Help Requests`, index: UserRole.canSeeHelpRequests, checked: false, value: [Role.canSeeHelpRequests] }
             ]
         }
     ];
 
     public userOptions: IRoleOption[] = [
         {
-            name: $localize`Users Management`,
-            index: 'users',
+            name: $localize`Help Requests`,
+            index: 'help',
             checked: false,
             expanded: true,
             options: [
-                { name: $localize`Delete Users`, index: UserRole.inviteAndDeleteUsers, checked: false, value: [Role.canDeleteUsers] },
-                { name: $localize`Edit User`, index: UserRole.editUsers, checked: false, value: [Role.canEditUsers] }
-            ]
-        },
-        {
-            name: $localize`Roles Management`,
-            index: 'roles',
-            checked: false,
-            expanded: true,
-            options: [
-                { name: $localize`View Roles`, index: UserRole.viewRoles, checked: false, value: [Role.canSeeRoles] },
-                { name: $localize`Create and Delete Roles`, index: UserRole.createDeleteRole, checked: false, value: [Role.canCreateRoles, Role.canDeleteRoles] },
-                { name: $localize`Edit Roles`, index: UserRole.editRole, checked: false, value: [Role.canEditRoles] }
+                { name: $localize`Create Help Request`, index: UserRole.canCreateHelpRequest, checked: false, value: [Role.canCreateHelpRequest] },
+                { name: $localize`View Help Requests`, index: UserRole.canSeeHelpRequests, checked: true, value: [Role.canSeeHelpRequests] }
             ]
         }
     ];

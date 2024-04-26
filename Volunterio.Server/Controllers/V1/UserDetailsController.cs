@@ -26,6 +26,19 @@ public class UserDetailsController(
         return Ok();
     }
 
+    [HttpPut("update-contact-details")]
+    public async Task<IActionResult> UpdateContactInfoAsync(
+        [FromBody] UpdateContactInfoModel model,
+        CancellationToken cancellationToken = default
+    )
+    {
+        await ValidateAsync(model, cancellationToken);
+
+        await userDetailsService.UpdateContactInfoAsync(model, cancellationToken);
+
+        return Ok();
+    }
+
     [HttpPost("upload-avatar")]
     public async Task<IActionResult> SetUserAvatarAsync(
         [FromForm] SetUserAvatarModel model,

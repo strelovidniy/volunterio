@@ -15,4 +15,8 @@ public class UserDetails : EntityBase, IEntity
     public Guid? AddressId { get; set; }
 
     public User? User { get; set; }
+
+    public Guid? ContactInfoId { get; set; }
+
+    public ContactInfo? ContactInfo { get; set; }
 }

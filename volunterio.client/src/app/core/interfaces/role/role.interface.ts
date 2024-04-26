@@ -18,20 +18,8 @@ interface IRole {
     canSeeAllRoles: boolean;
     canSeeRoles: boolean;
     canMaintainSystem: boolean;
-    canSeeQuestions: boolean;
-    canCreateQuestion: boolean;
-    canEditQuestion: boolean;
-    canDeleteQuestion: boolean;
-    canSeeWidgetConfigs: boolean;
-    canCreateWidgetConfig: boolean;
-    canEditWidgetConfig: boolean;
-    canDeleteWidgetConfig: boolean;
-    canSeeWidgetInstances: boolean;
-    canCreateWidgetInstance: boolean;
-    canEditWidgetInstance: boolean;
-    canDeleteWidgetInstance: boolean;
-    canImportProducts: boolean;
-    canSyncProducts: boolean;
+    canCreateHelpRequest: boolean;
+    canSeeHelpRequests: boolean;
 }
 
 export default IRole;

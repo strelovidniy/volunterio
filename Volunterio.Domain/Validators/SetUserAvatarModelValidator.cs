@@ -11,19 +11,21 @@ internal class SetUserAvatarModelValidator : AbstractValidator<SetUserAvatarMode
     {
         RuleFor(setCompanyAvatarModel => setCompanyAvatarModel.File)
             .Cascade(CascadeMode.Stop)
-            .SetValidator(new FileValidator(
-                FileSize.FromMegabytes(100),
-                [
-                    ContentType.ImageJpeg,
-                    ContentType.ImageJpg,
-                    ContentType.ImagePng,
-                    ContentType.ImageWebp,
-                    ContentType.ImageBmp,
-                    ContentType.ImageTiff,
-                    ContentType.ImageTif,
-                    ContentType.ImageGif,
-                    ContentType.ImagePbm
-                ]
-            ));
+            .SetValidator(
+                new FileValidator(
+                    FileSize.FromMegabytes(100),
+                    [
+                        ContentType.ImageJpeg,
+                        ContentType.ImageJpg,
+                        ContentType.ImagePng,
+                        ContentType.ImageWebp,
+                        ContentType.ImageBmp,
+                        ContentType.ImageTiff,
+                        ContentType.ImageTif,
+                        ContentType.ImageGif,
+                        ContentType.ImagePbm
+                    ]
+                )
+            );
     }
 }

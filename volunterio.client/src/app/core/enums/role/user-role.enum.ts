@@ -1,10 +1,6 @@
 enum UserRole {
-    inviteAndDeleteUsers = 'inviteAndDeleteUsers',
-    editUsers = 'editUsers',
-
-    viewRoles = 'viewRoles',
-    createDeleteRole = 'createDeleteRole',
-    editRole = 'editRole'
+    canCreateHelpRequest = 'canCreateHelpRequest',
+    canSeeHelpRequests = 'canSeeHelpRequests'
 }
 
 export default UserRole;

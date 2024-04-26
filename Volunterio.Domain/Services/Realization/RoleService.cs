@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Volunterio.Data.Entities;
 using Volunterio.Data.Enums;
+using Volunterio.Data.Enums.RichEnums;
 using Volunterio.Domain.Exceptions;
 using Volunterio.Domain.Extensions;
 using Volunterio.Domain.Models;
@@ -140,6 +141,18 @@ internal class RoleService(
             role.UpdatedAt = DateTime.UtcNow;
         }
 
+        if (role.CanCreateHelpRequest != updateRoleModel.CanCreateHelpRequest)
+        {
+            role.CanCreateHelpRequest = updateRoleModel.CanCreateHelpRequest;
+            role.UpdatedAt = DateTime.UtcNow;
+        }
+
+        if (role.CanSeeHelpRequests != updateRoleModel.CanSeeHelpRequests)
+        {
+            role.CanSeeHelpRequests = updateRoleModel.CanSeeHelpRequests;
+            role.UpdatedAt = DateTime.UtcNow;
+        }
+
         await roleRepository.SaveChangesAsync(cancellationToken);
 
         return role;
@@ -165,7 +178,9 @@ internal class RoleService(
                 CanSeeUsers = createRoleModel.CanSeeUsers,
                 CanSeeAllRoles = createRoleModel.CanSeeAllRoles,
                 CanSeeRoles = createRoleModel.CanSeeRoles,
-                CanMaintainSystem = createRoleModel.CanMaintainSystem
+                CanMaintainSystem = createRoleModel.CanMaintainSystem,
+                CanCreateHelpRequest = createRoleModel.CanCreateHelpRequest,
+                CanSeeHelpRequests = createRoleModel.CanSeeHelpRequests
             },
             cancellationToken
         );
@@ -226,7 +241,7 @@ internal class RoleService(
         }
         catch (Exception e)
         {
-            logger.LogError(e, "Error while getting Roles");
+            logger.LogError(e, ErrorMessage.RolesGettingError);
 
             throw new ApiException(StatusCode.QueryResultError);
         }

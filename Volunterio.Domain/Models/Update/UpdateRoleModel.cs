@@ -16,5 +16,7 @@ public record UpdateRoleModel(
     bool CanSeeUsers = false,
     bool CanSeeAllRoles = false,
     bool CanSeeRoles = false,
-    bool CanMaintainSystem = false
+    bool CanMaintainSystem = false,
+    bool CanCreateHelpRequest = false,
+    bool CanSeeHelpRequests = false
 ) : IValidatableModel;

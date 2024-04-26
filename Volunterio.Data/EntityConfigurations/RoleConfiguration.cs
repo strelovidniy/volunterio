@@ -92,6 +92,16 @@ internal class RoleConfiguration : IEntityTypeConfiguration<Role>
             .HasDefaultValue(false);
 
         builder
+            .Property(role => role.CanCreateHelpRequest)
+            .IsRequired()
+            .HasDefaultValue(false);
+
+        builder
+            .Property(role => role.CanSeeHelpRequests)
+            .IsRequired()
+            .HasDefaultValue(false);
+
+        builder
             .Property(role => role.Type)
             .HasConversion<string>()
             .HasMaxLength(50)

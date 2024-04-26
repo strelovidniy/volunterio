@@ -1,3 +1,304 @@
-<h1 i18n>
-    Requests
-</h1>
+<div class="table-container">
+    <div class="search-bar-inputs">
+        <mat-form-field id="searchField">
+            <mat-label i18n>
+                Search
+            </mat-label>
+            <input matInput
+                   placeholder="Search"
+                   [formControl]="searchNameControl">
+            <button matSuffix
+                    mat-icon-button
+                    (click)="search()">
+                <mat-icon>
+                    search
+                </mat-icon>
+            </button>
+        </mat-form-field>
+        <button mat-stroked-button
+                *ngIf="!tableView"
+                [mat-menu-trigger-for]="sortMenu"
+                class="button desktop-button">
+            Order by
+        </button>
+        <mat-menu #sortMenu="matMenu">
+            <div id="buttonsMenu"
+                 class="width-200">
+                <button mat-stroked-button 
+                        (click)="sortChange({active: '', direction: '' })"
+                        [class.active]="!sortFiledName && !sortDirection">
+                    None
+                </button>
+                <button mat-stroked-button 
+                        (click)="sortChange({active: tableColumnsName.title, direction: 'asc'})"
+                        [class.active]="sortFiledName === tableColumnsName.title && sortDirection">
+                    Title (ASC)
+                </button>
+                <button mat-stroked-button 
+                        (click)="sortChange({active: tableColumnsName.title, direction: 'desc'})"
+                        [class.active]="sortFiledName === tableColumnsName.title && !sortDirection">
+                    Title (DESC)
+                </button>
+                <button mat-stroked-button 
+                        (click)="sortChange({active: tableColumnsName.description, direction: 'asc'})"
+                        [class.active]="sortFiledName === tableColumnsName.description && sortDirection">
+                    Description (ASC)
+                </button>
+                <button mat-stroked-button 
+                        (click)="sortChange({active: tableColumnsName.description, direction: 'asc'})"
+                        [class.active]="sortFiledName === tableColumnsName.description && !sortDirection">
+                    Description (DESC)
+                </button>
+                <button mat-stroked-button 
+                        (click)="sortChange({active: tableColumnsName.deadline, direction: 'asc'})"
+                        [class.active]="sortFiledName === tableColumnsName.deadline && sortDirection">
+                    Deadline (ASC)
+                </button>
+                <button mat-stroked-button 
+                        (click)="sortChange({active: tableColumnsName.deadline, direction: 'desc'})"
+                        [class.active]="sortFiledName === tableColumnsName.deadline && !sortDirection">
+                    Deadline (DESC)
+                </button>
+            </div>
+        </mat-menu>
+        <button mat-stroked-button
+                [matMenuTriggerFor]="menu"
+                i18n
+                class="button">
+            Options
+        </button>
+        <mat-menu #menu="matMenu">
+            <div id="buttonsMenu"
+                 class="width-200">
+                <button mat-stroked-button
+                        *ngIf="!tableView"
+                        [mat-menu-trigger-for]="sortMenu"
+                        class="button mobile-button"
+                        (click)="$event.stopPropagation()">
+                    Order by
+                </button> 
+                <button mat-stroked-button
+                        *ngIf="canCreateHelpRequest"
+                        class="button"
+                        (click)="$event.stopPropagation(); createHelpRequest()">
+                    Create Help Request
+                </button>               
+                <button mat-stroked-button 
+                        (click)="switchView()"
+                        i18n>
+                    {{ getSwitchViewButtonText() }}
+                </button>
+            </div>
+        </mat-menu>
+    </div>
+    
+    <div class="table"
+         *ngIf="tableView">
+        <mat-table matSort
+                   (matSortChange)="sortChange($event)"
+                   [dataSource]="items"
+                   class="table-height">
+
+            <ng-container [matColumnDef]="tableColumnsName.image">
+                <mat-header-cell *matHeaderCellDef
+                                 class="w-10"
+                                 i18n>
+                    Image
+                </mat-header-cell>
+                <mat-cell *matCellDef="let item"
+                          class="w-10">
+                    <img [defaultImage]="getMainImage(item).imageThumbnailUrl"
+                         [lazyLoad]="getMainImage(item).imageUrl"
+                         class="product-image">
+                </mat-cell>
+            </ng-container>
+
+            <ng-container [matColumnDef]="tableColumnsName.title">
+                <mat-header-cell matSortDirection="asc"
+                                 mat-sort-header
+                                 *matHeaderCellDef
+                                 class="w-22"
+                                 i18n>
+                    Title
+                </mat-header-cell>
+                <mat-cell *matCellDef="let item"
+                          class="w-22">
+                    {{item.title}}
+                </mat-cell>
+            </ng-container>
+
+            <ng-container [matColumnDef]="tableColumnsName.description">
+                <mat-header-cell matSortDirection="asc"
+                                 mat-sort-header
+                                 *matHeaderCellDef
+                                 class="w-22"
+                                 i18n>
+                    Description
+                </mat-header-cell>
+                <mat-cell *matCellDef="let item"
+                          class="w-22">
+                    {{item.description}}
+                </mat-cell>
+            </ng-container>
+
+            <ng-container [matColumnDef]="tableColumnsName.tags">
+                <mat-header-cell *matHeaderCellDef
+                                 class="w-20"
+                                 i18n>
+                    Tags
+                </mat-header-cell>
+                <mat-cell *matCellDef="let item"
+                          class="w-20">
+                    <div class="clickable-tags-container">
+                        @for (tag of item.tags; track tag) {
+                            <mat-chip (click)="selectTag(tag, $event)"
+                                      [class.active]="isTagActive(tag)">
+                                {{tag}}
+                            </mat-chip>
+                        }
+                    </div>
+                </mat-cell>
+            </ng-container>
+
+            <ng-container [matColumnDef]="tableColumnsName.deadline">
+                <mat-header-cell matSortDirection="asc"
+                                 mat-sort-header
+                                 *matHeaderCellDef
+                                 class="w-12"
+                                 i18n>
+                    Deadline
+                </mat-header-cell>
+                <mat-cell *matCellDef="let item"
+                          class="w-12">
+                    {{item.deadline | date}}
+                </mat-cell>
+            </ng-container>
+
+            <ng-container [matColumnDef]="tableColumnsName.actions">
+                <mat-header-cell *matHeaderCellDef 
+                                 class="w-8">
+                    <span i18n>
+                        Actions
+                    </span>
+                </mat-header-cell>
+                <mat-cell *matCellDef="let item" 
+                          class="w-8">
+                    <button mat-icon-button
+                            [mat-menu-trigger-for]="cardMenu"
+                            (click)="$event.stopPropagation()"
+                            [disabled]="!canCreateHelpRequest">
+                        <mat-icon>
+                            more_vert
+                        </mat-icon>
+                    </button>
+                    <mat-menu #cardMenu="matMenu">
+                        <div id="buttonsMenu">
+                            <button mat-stroked-button 
+                                    (click)="removeItem(item.id)"
+                                    *ngIf="canCreateHelpRequest"
+                                    class="remove-item-button">
+                                <mat-icon>
+                                    delete
+                                </mat-icon>
+                                <span i18n>
+                                    Remove
+                                </span>
+                            </button>
+                        </div>
+                    </mat-menu>
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="noData">
+                <mat-footer-cell *matFooterCellDef 
+                                 [attr.colspan]="displayedColumns.length">
+                    <div class="no-data">
+                        <volunterio-no-data-message #noData
+                                             class="no-data-row">
+                        </volunterio-no-data-message>
+                    </div>
+                </mat-footer-cell>
+            </ng-container>
+            <mat-footer-row *matFooterRowDef="['noData']" 
+                            class="no-records"
+                            [hidden]="items.length > 0">
+            </mat-footer-row>
+
+
+            <mat-header-row *matHeaderRowDef="displayedColumns sticky: true"></mat-header-row>
+            <mat-row matRipple
+                    *matRowDef="let row; columns: displayedColumns;"
+                    (click)="openDetails(row.id)"></mat-row>
+        </mat-table>
+    </div>
+    
+    <div class="cards"
+         *ngIf="!tableView">
+        @if (items.length === 0) {
+            <div class="no-data">
+                <volunterio-no-data-message #noData
+                                     class="no-data-row">
+                </volunterio-no-data-message>
+            </div>
+        }
+
+        @for(item of items; track item.id) {
+            <mat-card class="card"
+                      (click)="openDetails(item.id)"
+                      matRipple>
+                <button mat-icon-button
+                        [mat-menu-trigger-for]="cardMenu"
+                        (click)="$event.stopPropagation()"
+                        [disabled]="!canCreateHelpRequest">
+                    <mat-icon>
+                        more_vert
+                    </mat-icon>
+                </button>
+                <mat-menu #cardMenu="matMenu">
+                    <div id="buttonsMenu">
+                        <button mat-stroked-button 
+                                (click)="removeItem(item.id)"
+                                *ngIf="canCreateHelpRequest"
+                                class="remove-item-button">
+                            <mat-icon>
+                                delete
+                            </mat-icon>
+                            <span i18n>
+                                Remove
+                            </span>
+                        </button>
+                    </div>
+                </mat-menu>
+                <div class="primary-image">
+                    <img [defaultImage]="getMainImage(item).imageThumbnailUrl"
+                         [lazyLoad]="getMainImage(item).imageUrl"
+                         class="product-image">
+                </div>
+
+                <div class="secondary-images">
+                    @for(image of getSecondaryImages(item); track image.id) {
+                        <img [defaultImage]="image.imageThumbnailUrl"
+                             [lazyLoad]="image.imageUrl"
+                             class="secondary-image">
+                    }
+                </div>
+
+                <h3>
+                    {{item.title}}
+                </h3>
+                <span>
+                    {{item.description}}
+                </span>
+            </mat-card>
+        }
+        @for(item of items; track item.id) {
+            <div class="card empty"></div>
+        }
+    </div>
+
+    <mat-paginator [pageSize]="pageSize"
+                   [length]="totalCount"
+                   (page)='handlePageEvent($event)'
+                   [pageSizeOptions]="pageSizeOptions">
+    </mat-paginator>
+</div>

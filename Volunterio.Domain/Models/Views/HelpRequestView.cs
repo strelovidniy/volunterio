@@ -7,7 +7,7 @@ public record HelpRequestView(
     IEnumerable<string> Tags,
     double? Latitude,
     double? Longitude,
-    bool ShowContactInfo,
+    ContactInfoView? ContactInfo,
     DateTime? Deadline,
     IEnumerable<HelpRequestImageView> Images
 );

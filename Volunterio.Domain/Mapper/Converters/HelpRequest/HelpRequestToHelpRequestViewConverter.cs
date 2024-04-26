@@ -16,7 +16,9 @@ internal class HelpRequestToHelpRequestViewConverter : ITypeConverter<Data.Entit
         helpRequest.Tags,
         helpRequest.Latitude,
         helpRequest.Longitude,
-        helpRequest.ShowContactInfo,
+        helpRequest.ShowContactInfo
+            ? context.Mapper.Map<ContactInfoView>(helpRequest.Issuer?.Details?.ContactInfo)
+            : null,
         helpRequest.Deadline,
         context.Mapper.Map<IEnumerable<HelpRequestImageView>>(helpRequest.Images)
     );

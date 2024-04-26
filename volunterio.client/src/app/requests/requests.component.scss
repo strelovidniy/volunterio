@@ -1,0 +1,208 @@
+@import 'src/styles/variables.scss';
+
+.table-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-top: 20px;
+
+    .search-bar-inputs {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 84px;
+
+        .button {
+            margin-bottom: 10px;
+
+            &:not(:last-of-type) {
+                margin-right: 10px;
+            }
+
+            &:first-of-type {
+                margin-left: auto;
+            }
+        }
+
+        .hint {
+            margin-left: 20px;
+        }
+    }
+
+    .table {
+        height: calc(100vh - 288px);
+        scrollbar-gutter: stable;
+        overflow-y: auto;
+
+        .table-height {
+            mat-cell {
+                .product-image {
+                    height: 100px;
+                    max-width: 100%;
+                    object-fit: contain;
+                    border-radius: 7px;
+                }
+
+                .source-logo-image {
+                    max-width: 90%;
+                    max-height: 90%;
+                    object-fit: contain;
+                }
+            }
+
+            mat-row {
+                cursor: pointer;
+                transition: all 225ms ease-in-out;
+
+                .clickable-tags-container {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    align-items: baseline;
+                    flex-wrap: wrap;
+
+                    mat-chip {
+                        margin-right: 5px;
+                        margin-bottom: 5px;
+                        transition: all 225ms ease-in-out;
+
+                        &.active {
+                            background-color: $accent-color;
+                            color: white;
+                        }
+                    }
+                }
+            }
+
+            mat-row:hover {
+                background-color: #00000010;
+
+                .clickable-tags-container {
+                    mat-chip:not(.active) {
+                        background-color: white;
+                    }
+                }
+            }
+        }
+    }
+
+    .cards {
+        max-height: calc(100vh - 288px);
+        scrollbar-gutter: stable;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        transition: all 225ms ease-in-out;
+        height: max-content;
+
+        .no-data {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .card {
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            min-width: 290px;
+            transition: all 225ms ease-in-out;
+            padding: 10px;
+            flex: 1;
+            position: relative;
+
+            &.empty {
+                margin-top: 0;
+                margin-bottom: 0;
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+
+            &:not(.empty):hover {
+                box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+                cursor: pointer;
+            }
+
+            button {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            }
+
+            mat-checkbox {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            }
+
+            .primary-image {
+                height: 200px;
+                width: 100%;
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: contain;
+                    border-radius: 7px;
+                }
+            }
+
+            .secondary-images {
+                display: flex;
+                flex-direction: row;
+                margin-top: 10px;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+
+                img {
+                    max-height: 50px;
+                    max-width: 100px;
+                    object-fit: contain;
+                    border-radius: 7px;
+                }
+
+                img:not(:last-of-type) {
+                    margin-right: 10px;
+                }
+            }
+
+            h3 {
+                margin-top: auto;
+            }
+
+            span {
+                color: $second-additional-color;
+            }
+        }
+    }
+}
+
+.remove-item-button {
+    span {
+        color: $third-company-color;
+    }
+
+    mat-icon {
+        color: $third-company-color;
+    }
+}
+
+#buttonsMenu {
+    button {
+        transition: all 225ms ease-in-out;
+
+        &.active {
+            background-color: $accent-color !important;
+            color: white !important;
+        }
+    }
+}
+
+.mobile-button {
+    display: none;
+}

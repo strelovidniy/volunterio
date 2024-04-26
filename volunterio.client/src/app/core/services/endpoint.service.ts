@@ -38,4 +38,11 @@ export default class EndpointService {
     public readonly adminOdataUsersUrl = (query: string): string => `${environment.apiUrl}odata/users${query}`;
     public readonly adminOdataRolesUrl = (query: string): string => `${environment.apiUrl}odata/roles${query}`;
 
+    // Help Request
+    public readonly getHelpRequests = (query: string): string => `${environment.apiUrl}help-requests${query}`;
+    public readonly getHelpRequest = (id: string): string => `${environment.apiUrl}help-requests/get?id=${id}`;
+    public readonly createHelpRequest = (): string => `${environment.apiUrl}help-requests/create`;
+    public readonly updateHelpRequest = (): string => `${environment.apiUrl}help-requests/update`;
+    public readonly deleteHelpRequest = (id: string): string => `${environment.apiUrl}help-requests/delete?id=${id}`;
+
 }

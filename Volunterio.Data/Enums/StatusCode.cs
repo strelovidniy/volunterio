@@ -48,7 +48,9 @@ public enum StatusCode
     TitleTooLong = 717,
     DescriptionTooLong = 718,
     TagTooLong = 719,
-
+    EndpointTooLong = 720,
+    AuthTooLong = 721,
+    P256dhTooLong = 722,
 
     IncorrectPassword = 801,
     PasswordsDoNotMatch = 802,
@@ -77,6 +79,10 @@ public enum StatusCode
     ImagesRequired = 1017,
     DescriptionRequired = 1018,
     TitleRequired = 1019,
+    AuthRequired = 1020,
+    P256dhRequired = 1021,
+    KeysRequired = 1022,
+    EndpointRequired = 1023,
 
     PasswordLengthExceeded = 1101,
 

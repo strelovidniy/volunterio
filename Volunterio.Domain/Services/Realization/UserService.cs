@@ -29,6 +29,7 @@ namespace Volunterio.Domain.Services.Realization;
 internal class UserService(
     IJwtSettings jwtSettings,
     IRepository<User> userRepository,
+    IRepository<PushSubscription> pushSubscriptionRepository,
     IUrlSettings urlSettings,
     IEmailService emailService,
     IHttpContextAccessor httpContextAccessor,
@@ -394,6 +395,30 @@ internal class UserService(
         }
 
         await userRepository.SaveChangesAsync(cancellationToken);
+    }
+
+    public async Task AddPushSubscriptionAsync(
+        CreatePushSubscriptionModel createPushSubscriptionModel,
+        CancellationToken cancellationToken = default
+    )
+    {
+        var currentUser = await GetUserAsync(cancellationToken);
+
+        RuntimeValidator.Assert(currentUser is not null, StatusCode.Unauthorized);
+
+        await pushSubscriptionRepository.AddAsync(
+            new PushSubscription
+            {
+                Endpoint = createPushSubscriptionModel.Endpoint,
+                ExpirationTime = createPushSubscriptionModel.ExpirationTime,
+                P256dh = createPushSubscriptionModel.Keys.P256dh,
+                Auth = createPushSubscriptionModel.Keys.Auth,
+                UserId = currentUser!.Id
+            },
+            cancellationToken
+        );
+
+        await pushSubscriptionRepository.SaveChangesAsync(cancellationToken);
     }
 
     private Task<User?> GetUserAsync(

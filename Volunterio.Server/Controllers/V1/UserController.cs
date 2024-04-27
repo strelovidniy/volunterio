@@ -195,4 +195,20 @@ public class UserController(
 
         return Ok();
     }
+
+    [HttpPost("add-push-subscription")]
+    public async Task<IActionResult> AddPushSubscriptionAsync(
+        [FromBody] CreatePushSubscriptionModel model,
+        CancellationToken cancellationToken = default
+    )
+    {
+        await ValidateAsync(model, cancellationToken);
+
+        await userService.AddPushSubscriptionAsync(
+            model,
+            cancellationToken
+        );
+
+        return Ok();
+    }
 }

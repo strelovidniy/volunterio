@@ -12,6 +12,8 @@ public class TableName(string value) : RichEnum<string>(value)
 
     public static TableName HelpRequests => new("HelpRequests");
 
+    public static TableName PushSubscriptions => new("PushSubscriptions");
+
     public static TableName Roles => new("Roles");
 
     public static TableName UserDetails => new("UserDetails");

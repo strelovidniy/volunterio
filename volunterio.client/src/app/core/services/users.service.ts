@@ -9,7 +9,6 @@ import IUser from '../interfaces/user/user.interface';
 import EndpointService from './endpoint.service';
 import LoaderService from './loader.service';
 import NotifierService from './notifier.service';
-import IInviteUserRequest from '../interfaces/user/invite-user-request.interface';
 import IPagedCollectionView from '../interfaces/system/paged-collection-view.interface';
 
 

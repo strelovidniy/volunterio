@@ -132,11 +132,26 @@
                            routerLinkActive="active-link"
                            *ngIf="showRequests"
                            (click)="closeBarIfMobile()">
-                <!-- <mat-icon mat-list-icon>
-                    category
-                </mat-icon> -->
+                <mat-icon mat-list-icon>
+                    quiz
+                </mat-icon>
                 <span i18n>
                     Requests
+                </span>
+            </mat-list-item>
+            <mat-list-item matTooltip="Notifications"
+                           i18n-matTooltip
+                           matTooltipPosition="below"
+                           routerLink="/notifications"
+                           tabindex="7"
+                           routerLinkActive="active-link"
+                           *ngIf="showRequests"
+                           (click)="closeBarIfMobile()">
+                <mat-icon mat-list-icon>
+                    notifications
+                </mat-icon>
+                <span i18n>
+                    Notifications
                 </span>
             </mat-list-item>
             
@@ -148,9 +163,9 @@
                            routerLinkActive="active-link"
                            *ngIf="showAccountPreferences"
                            (click)="closeBarIfMobile()">
-                <!-- <mat-icon mat-list-icon>
-                    store
-                </mat-icon> -->
+                <mat-icon mat-list-icon>
+                    account
+                </mat-icon>
                 <span i18n>
                     Account Preferences
                 </span>
@@ -164,9 +179,9 @@
                            routerLinkActive="active-link"
                            [routerLinkActiveOptions]="{ exact: true}"
                            *ngIf="showUsers || showRoles || showMaintenance">
-                <!-- <mat-icon mat-list-icon>
+                <mat-icon mat-list-icon>
                     computer
-                </mat-icon> -->
+                </mat-icon>
                 <span i18n>
                     Admin panel
                 </span>
@@ -184,9 +199,9 @@
                                matTooltip="Users Management"
                                i18n-matTooltip
                                (click)="closeBarIfMobile()">
-                    <!-- <mat-icon mat-list-icon>
+                    <mat-icon mat-list-icon>
                         manage_accounts
-                    </mat-icon> -->
+                    </mat-icon>
                     <span i18n>
                         Users Management
                     </span>
@@ -199,9 +214,9 @@
                                matTooltip="Roles & Permissions"
                                i18n-matTooltip
                                (click)="closeBarIfMobile()">
-                    <!-- <mat-icon mat-list-icon>
+                    <mat-icon mat-list-icon>
                         lock_open
-                    </mat-icon> -->
+                    </mat-icon>
                     <span i18n>
                         Roles & Permissions
                     </span>

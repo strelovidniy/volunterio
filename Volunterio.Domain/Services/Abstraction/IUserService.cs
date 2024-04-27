@@ -91,4 +91,9 @@ public interface IUserService
         CompleteRegistrationModel completeRegistrationModel,
         CancellationToken cancellationToken = default
     );
+
+    public Task AddPushSubscriptionAsync(
+        CreatePushSubscriptionModel createPushSubscriptionModel,
+        CancellationToken cancellationToken = default
+    );
 }

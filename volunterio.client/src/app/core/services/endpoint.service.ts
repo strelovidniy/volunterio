@@ -20,9 +20,9 @@ export default class EndpointService {
     public readonly confirmEmail = (): string => `${environment.apiUrl}users/confirm-email`;
     public readonly userUpdate = (): string => `${environment.apiUrl}users/update`;
     public readonly userInfo = (): string => `${environment.apiUrl}users/me`;
+    public readonly addUserPushSubscription = (): string => `${environment.apiUrl}users/add-push-subscription`;
 
     // User Details
-
     public readonly uploadUserAvatar = (): string => `${environment.apiUrl}user-details/upload-avatar`;
     public readonly updateAddress = (): string => `${environment.apiUrl}user-details/update-address`;
     public readonly updateContactDetails = (): string => `${environment.apiUrl}user-details/update-contact-details`;
@@ -44,5 +44,8 @@ export default class EndpointService {
     public readonly createHelpRequest = (): string => `${environment.apiUrl}help-requests/create`;
     public readonly updateHelpRequest = (): string => `${environment.apiUrl}help-requests/update`;
     public readonly deleteHelpRequest = (id: string): string => `${environment.apiUrl}help-requests/delete?id=${id}`;
+
+    // Notifications
+    public readonly updateNotificationsConfig = (): string => `${environment.apiUrl}notifications-config/update`;
 
 }

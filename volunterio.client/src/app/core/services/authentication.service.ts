@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { SwPush } from '@angular/service-worker';
 import { Router } from '@angular/router';
 import { BehaviorSubject, finalize, Observable, of, tap, map, switchMap } from 'rxjs';
 import lodash from 'lodash';
@@ -30,13 +31,14 @@ import EventBusService from './event-bus.service';
 export default class AuthenticationService {
     public currentUserSubject: BehaviorSubject<IUserMe> = new BehaviorSubject<IUserMe>(null as any as IUserMe);
 
-    constructor(
+    public constructor(
         private readonly http: HttpClient,
         private readonly endpointService: EndpointService,
         private readonly notifier: NotifierService,
         private readonly loader: LoaderService,
         private readonly router: Router,
-        private readonly eventBus: EventBusService
+        private readonly eventBus: EventBusService,
+        private readonly swPush: SwPush
     ) {
         this.initCurrentUser();
     }
@@ -105,10 +107,20 @@ export default class AuthenticationService {
                 this.setToken(res.token);
             }),
             finalize((): void => this.loader.hide()),
+            switchMap(async (_): Promise<any> => {
+                try {
+                    const pushSubscription = await this.swPush.requestSubscription({
+                        serverPublicKey: 'BF4wld7aC9UXlrSesCUTuMbG8KbV-BwkdOELk3ltwwGzc02EJh_FtFv2FVMxQ1fwc8UEbPbRXYiRVNlrDsL0UF4',
+                    });
+
+                    await this.addUserPushSubscription(pushSubscription).toPromise();
+                } catch (error) {
+                    console.error(error);
+                }
+            }),
             switchMap((_): Observable<IUserMe> => this.getCurrentUser())
         );
     }
-
 
     public setNewPassword(data: ISetNewPasswordRequest, callback?: () => void, errorCallback?: () => void): void {
         this.loader.show();
@@ -335,5 +347,9 @@ export default class AuthenticationService {
         );
 
         return lodash.every(permissionsList);
+    }
+
+    private addUserPushSubscription(pushSubscription: PushSubscription): Observable<any> {
+        return this.http.post(`${this.endpointService.addUserPushSubscription()}`, pushSubscription);
     }
 }

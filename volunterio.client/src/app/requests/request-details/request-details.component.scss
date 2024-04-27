@@ -71,6 +71,7 @@
     .prefered-contact-info {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
 
         a {
             cursor: pointer;

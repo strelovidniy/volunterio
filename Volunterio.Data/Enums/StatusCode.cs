@@ -14,6 +14,7 @@ public enum StatusCode
     FileNotFound = 106,
     HelpRequestNotFound = 107,
     ImageNotFound = 108,
+    NotificationSettingNotFound = 109,
 
     QueryResultError = 201,
 

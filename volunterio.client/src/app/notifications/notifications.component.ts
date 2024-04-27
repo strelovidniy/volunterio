@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { SwPush } from '@angular/service-worker';
 import * as lodash from 'lodash';
 
 import NotifierService from '../core/services/notifier.service';
@@ -33,7 +34,8 @@ export default class NotificationsComponent implements OnInit {
         private readonly notifier: NotifierService,
         private readonly loader: LoaderService,
         private readonly authService: AuthenticationService,
-        private readonly notificationConfigService: NotificationsConfigService
+        private readonly notificationConfigService: NotificationsConfigService,
+        private readonly swPush: SwPush
     ) { }
 
     public ngOnInit(): void {
@@ -71,8 +73,23 @@ export default class NotificationsComponent implements OnInit {
             || lodash.isEqual(this.notificationsConfig.titleFilters, this.authService.currentUser.notificationsConfig?.titleFilters);
     }
 
-    public save(): void {
+    public async saveAsync(): Promise<void> {
         this.loader.show();
+
+        if (this.notificationsConfig.enableNotifications) {
+            try {
+                const pushSubscription = await this.swPush.requestSubscription({
+                    serverPublicKey: 'BF4wld7aC9UXlrSesCUTuMbG8KbV-BwkdOELk3ltwwGzc02EJh_FtFv2FVMxQ1fwc8UEbPbRXYiRVNlrDsL0UF4',
+                });
+
+                await this.authService.addUserPushSubscription(pushSubscription).toPromise();
+            } catch (error) {
+                this.notifier.error($localize`An error occurred while subscribing to push notifications`);
+
+                console.error($localize`Failed to subscribe to push notifications`);
+                console.error(error);
+            }
+        }
 
         this.notificationConfigService.updateNotificationsConfig(
             this.notificationsConfig as IUpdateNotificationsConfigRequest,

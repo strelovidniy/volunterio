@@ -406,6 +406,21 @@ internal class UserService(
 
         RuntimeValidator.Assert(currentUser is not null, StatusCode.Unauthorized);
 
+        var existingSubscription = await pushSubscriptionRepository
+            .NoTrackingQuery()
+            .FirstOrDefaultAsync(
+                pushSubscription => pushSubscription.Endpoint == createPushSubscriptionModel.Endpoint
+                    && pushSubscription.Auth == createPushSubscriptionModel.Keys.Auth
+                    && pushSubscription.P256dh == createPushSubscriptionModel.Keys.P256dh
+                    && pushSubscription.UserId == currentUser!.Id,
+                cancellationToken
+            );
+
+        if (existingSubscription is not null)
+        {
+            return;
+        }
+
         await pushSubscriptionRepository.AddAsync(
             new PushSubscription
             {

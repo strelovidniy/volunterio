@@ -1,6 +1,6 @@
 ﻿namespace Volunterio.Domain.Settings.Abstraction;
 
-public interface IUrlSettings
+internal interface IUrlSettings
 {
     public string AppUrl { get; set; }
 

@@ -1,6 +1,6 @@
 ﻿namespace Volunterio.Domain.Settings.Abstraction;
 
-public interface IEmailSettings
+internal interface IEmailSettings
 {
     public string Server { get; set; }
 

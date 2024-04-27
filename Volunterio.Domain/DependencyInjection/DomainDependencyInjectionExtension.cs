@@ -1,4 +1,6 @@
-﻿using FluentValidation;
+﻿using BackgroundTaskExecutor;
+using FluentValidation;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Volunterio.Domain.Mapper.Profiles;
@@ -24,7 +26,26 @@ public static class DomainDependencyInjectionExtension
         .AddServices()
         .AddValidators()
         .AddSettings(configuration)
-        .AddMapper();
+        .AddMapper()
+        .AddBackgroundExecutor(configuration);
+
+    private static IServiceCollection AddBackgroundExecutor(
+        this IServiceCollection services,
+        IConfiguration configuration
+    ) => services
+        .AddBackgroundTaskExecutor(configuration)
+        .WithDatabase(options =>
+        {
+            options
+                .UseNpgsql(configuration.GetConnectionString("Volunterio"));
+
+            #if DEBUG
+            options
+                .EnableSensitiveDataLogging()
+                .EnableDetailedErrors();
+            #endif
+        })
+        .Use();
 
     private static IServiceCollection AddServices(
         this IServiceCollection services
@@ -40,7 +61,9 @@ public static class DomainDependencyInjectionExtension
         .AddScoped<IUserDetailsService, UserDetailsService>()
         .AddScoped<IStorageService, StorageService>()
         .AddScoped<IHelpRequestService, HelpRequestService>()
-        .AddScoped<IImageService, ImageService>();
+        .AddScoped<IImageService, ImageService>()
+        .AddScoped<IWebPushService, WebPushService>()
+        .AddScoped<INotificationService, NotificationService>();
 
     private static IServiceCollection AddValidators(
         this IServiceCollection services
@@ -94,7 +117,8 @@ public static class DomainDependencyInjectionExtension
         var emailSettings = new EmailSettings();
         var urlSettings = new UrlSettings();
         var jwtSettings = new JwtSettings();
-        var imageSetting = new ImageSettings();
+        var imageSettings = new ImageSettings();
+        var webPushSettings = new WebPushSettings();
 
         configuration
             .GetSection(nameof(EmailSettings))
@@ -110,13 +134,18 @@ public static class DomainDependencyInjectionExtension
 
         configuration
             .GetSection(nameof(ImageSettings))
-            .Bind(imageSetting);
+            .Bind(imageSettings);
+
+        configuration
+            .GetSection(nameof(WebPushSettings))
+            .Bind(webPushSettings);
 
         services
             .AddSingleton<IEmailSettings, EmailSettings>(_ => emailSettings)
             .AddSingleton<IUrlSettings, UrlSettings>(_ => urlSettings)
             .AddSingleton<IJwtSettings, JwtSettings>(_ => jwtSettings)
-            .AddSingleton<IImageSettings, ImageSettings>(_ => imageSetting);
+            .AddSingleton<IImageSettings, ImageSettings>(_ => imageSettings)
+            .AddSingleton<IWebPushSettings, WebPushSettings>(_ => webPushSettings);
 
         return services;
     }

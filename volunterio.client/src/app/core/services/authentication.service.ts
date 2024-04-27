@@ -106,9 +106,35 @@ export default class AuthenticationService {
                 this.setCurrentUser(res.user);
                 this.setToken(res.token);
             }),
-            finalize((): void => this.loader.hide()),
-            switchMap(async (_): Promise<any> => {
+            switchMap((_): Observable<IUserMe> => this.getCurrentUser()),
+            switchMap(async (currentUser: IUserMe): Promise<IUserMe> => {
+
+                this.swPush.notificationClicks.subscribe((event: {
+                    action: string,
+                    notification: NotificationOptions & {
+                        title: string
+                    }
+                }): void => {
+                    if (event.action === 'openRequest') {
+                        this.router.navigate(['/requests/details'], { queryParams: { id: event.notification.data['requestId'] } });
+                    }
+
+                    if (event.action === 'setTitle') {
+                        event.notification.title = 'Title changed';
+                    }
+
+                    if (event.action === 'setBody') {
+                        event.notification.body = 'Body changed';
+                    }
+
+                    window.alert(JSON.stringify(event));
+                });
+
                 try {
+                    if (!currentUser?.notificationsConfig?.enableNotifications) {
+                        return currentUser;
+                    }
+
                     const pushSubscription = await this.swPush.requestSubscription({
                         serverPublicKey: 'BF4wld7aC9UXlrSesCUTuMbG8KbV-BwkdOELk3ltwwGzc02EJh_FtFv2FVMxQ1fwc8UEbPbRXYiRVNlrDsL0UF4',
                     });
@@ -117,8 +143,10 @@ export default class AuthenticationService {
                 } catch (error) {
                     console.error(error);
                 }
+
+                return currentUser;
             }),
-            switchMap((_): Observable<IUserMe> => this.getCurrentUser())
+            finalize((): void => this.loader.hide())
         );
     }
 
@@ -349,7 +377,7 @@ export default class AuthenticationService {
         return lodash.every(permissionsList);
     }
 
-    private addUserPushSubscription(pushSubscription: PushSubscription): Observable<any> {
+    public addUserPushSubscription(pushSubscription: PushSubscription): Observable<any> {
         return this.http.post(`${this.endpointService.addUserPushSubscription()}`, pushSubscription);
     }
 }

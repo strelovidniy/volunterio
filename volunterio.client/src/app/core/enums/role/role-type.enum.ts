@@ -1,6 +1,6 @@
 enum RoleType {
     admin = 'admin',
-    helper = 'hepler',
+    helper = 'helper',
     user = 'user',
 }
 

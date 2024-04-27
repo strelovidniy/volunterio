@@ -11,6 +11,7 @@ import EventBusService from 'src/app/core/services/event-bus.service';
 
 import ChangePasswordDialogComponent from '../dialogs/change-password-dialog/change-password-dialog.component';
 import ProfileDialogComponent from '../dialogs/profile-dialog/profile-dialog.component';
+import RoleType from 'src/app/core/enums/role/role-type.enum';
 
 
 @Component({
@@ -155,7 +156,7 @@ export default class SideNavWrapperComponent implements OnInit, AfterViewInit, O
     }
 
     public get showAccountPreferences(): boolean {
-        return true;
+        return this.authService.getRoleType() === RoleType.user || this.authService.getRoleType() === RoleType.admin;
     }
 
     public get showRequests(): boolean {

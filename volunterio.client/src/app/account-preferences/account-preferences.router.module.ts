@@ -24,7 +24,7 @@ import RoleType from '../core/enums/role/role-type.enum';
                     component: AccountPreferencesComponent,
                     canActivate: [RouteGuard],
                     data: {
-                        type: [RoleType.helper, RoleType.user, RoleType.admin]
+                        type: [RoleType.user, RoleType.admin]
                     }
                 },
             ]

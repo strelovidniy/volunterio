@@ -52,6 +52,17 @@ internal static class Users
                 RoleId = Guid.Parse("a0a80c03-abbc-eb11-cabb-0022480a1c0a"),
                 PasswordHash
                     = "2576c639ea2309626fee6232e624ba921afada44537b9fa6592f03d5a1da7dd375fbd17b2af56655323327e8fd75a46d4932d54c4df61595844bc95fd5979c56"
+            },
+            new User
+            {
+                Id = Guid.Parse("07afd050-0126-4610-8dae-854efa9fcfde"),
+                FirstName = "Arthur",
+                LastName = "Zavolovych",
+                Email = "boredarthur@gmail.com",
+                Status = UserStatus.Active,
+                RoleId = Guid.Parse("a0a80c03-abbc-eb11-cabb-0022480a1c0a"),
+                PasswordHash
+                    = "2576c639ea2309626fee6232e624ba921afada44537b9fa6592f03d5a1da7dd375fbd17b2af56655323327e8fd75a46d4932d54c4df61595844bc95fd5979c56"
             });
     }
 }

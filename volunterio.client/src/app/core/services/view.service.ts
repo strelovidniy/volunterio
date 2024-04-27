@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export default class ViewService {
     public isTableView(key: string): boolean {
-        return !localStorage.getItem(key) || localStorage.getItem(key) === 'table';
+        return !!localStorage.getItem(key) && localStorage.getItem(key) === 'table';
     }
 
     public setTableView(key: string, value: boolean): void {

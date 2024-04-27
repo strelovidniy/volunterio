@@ -1,4 +1,4 @@
-import { Component, Inject, LOCALE_ID, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { Location } from '@angular/common';
@@ -73,7 +73,6 @@ export default class RequestsComponent implements OnInit, OnDestroy {
         private readonly router: Router,
         private readonly imageService: ImageService,
         private readonly authService: AuthenticationService,
-        @Inject(LOCALE_ID) private readonly locale: string,
         private readonly activatedRoute: ActivatedRoute,
         private readonly location: Location,
         private readonly viewService: ViewService
@@ -83,7 +82,7 @@ export default class RequestsComponent implements OnInit, OnDestroy {
 
     public ngOnInit(): void {
 
-        this.tableView = this.viewService.isTableView('inventory');
+        this.tableView = this.viewService.isTableView('requests');
 
         this.pageSizeOptions = this.paginationService.pageSizeOptions;
         this.getData();
@@ -224,7 +223,7 @@ export default class RequestsComponent implements OnInit, OnDestroy {
 
     public switchView(): void {
         this.tableView = !this.tableView;
-        this.viewService.setTableView('inventory', this.tableView);
+        this.viewService.setTableView('requests', this.tableView);
     }
 
     public getSwitchViewButtonText(): string {

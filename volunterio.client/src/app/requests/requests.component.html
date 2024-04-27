@@ -137,7 +137,7 @@
                 </mat-header-cell>
                 <mat-cell *matCellDef="let item"
                           class="w-28">
-                    {{item.description}}
+                    {{item.description.length > 100 ? item.description.substring(0, 100) + '...' : item.description}}
                 </mat-cell>
             </ng-container>
 
@@ -315,7 +315,7 @@
                     {{item.title}}
                 </h3>
                 <span>
-                    {{item.description}}
+                    {{item.description.length > 100 ? item.description.substring(0, 100) + '...' : item.description}}
                 </span>
             </mat-card>
         }

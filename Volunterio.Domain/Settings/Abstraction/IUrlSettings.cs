@@ -10,6 +10,8 @@ internal interface IUrlSettings
 
     public string CompleteRegistrationUrl { get; set; }
 
+    public string HelpRequestUrl { get; set; }
+
     public string WebApiUrl { get; set; }
 
     public string TwitterUrl { get; set; }

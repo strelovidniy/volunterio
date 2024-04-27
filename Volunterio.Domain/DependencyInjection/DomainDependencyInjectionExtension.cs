@@ -62,7 +62,6 @@ public static class DomainDependencyInjectionExtension
         .AddScoped<IStorageService, StorageService>()
         .AddScoped<IHelpRequestService, HelpRequestService>()
         .AddScoped<IImageService, ImageService>()
-        .AddScoped<IWebPushService, WebPushService>()
         .AddScoped<INotificationService, NotificationService>();
 
     private static IServiceCollection AddValidators(

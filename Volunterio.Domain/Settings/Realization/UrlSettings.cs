@@ -12,6 +12,8 @@ internal class UrlSettings : IUrlSettings
 
     public string CompleteRegistrationUrl { get; set; } = null!;
 
+    public string HelpRequestUrl { get; set; } = null!;
+
     public string WebApiUrl { get; set; } = null!;
 
     public string TwitterUrl { get; set; } = null!;

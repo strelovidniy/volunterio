@@ -108,28 +108,6 @@ export default class AuthenticationService {
             }),
             switchMap((_): Observable<IUserMe> => this.getCurrentUser()),
             switchMap(async (currentUser: IUserMe): Promise<IUserMe> => {
-
-                this.swPush.notificationClicks.subscribe((event: {
-                    action: string,
-                    notification: NotificationOptions & {
-                        title: string
-                    }
-                }): void => {
-                    if (event.action === 'openRequest') {
-                        this.router.navigate(['/requests/details'], { queryParams: { id: event.notification.data['requestId'] } });
-                    }
-
-                    if (event.action === 'setTitle') {
-                        event.notification.title = 'Title changed';
-                    }
-
-                    if (event.action === 'setBody') {
-                        event.notification.body = 'Body changed';
-                    }
-
-                    window.alert(JSON.stringify(event));
-                });
-
                 try {
                     if (!currentUser?.notificationsConfig?.enableNotifications) {
                         return currentUser;

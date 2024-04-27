@@ -1,8 +1,15 @@
-﻿namespace Volunterio.Domain.Services.Abstraction;
+﻿using Volunterio.Data.Entities;
+using Volunterio.Data.Enums.RichEnums;
 
-public interface INotificationService
+namespace Volunterio.Domain.Services.Abstraction;
+
+internal interface INotificationService
 {
-    public Task SendExampleNotification(
+    public Task SendNotificationAsync(
+        IEnumerable<PushSubscription> recipients,
+        NotificationTitle title,
+        NotificationContent content,
+        string pageUrl,
         CancellationToken cancellationToken = default
     );
 }

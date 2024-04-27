@@ -26,10 +26,9 @@
 
         .cards {
             max-height: calc(100vh - 308px);
-            flex-direction: column;
 
             .card {
-                min-width: unset !important;
+                min-width: calc(100vw - 86px);
             }
         }
     }

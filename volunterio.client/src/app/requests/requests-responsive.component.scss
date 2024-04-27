@@ -26,6 +26,7 @@
 
         .cards {
             max-height: calc(100vh - 308px);
+            flex-direction: column;
 
             .card {
                 min-width: unset !important;

@@ -279,10 +279,14 @@ internal class HelpRequestService(
 
             if (image.Height > 1000 || image.Width > 1000)
             {
+                var size = image.Height > image.Width
+                    ? new Size(0, 1000)
+                    : new Size(1000, 0);
+
                 image.Mutate(imageProcessingContext => imageProcessingContext.Resize(
                     new ResizeOptions
                     {
-                        Size = new Size(1000, 1000),
+                        Size = size,
                         Compand = true,
                         Mode = ResizeMode.Stretch,
                         Position = AnchorPositionMode.Center,
@@ -310,10 +314,14 @@ internal class HelpRequestService(
 
             if (image.Height > 100 || image.Width > 100)
             {
+                var size = image.Height > image.Width
+                    ? new Size(0, 100)
+                    : new Size(100, 0);
+
                 image.Mutate(imageProcessingContext => imageProcessingContext.Resize(
                     new ResizeOptions
                     {
-                        Size = new Size(100, 100),
+                        Size = size,
                         Compand = true,
                         Mode = ResizeMode.Stretch,
                         Position = AnchorPositionMode.Center,

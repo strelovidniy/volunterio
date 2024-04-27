@@ -160,7 +160,6 @@
                 img {
                     height: 100%;
                     width: 100%;
-                    object-fit: cover;
                     border-radius: 7px;
                 }
             }
@@ -175,7 +174,6 @@
                 img {
                     max-height: 50px;
                     max-width: 50px;
-                    object-fit: contain;
                     border-radius: 7px;
                     margin-top: 5px;
                 }

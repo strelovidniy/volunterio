@@ -19,10 +19,14 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                overflow: hidden;
+                height: 30vh;
+                width: 30vw;
+
                 img {
                     border-radius: 28px;
                     height: 30vh;
-                    width: 30vh;
+                    max-width: 30vw;
                 }
             }
         }
@@ -30,9 +34,7 @@
 
     .details {
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        flex-wrap: wrap;
+        flex-direction: column;
 
         mat-form-field {
             flex: 1;

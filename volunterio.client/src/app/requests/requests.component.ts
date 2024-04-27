@@ -129,7 +129,7 @@ export default class RequestsComponent implements OnInit, OnDestroy {
             pageSize: this.pageSize,
             sortBy: this.sortFiledName,
             sortAscending: this.sortDirection,
-            expandProperty: 'images'
+            expandProperty: 'images, issuer.details'
         };
 
         const query = this.paginationService.queryBuilder(params);
@@ -228,6 +228,24 @@ export default class RequestsComponent implements OnInit, OnDestroy {
 
     public getSwitchViewButtonText(): string {
         return this.tableView ? $localize`Switch to Card View` : $localize`Switch to Table View`;
+    }
+
+    public getIssuerImageUrl(item: IHelpRequest): string {
+        return item.issuerImage || this.defaultImageUrl;
+    }
+
+    public getIssuerImageThumbnailUrl(item: IHelpRequest): string {
+        return item.issuerImageThumbnail || this.defaultImageUrl;
+    }
+
+    public selectIssuer(issuerName: string, event: MouseEvent): void {
+        event.stopPropagation();
+
+        if (this.searchNameControl.value === issuerName) {
+            this.searchNameControl.setValue('');
+        } else {
+            this.searchNameControl.setValue(issuerName);
+        }
     }
 
     public get canCreateHelpRequest(): boolean {

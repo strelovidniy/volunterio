@@ -9,7 +9,10 @@ interface IHelpRequest {
     tags: string[];
     latitude?: number;
     longitude?: number;
-    contactInfo: IContactDetails;
+    contactInfo?: IContactDetails;
+    issuerName?: string;
+    issuerImage?: string;
+    issuerImageThumbnail?: string;
     deadline?: Date;
     images: IHelpRequestImage[];
 }

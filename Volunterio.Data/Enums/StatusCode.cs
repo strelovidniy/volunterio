@@ -18,6 +18,7 @@ public enum StatusCode
     QueryResultError = 201,
 
     EmailSendingError = 301,
+    ImageProcessingError = 302,
 
     UserHasNoRole = 401,
 

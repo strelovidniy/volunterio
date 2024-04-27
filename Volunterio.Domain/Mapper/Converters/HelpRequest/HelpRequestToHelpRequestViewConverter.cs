@@ -19,6 +19,9 @@ internal class HelpRequestToHelpRequestViewConverter : ITypeConverter<Data.Entit
         helpRequest.ShowContactInfo
             ? context.Mapper.Map<ContactInfoView>(helpRequest.Issuer?.Details?.ContactInfo)
             : null,
+        helpRequest.Issuer?.FullName,
+        helpRequest.Issuer?.Details?.ImageUrl,
+        helpRequest.Issuer?.Details?.ImageThumbnailUrl,
         helpRequest.Deadline,
         context.Mapper.Map<IEnumerable<HelpRequestImageView>>(helpRequest.Images?.OrderBy(image => image.Position))
     );

@@ -39,7 +39,8 @@ public static class DomainDependencyInjectionExtension
         .AddScoped<IUserAccessService, UserAccessService>()
         .AddScoped<IUserDetailsService, UserDetailsService>()
         .AddScoped<IStorageService, StorageService>()
-        .AddScoped<IHelpRequestService, HelpRequestService>();
+        .AddScoped<IHelpRequestService, HelpRequestService>()
+        .AddScoped<IImageService, ImageService>();
 
     private static IServiceCollection AddValidators(
         this IServiceCollection services
@@ -91,6 +92,7 @@ public static class DomainDependencyInjectionExtension
         var emailSettings = new EmailSettings();
         var urlSettings = new UrlSettings();
         var jwtSettings = new JwtSettings();
+        var imageSetting = new ImageSettings();
 
         configuration
             .GetSection(nameof(EmailSettings))
@@ -104,10 +106,15 @@ public static class DomainDependencyInjectionExtension
             .GetSection(nameof(JwtSettings))
             .Bind(jwtSettings);
 
+        configuration
+            .GetSection(nameof(ImageSettings))
+            .Bind(imageSetting);
+
         services
             .AddSingleton<IEmailSettings, EmailSettings>(_ => emailSettings)
             .AddSingleton<IUrlSettings, UrlSettings>(_ => urlSettings)
-            .AddSingleton<IJwtSettings, JwtSettings>(_ => jwtSettings);
+            .AddSingleton<IJwtSettings, JwtSettings>(_ => jwtSettings)
+            .AddSingleton<IImageSettings, ImageSettings>(_ => imageSetting);
 
         return services;
     }

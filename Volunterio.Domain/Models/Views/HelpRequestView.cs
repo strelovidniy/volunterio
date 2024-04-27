@@ -8,6 +8,9 @@ public record HelpRequestView(
     double? Latitude,
     double? Longitude,
     ContactInfoView? ContactInfo,
+    string? IssuerName,
+    string? IssuerImage,
+    string? IssuerImageThumbnail,
     DateTime? Deadline,
     IEnumerable<HelpRequestImageView> Images
 );

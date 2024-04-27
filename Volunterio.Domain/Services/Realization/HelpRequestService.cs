@@ -3,8 +3,6 @@ using EntityFrameworkCore.RepositoryInfrastructure;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.Processing;
 using Volunterio.Data.Entities;
 using Volunterio.Data.Enums;
 using Volunterio.Data.Enums.RichEnums;
@@ -24,6 +22,7 @@ internal class HelpRequestService(
     IRepository<HelpRequestImage> helpRequestImageRepository,
     ICurrentUserService currentUserService,
     IStorageService storageService,
+    IImageService imageService,
     IMapper mapper,
     ILogger<HelpRequestService> logger
 ) : IHelpRequestService
@@ -199,10 +198,15 @@ internal class HelpRequestService(
 
         if (!string.IsNullOrWhiteSpace(queryParametersModel.SearchQuery))
         {
+            var names = queryParametersModel.SearchQuery.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+
             helpRequests = helpRequests.Where(helpRequest =>
                 (helpRequest.Tags as object as string)!.Contains(queryParametersModel.SearchQuery)
                 || helpRequest.Title.Contains(queryParametersModel.SearchQuery)
                 || helpRequest.Description.Contains(queryParametersModel.SearchQuery)
+                || (names.Length == 2
+                    && helpRequest.Issuer!.FirstName == names[0]
+                    && helpRequest.Issuer.LastName == names[1])
             );
         }
 
@@ -253,8 +257,6 @@ internal class HelpRequestService(
         CancellationToken cancellationToken = default
     )
     {
-        await using var stream = new MemoryStream();
-
         var lastImage = await helpRequestImageRepository
             .Query()
             .Where(image => image.HelpRequestId == helpRequestId)
@@ -267,81 +269,27 @@ internal class HelpRequestService(
         {
             ++position;
 
-            await stream.FlushAsync(cancellationToken);
+            var resizedImageModel = await imageService.ResizeImageAsync(
+                file,
+                needThumbnail: true,
+                keepAspectRatio: true,
+                cancellationToken: cancellationToken
+            );
 
-            stream.Position = 0;
-
-            await file.CopyToAsync(stream, cancellationToken);
-
-            stream.Position = 0;
-
-            using var image = await Image.LoadAsync(stream, cancellationToken);
-
-            if (image.Height > 1000 || image.Width > 1000)
-            {
-                var size = image.Height > image.Width
-                    ? new Size(0, 1000)
-                    : new Size(1000, 0);
-
-                image.Mutate(imageProcessingContext => imageProcessingContext.Resize(
-                    new ResizeOptions
-                    {
-                        Size = size,
-                        Compand = true,
-                        Mode = ResizeMode.Stretch,
-                        Position = AnchorPositionMode.Center,
-                        PadColor = Color.Black,
-                        Sampler = KnownResamplers.Bicubic,
-                        PremultiplyAlpha = false
-                    }
-                ));
-            }
-
-            await stream.FlushAsync(cancellationToken);
-
-            stream.Position = 0;
-
-            await image.SaveAsPngAsync(stream, cancellationToken);
-
-            stream.Position = 0;
+            RuntimeValidator.Assert(
+                resizedImageModel.ThumbnailImage is not null,
+                StatusCode.ImageProcessingError
+            );
 
             var imageUrl = await storageService.SaveFileAsync(
-                stream.ToArray(),
+                resizedImageModel.ResizedImage,
                 FileExtension.Png,
                 FolderName.Avatars,
                 cancellationToken
             );
 
-            if (image.Height > 100 || image.Width > 100)
-            {
-                var size = image.Height > image.Width
-                    ? new Size(0, 100)
-                    : new Size(100, 0);
-
-                image.Mutate(imageProcessingContext => imageProcessingContext.Resize(
-                    new ResizeOptions
-                    {
-                        Size = size,
-                        Compand = true,
-                        Mode = ResizeMode.Stretch,
-                        Position = AnchorPositionMode.Center,
-                        PadColor = Color.Black,
-                        Sampler = KnownResamplers.Bicubic,
-                        PremultiplyAlpha = false
-                    }
-                ));
-            }
-
-            await stream.FlushAsync(cancellationToken);
-
-            stream.Position = 0;
-
-            await image.SaveAsPngAsync(stream, cancellationToken);
-
-            stream.Position = 0;
-
             var imageThumbnailUrl = await storageService.SaveFileAsync(
-                stream.ToArray(),
+                resizedImageModel.ThumbnailImage!,
                 FileExtension.Png,
                 FolderName.AvatarThumbnails,
                 cancellationToken

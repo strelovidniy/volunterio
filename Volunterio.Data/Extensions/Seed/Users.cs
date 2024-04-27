@@ -16,7 +16,7 @@ internal static class Users
                 LastName = "Danylevych",
                 Email = "roma.dan2001@gmail.com",
                 Status = UserStatus.Active,
-                RoleId = Guid.Parse("a0a80c03-abbc-eb11-cabb-0022480a1c0a"),
+                RoleId = Guid.Parse("00000000-0000-0000-0000-000000000001"),
                 PasswordHash
                     = "2576c639ea2309626fee6232e624ba921afada44537b9fa6592f03d5a1da7dd375fbd17b2af56655323327e8fd75a46d4932d54c4df61595844bc95fd5979c56"
             },

@@ -1,12 +1,12 @@
 ﻿using EntityFrameworkCore.RepositoryInfrastructure;
 using Microsoft.EntityFrameworkCore;
-using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.Processing;
 using Volunterio.Data.Entities;
+using Volunterio.Data.Enums;
 using Volunterio.Data.Enums.RichEnums;
 using Volunterio.Domain.Models.Set;
 using Volunterio.Domain.Models.Update;
 using Volunterio.Domain.Services.Abstraction;
+using Volunterio.Domain.Validators.Runtime;
 
 namespace Volunterio.Domain.Services.Realization;
 
@@ -15,6 +15,7 @@ internal class UserDetailsService(
     IRepository<UserDetails> userDetailsRepository,
     IRepository<Address> addressRepository,
     IRepository<ContactInfo> contactInfoRepository,
+    IImageService imageService,
     IStorageService storageService
 ) : IUserDetailsService
 {
@@ -123,75 +124,27 @@ internal class UserDetailsService(
                 cancellationToken
             );
 
-        await using var stream = new MemoryStream();
+        var resizedImageModel = await imageService.ResizeImageAsync(
+            model.File,
+            needThumbnail: true,
+            keepAspectRatio: false,
+            cancellationToken: cancellationToken
+        );
 
-        await stream.FlushAsync(cancellationToken);
-
-        stream.Position = 0;
-
-        await model.File.CopyToAsync(stream, cancellationToken);
-
-        stream.Position = 0;
-
-        using var image = await Image.LoadAsync(stream, cancellationToken);
-
-        if (image.Height > 1000 || image.Width > 1000)
-        {
-            image.Mutate(imageProcessingContext => imageProcessingContext.Resize(
-                new ResizeOptions
-                {
-                    Size = new Size(1000, 1000),
-                    Compand = true,
-                    Mode = ResizeMode.Stretch,
-                    Position = AnchorPositionMode.Center,
-                    PadColor = Color.Black,
-                    Sampler = KnownResamplers.Bicubic,
-                    PremultiplyAlpha = false
-                }
-            ));
-        }
-
-        await stream.FlushAsync(cancellationToken);
-
-        stream.Position = 0;
-
-        await image.SaveAsPngAsync(stream, cancellationToken);
-
-        stream.Position = 0;
+        RuntimeValidator.Assert(
+            resizedImageModel.ThumbnailImage is not null,
+            StatusCode.ImageProcessingError
+        );
 
         var imageUrl = await storageService.SaveFileAsync(
-            stream.ToArray(),
+            resizedImageModel.ResizedImage,
             FileExtension.Png,
             FolderName.Avatars,
             cancellationToken
         );
 
-        if (image.Height > 100 || image.Width > 100)
-        {
-            image.Mutate(imageProcessingContext => imageProcessingContext.Resize(
-                new ResizeOptions
-                {
-                    Size = new Size(100, 100),
-                    Compand = true,
-                    Mode = ResizeMode.Stretch,
-                    Position = AnchorPositionMode.Center,
-                    PadColor = Color.Black,
-                    Sampler = KnownResamplers.Bicubic,
-                    PremultiplyAlpha = false
-                }
-            ));
-        }
-
-        await stream.FlushAsync(cancellationToken);
-
-        stream.Position = 0;
-
-        await image.SaveAsPngAsync(stream, cancellationToken);
-
-        stream.Position = 0;
-
         var imageThumbnailUrl = await storageService.SaveFileAsync(
-            stream.ToArray(),
+            resizedImageModel.ThumbnailImage!,
             FileExtension.Png,
             FolderName.AvatarThumbnails,
             cancellationToken

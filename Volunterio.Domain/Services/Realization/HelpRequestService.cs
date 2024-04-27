@@ -35,6 +35,8 @@ internal class HelpRequestService(
     {
         var helpRequest = await helpRequestRepository
             .Query()
+            .Include(request => request.Images)
+            .Include(request => request.Issuer!.Details!.ContactInfo)
             .FirstOrDefaultAsync(
                 request => request.Id == id,
                 cancellationToken
@@ -121,13 +123,13 @@ internal class HelpRequestService(
 
         if (helpRequest.Longitude != updateHelpRequestModel.Longitude)
         {
-            helpRequest.Latitude = updateHelpRequestModel.Latitude;
+            helpRequest.Longitude = updateHelpRequestModel.Longitude;
             helpRequest.UpdatedAt = DateTime.UtcNow;
         }
 
-        if (!helpRequest.Tags.SequenceEqual(updateHelpRequestModel.Tags))
+        if (!helpRequest.Tags?.SequenceEqual(updateHelpRequestModel.Tags) is true)
         {
-            helpRequest.Latitude = updateHelpRequestModel.Latitude;
+            helpRequest.Tags = updateHelpRequestModel.Tags.ToList();
             helpRequest.UpdatedAt = DateTime.UtcNow;
         }
 
@@ -145,6 +147,27 @@ internal class HelpRequestService(
 
             await helpRequestImageRepository.DeleteRangeAsync(imagesToDelete, cancellationToken);
         }
+
+        if (helpRequest.Images is not null && updateHelpRequestModel.ImagesToDelete is not null)
+        {
+            var idsToFixPosition = helpRequest
+                .Images
+                .Select(image => image.Id)
+                .Except(updateHelpRequestModel.ImagesToDelete);
+
+            var images = await helpRequestImageRepository
+                .Query()
+                .Where(image => idsToFixPosition.Contains(image.Id))
+                .OrderBy(image => image.Position)
+                .ToListAsync(cancellationToken);
+
+            for (var i = 0; i < images.Count; i++)
+            {
+                images[i].Position = i + 1;
+            }
+        }
+
+        await helpRequestImageRepository.SaveChangesAsync(cancellationToken);
 
         if (updateHelpRequestModel.Images is not null)
         {
@@ -167,24 +190,17 @@ internal class HelpRequestService(
 
         var currentUser = await currentUserService.GetCurrentUserAsync(cancellationToken);
 
-        switch (currentUser.Role)
+        helpRequests = helpRequests.Where(helpRequest => helpRequest.DeletedAt == null);
+
+        if (currentUser.Role?.CanSeeHelpRequests is not true)
         {
-            case { CanSeeHelpRequests: true, Type: not RoleType.Admin }:
-                helpRequests = helpRequests.Where(helpRequest => helpRequest.DeletedAt == null);
-
-                break;
-            case { Type: RoleType.Admin }:
-                break;
-            default:
-                helpRequests = helpRequests.Where(helpRequest => helpRequest.IssuerId == currentUser.Id);
-
-                break;
+            helpRequests = helpRequests.Where(helpRequest => helpRequest.IssuerId == currentUser.Id);
         }
 
         if (!string.IsNullOrWhiteSpace(queryParametersModel.SearchQuery))
         {
             helpRequests = helpRequests.Where(helpRequest =>
-                helpRequest.Tags.Contains(queryParametersModel.SearchQuery)
+                (helpRequest.Tags as object as string)!.Contains(queryParametersModel.SearchQuery)
                 || helpRequest.Title.Contains(queryParametersModel.SearchQuery)
                 || helpRequest.Description.Contains(queryParametersModel.SearchQuery)
             );
@@ -239,7 +255,13 @@ internal class HelpRequestService(
     {
         await using var stream = new MemoryStream();
 
-        var position = 0;
+        var lastImage = await helpRequestImageRepository
+            .Query()
+            .Where(image => image.HelpRequestId == helpRequestId)
+            .OrderByDescending(image => image.Position)
+            .FirstOrDefaultAsync(cancellationToken);
+
+        var position = lastImage?.Position ?? 0;
 
         foreach (var file in images)
         {

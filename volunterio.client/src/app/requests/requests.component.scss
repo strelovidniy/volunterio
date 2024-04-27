@@ -63,9 +63,12 @@
                     flex-wrap: wrap;
 
                     mat-chip {
-                        margin-right: 5px;
                         margin-bottom: 5px;
                         transition: all 225ms ease-in-out;
+
+                        &:not(:last-of-type) {
+                            margin-right: 5px;
+                        }
 
                         &.active {
                             background-color: $accent-color;
@@ -141,13 +144,23 @@
             }
 
             .primary-image {
-                height: 200px;
-                width: 100%;
+                width: calc(100% - 80px);
+                margin-left: 40px;
+                margin-top: 40px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &.no-margin {
+                    margin-top: 0;
+                    margin-left: 0;
+                    width: 100%;
+                }
 
                 img {
                     height: 100%;
                     width: 100%;
-                    object-fit: contain;
+                    object-fit: cover;
                     border-radius: 7px;
                 }
             }
@@ -156,14 +169,15 @@
                 display: flex;
                 flex-direction: row;
                 margin-top: 10px;
-                flex-wrap: nowrap;
-                overflow-x: auto;
+                flex-wrap: wrap;
+                margin-bottom: 10px;
 
                 img {
                     max-height: 50px;
-                    max-width: 100px;
+                    max-width: 50px;
                     object-fit: contain;
                     border-radius: 7px;
+                    margin-top: 5px;
                 }
 
                 img:not(:last-of-type) {
@@ -171,8 +185,29 @@
                 }
             }
 
+            .clickable-tags-container {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: baseline;
+                flex-wrap: wrap;
+
+                mat-chip {
+                    margin-bottom: 5px;
+                    transition: all 225ms ease-in-out;
+
+                    &:not(:last-of-type) {
+                        margin-right: 5px;
+                    }
+
+                    &.active {
+                        background-color: $accent-color;
+                        color: white;
+                    }
+                }
+            }
+
             h3 {
-                margin-top: auto;
             }
 
             span {

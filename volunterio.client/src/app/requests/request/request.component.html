@@ -1,0 +1,133 @@
+<div class="help-request-page">
+    <mat-icon (click)="goBack()"
+              class="close-button">
+        close
+    </mat-icon>
+    <div class="help-request-container">
+        <h2 class="column-name"
+            i18n>
+            Help Request
+        </h2>
+        <div class="help-request">
+            <mat-form-field class="no-padding mw-300">
+                <mat-label i18n>
+                    Title
+                </mat-label>
+                <input matInput
+                    [formControl]="titleFormControl">
+                <mat-error *ngIf="titleFormControl.errors?.['required']"
+                        i18n>
+                    Title is required
+                </mat-error>
+                <mat-error *ngIf="titleFormControl.errors?.['maxlength']"
+                        i18n>
+                    Title cannot be longer than 200 characters
+                </mat-error> 
+            </mat-form-field>
+            <mat-form-field class="no-padding">
+                <mat-label i18n>
+                    Description
+                </mat-label>
+                <textarea matInput
+                          [formControl]="descriptionFormControl"
+                          rows="10">
+                </textarea>
+                <mat-error *ngIf="descriptionFormControl.errors?.['required']"
+                        i18n>
+                    Description is required
+                </mat-error>
+                <mat-error *ngIf="descriptionFormControl.errors?.['maxlength']"
+                        i18n>
+                    Description cannot be longer than 2000 characters
+                </mat-error> 
+            </mat-form-field>
+            <volunterio-toggle i18n
+                               [(enabled)]="showContactInfo"
+                               label="Show my contact information"
+                               i18n-label>
+            </volunterio-toggle>
+            <volunterio-toggle i18n
+                               [(enabled)]="isDeadline"
+                               label="Deadline"
+                               i18n-label>
+            </volunterio-toggle>
+            @if (isDeadline) {
+                <mat-form-field class="no-padding mw-300">
+                    <mat-label i18n>
+                        Deadline
+                    </mat-label>
+                    <input matInput
+                           [formControl]="deadlineFormControl"
+                           [matDatepicker]="deadlinePicker">
+                    <mat-datepicker-toggle matSuffix
+                                           [for]="deadlinePicker">
+                    </mat-datepicker-toggle>
+                    <mat-datepicker #deadlinePicker>
+                    </mat-datepicker>
+                </mat-form-field>
+            }
+            <mat-form-field class="no-padding mw-300">
+                <mat-label i18n>
+                    Tags
+                </mat-label>
+                <input matInput
+                       [formControl]="tagsFormControl">
+            </mat-form-field>
+            <mat-label i18n>
+                Images*
+            </mat-label>
+            <div class="images">
+                @for(image of images; track image) {
+                    <div class="image">
+                        <img [defaultImage]="image.imageThumbnailUrl"
+                             [lazyLoad]="image.imageUrl">
+                        <mat-icon (click)="removeImage(image)"
+                                  class="remove-image">
+                            close
+                        </mat-icon>
+                    </div>
+                }
+                <div class="image add-image"
+                     matRipple
+                     (click)="addImages()">
+                    <mat-icon>
+                        add
+                    </mat-icon>
+                </div>
+            </div>
+            <div class="desktop-buttons">
+                <button mat-stroked-button
+                        class="cancel-button-desktop"
+                        (click)="goBack()">
+                    <span i18n>
+                        Cancel
+                    </span>
+                </button>
+                <button mat-stroked-button
+                        class="save-button-desktop"
+                        (click)="save()">
+                    <span i18n>
+                        Save
+                    </span>
+                </button>
+            </div>
+
+            <div class="mobile-buttons">
+                <button mat-stroked-button
+                        class="cancel-button"
+                        (click)="goBack()">
+                    <span i18n>
+                        Cancel
+                    </span>
+                </button>
+                <button mat-stroked-button
+                        class="save-button"
+                        (click)="save()">
+                    <span i18n>
+                        Save
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

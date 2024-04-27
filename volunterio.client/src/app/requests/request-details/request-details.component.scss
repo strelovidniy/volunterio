@@ -1,0 +1,99 @@
+@import 'src/styles/variables.scss';
+
+.details-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 20px;
+    overflow-y: auto;
+
+    .image-container {
+        display: flex;
+        padding: 0 30px 30px 30px;
+
+        .carousel {
+            width: 100%;
+            margin: 0;
+
+            .slide {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img {
+                    border-radius: 28px;
+                    height: 30vh;
+                    width: 30vh;
+                }
+            }
+        }
+    }
+
+    .details {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        mat-form-field {
+            flex: 1;
+            min-width: 200px;
+            margin: 0 20px;
+        }
+    }
+
+    .tags-container {
+        display: flex;
+        flex-direction: column;
+
+        h3 {
+            margin-bottom: 10px;
+        }
+
+        .tags {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: baseline;
+            flex-wrap: wrap;
+
+            mat-chip {
+                margin-right: 5px;
+                margin-bottom: 5px;
+                transition: all 225ms ease-in-out;
+            }
+        }
+    }
+
+    h1 {
+        font-weight: 500;
+    }
+
+    .prefered-contact-info {
+        display: flex;
+        flex-direction: row;
+
+        a {
+            cursor: pointer;
+            color: $accent-color;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: fit-content;
+
+            &:not(:last-of-type) {
+                margin-right: 10px;
+            }
+
+            img {
+                height: 24px;
+                width: 24px;
+                margin-right: 5px;
+            }
+
+            mat-icon {
+                margin-right: 5px;
+            }
+        }
+    }
+}

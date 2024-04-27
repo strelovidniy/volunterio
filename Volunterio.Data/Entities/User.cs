@@ -33,5 +33,5 @@ public class User : EntityBase, IEntity
 
     public UserDetails? Details { get; set; }
 
-    public IEnumerable<HelpRequest> IssuedRequests { get; set; } = [];
+    public IEnumerable<HelpRequest>? IssuedRequests { get; set; }
 }

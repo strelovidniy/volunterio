@@ -6,7 +6,7 @@ interface ICreateHelpRequestRequest {
     longitude?: number;
     showContactInfo: boolean;
     deadline?: Date;
-    images: string[];
+    images: File[];
 }
 
 export default ICreateHelpRequestRequest;

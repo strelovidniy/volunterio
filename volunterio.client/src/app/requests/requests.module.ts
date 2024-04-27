@@ -4,6 +4,8 @@ import AdminRouterModule from './requests.router.module';
 import SharedModule from '../shared/shared.module';
 
 import RequestsComponent from './requests.component';
+import RequestComponent from './request/request.component';
+import RequestDetailsComponent from './request-details/request-details.component';
 
 
 @NgModule({
@@ -12,7 +14,9 @@ import RequestsComponent from './requests.component';
         AdminRouterModule,
     ],
     declarations: [
-        RequestsComponent
+        RequestsComponent,
+        RequestComponent,
+        RequestDetailsComponent
     ],
 })
 export default class RequestsModule { }

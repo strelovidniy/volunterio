@@ -82,11 +82,9 @@ export default class RequestsComponent implements OnInit, OnDestroy {
     }
 
     public ngOnInit(): void {
-        let hideLoader = false;
 
         this.tableView = this.viewService.isTableView('inventory');
 
-        this.loader.show();
         this.pageSizeOptions = this.paginationService.pageSizeOptions;
         this.getData();
 
@@ -103,8 +101,6 @@ export default class RequestsComponent implements OnInit, OnDestroy {
                 this.location.replaceState('/requests');
             }
         });
-
-        hideLoader = true;
     }
 
     public ngOnDestroy(): void {
@@ -122,7 +118,7 @@ export default class RequestsComponent implements OnInit, OnDestroy {
     }
 
     public openDetails(id: string): void {
-        this.router.navigate(['/inventory/details'], { queryParams: { id } });
+        this.router.navigate(['/requests/details'], { queryParams: { id } });
     }
 
     private getData(): void {
@@ -178,6 +174,11 @@ export default class RequestsComponent implements OnInit, OnDestroy {
     }
 
     public createHelpRequest(): void {
+        this.router.navigate(['/requests/create']);
+    }
+
+    public editHelpRequest(id: string): void {
+        this.router.navigate(['/requests/update'], { queryParams: { id } });
     }
 
     public selectTag(tag: string, event: MouseEvent): void {

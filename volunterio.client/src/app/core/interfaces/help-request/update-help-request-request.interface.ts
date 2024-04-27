@@ -7,7 +7,7 @@ interface IUpdateHelpRequestRequest {
     longitude?: number;
     showContactInfo: boolean;
     deadline?: Date;
-    images: string[];
+    images: File[];
     imagesToDelete: string[];
 }
 

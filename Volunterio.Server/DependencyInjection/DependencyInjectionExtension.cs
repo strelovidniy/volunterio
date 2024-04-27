@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -25,12 +26,20 @@ public static class DependencyInjectionExtension
         this IServiceCollection services,
         IConfiguration configuration
     ) => services
+        .ConfigureKestrel()
         .RegisterLogging()
         .AddMvc()
         .Services
         .RegisterDataLayer(configuration)
         .RegisterDomainLayer(configuration)
         .RegisterWebApi(configuration);
+
+    private static IServiceCollection ConfigureKestrel(this IServiceCollection services) =>
+        services.Configure<KestrelServerOptions>(options =>
+        {
+            options.Limits.MaxRequestBodySize = 4294967295; // Max for IIS
+            options.Limits.MaxRequestBufferSize = null;
+        });
 
     private static IServiceCollection RegisterLogging(this IServiceCollection services) =>
         services.AddLogging(loggingBuilder =>

@@ -11,6 +11,4 @@ public class HelpRequestImage : EntityBase, IEntity
     public string ImageThumbnailUrl { get; set; } = null!;
 
     public Guid HelpRequestId { get; set; }
-
-    public HelpRequest? HelpRequest { get; set; }
 }

@@ -12,7 +12,7 @@ public class HelpRequest : EntityBase, IEntity
 
     public string Description { get; set; } = null!;
 
-    public IEnumerable<string> Tags { get; set; } = [];
+    public IEnumerable<string>? Tags { get; set; }
 
     public double? Latitude { get; set; }
 
@@ -22,5 +22,5 @@ public class HelpRequest : EntityBase, IEntity
 
     public DateTime? Deadline { get; set; }
 
-    public IEnumerable<HelpRequestImage> Images { get; set; } = [];
+    public IEnumerable<HelpRequestImage>? Images { get; set; }
 }

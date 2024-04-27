@@ -131,12 +131,12 @@
                 <mat-header-cell matSortDirection="asc"
                                  mat-sort-header
                                  *matHeaderCellDef
-                                 class="w-22"
+                                 class="w-28"
                                  i18n>
                     Description
                 </mat-header-cell>
                 <mat-cell *matCellDef="let item"
-                          class="w-22">
+                          class="w-28">
                     {{item.description}}
                 </mat-cell>
             </ng-container>
@@ -194,6 +194,16 @@
                     <mat-menu #cardMenu="matMenu">
                         <div id="buttonsMenu">
                             <button mat-stroked-button 
+                                    (click)="editHelpRequest(item.id)"
+                                    *ngIf="canCreateHelpRequest">
+                                <mat-icon>
+                                    edit
+                                </mat-icon>
+                                <span i18n>
+                                    Edit
+                                </span>
+                            </button>
+                            <button mat-stroked-button 
                                     (click)="removeItem(item.id)"
                                     *ngIf="canCreateHelpRequest"
                                     class="remove-item-button">
@@ -244,6 +254,7 @@
 
         @for(item of items; track item.id) {
             <mat-card class="card"
+                      [class.no-margin]="!canCreateHelpRequest"
                       (click)="openDetails(item.id)"
                       matRipple>
                 <button mat-icon-button
@@ -256,6 +267,16 @@
                 </button>
                 <mat-menu #cardMenu="matMenu">
                     <div id="buttonsMenu">
+                        <button mat-stroked-button 
+                                (click)="editHelpRequest(item.id)"
+                                *ngIf="canCreateHelpRequest">
+                            <mat-icon>
+                                edit
+                            </mat-icon>
+                            <span i18n>
+                                Edit
+                            </span>
+                        </button>
                         <button mat-stroked-button 
                                 (click)="removeItem(item.id)"
                                 *ngIf="canCreateHelpRequest"
@@ -282,7 +303,14 @@
                              class="secondary-image">
                     }
                 </div>
-
+                    <div class="clickable-tags-container">
+                        @for (tag of item.tags; track tag) {
+                            <mat-chip (click)="selectTag(tag, $event)"
+                                      [class.active]="isTagActive(tag)">
+                                {{tag}}
+                            </mat-chip>
+                        }
+                    </div>
                 <h3>
                     {{item.title}}
                 </h3>
@@ -292,6 +320,8 @@
             </mat-card>
         }
         @for(item of items; track item.id) {
+            <div class="card empty"></div>
+            <div class="card empty"></div>
             <div class="card empty"></div>
         }
     </div>

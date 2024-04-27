@@ -72,7 +72,7 @@ internal class HelpRequestConfiguration : IEntityTypeConfiguration<HelpRequest>
 
         builder
             .HasMany(helpRequest => helpRequest.Images)
-            .WithOne(image => image.HelpRequest)
+            .WithOne()
             .HasForeignKey(image => image.HelpRequestId)
             .HasPrincipalKey(helpRequest => helpRequest.Id)
             .OnDelete(DeleteBehavior.Cascade);

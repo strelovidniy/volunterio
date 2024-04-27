@@ -1,0 +1,101 @@
+<div class="details-container">
+    <button mat-stroked-button
+            (click)="goBack()">
+        <mat-icon>
+            arrow_back
+        </mat-icon>
+        <span i18n>
+            Back
+        </span>
+    </button>
+    <div class="image-container">
+        <ngx-slick-carousel class="carousel" 
+                            #slickModal="slick-carousel" 
+                            [config]="slideConfig">
+            @for (image of helpRequest.images; track image.id) {
+                <div ngxSlickItem
+                     class="slide">
+                    <img [defaultImage]="image.imageThumbnailUrl"
+                         [lazyLoad]="image.imageUrl"
+                         alt="Product image"
+                         i18n-alt
+                         width="100%">
+                </div>
+            }
+        </ngx-slick-carousel>
+    </div>
+    <div class="details">
+        <h1>
+            {{helpRequest.title}}
+        </h1>
+        <p>
+            {{helpRequest.description}}
+        </p>
+    </div>
+    <div class="tags-container">
+        <h3 i18n>
+            Tags
+        </h3>
+        <div class="tags clickable-tags-container">
+            @for (tag of helpRequest.tags; track tag) {
+                <mat-chip (click)="selectTag(tag)">
+                    {{tag}}
+                </mat-chip>
+            }
+        </div>
+    </div>
+
+    @if (helpRequest.contactInfo) {
+        <div class="contact-info">
+            <h2 i18n>
+                Contact Information:
+            </h2>
+            <div class="prefered-contact-info">
+                @if (helpRequest.contactInfo.telegram) {
+                    <a href="https://t.me/{{helpRequest.contactInfo.telegram}}">
+                        <mat-icon>
+                            send
+                        </mat-icon>
+                        {{helpRequest.contactInfo.telegram}}
+                    </a>
+                }
+                @if (helpRequest.contactInfo.instagram) {
+                    <a href="https://www.instagram.com/{{helpRequest.contactInfo.instagram}}">
+                        <img src="https://static.cdninstagram.com/rsrc.php/y4/r/QaBlI0OZiks.ico">
+                        {{helpRequest.contactInfo.instagram}}
+                    </a>
+                }
+                @if (helpRequest.contactInfo.phoneNumber) {
+                    <a href="tel:{{helpRequest.contactInfo.phoneNumber}}">
+                        <mat-icon>
+                            phone
+                        </mat-icon>
+                        {{helpRequest.contactInfo.phoneNumber}}
+                    </a>
+                }
+                @if (helpRequest.contactInfo.linkedIn) {
+                    <a href="{{helpRequest.contactInfo.linkedIn}}">
+                        <mat-icon>
+                            linkedin
+                        </mat-icon>
+                        LinkedIn
+                    </a>
+                }
+                @if (helpRequest.contactInfo.skype) {
+                    <a href="skype:{{helpRequest.contactInfo.skype}}">
+                        <img src="https://secure.skypeassets.com/apollo/2.1.1806/images/icons/favicon.ico">
+                        {{helpRequest.contactInfo.skype}}
+                    </a>
+                }
+            </div>
+            @if (helpRequest.contactInfo.other) {
+                <br>
+                <br>
+                <span class="other-contact-details">
+                    {{helpRequest.contactInfo.other}}
+                </span>
+            }
+
+        </div>
+    }
+</div>

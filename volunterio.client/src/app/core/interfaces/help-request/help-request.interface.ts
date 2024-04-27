@@ -10,7 +10,7 @@ interface IHelpRequest {
     latitude?: number;
     longitude?: number;
     contactInfo: IContactDetails;
-    deadline: Date;
+    deadline?: Date;
     images: IHelpRequestImage[];
 }
 

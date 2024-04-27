@@ -26,6 +26,10 @@
 
         .cards {
             max-height: calc(100vh - 308px);
+
+            .card {
+                min-width: unset !important;
+            }
         }
     }
 

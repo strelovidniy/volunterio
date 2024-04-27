@@ -1,35 +1,25 @@
 @import 'src/styles/variables.scss';
 
-.widget-config-page {
+.help-request-page {
     @media (max-width: 1550px) {
         flex-direction: column;
-        overflow-y: scroll;
+        overflow-y: auto;
         
-        .widget-config-container {
+        .help-request-container {
             margin-left: 5px;
             margin-right: 10px;
 
-            .widget-config {
+            .help-request {
                 width: unset;
                 height: unset;
+                padding-top: 10px;
+                padding-left: unset;
+                padding-right: unset;
+                padding-bottom: 10px;
             }
         }
 
-        .widget-preview-container {
-            margin-left: 5px;
-            
-            .widget-preview {
-                padding-right: 10px;
-            }
-        }
-
-        .save-button-desktop {
-            display: none;
-        }
-
-        .cancel-button-desktop {
-            display: none;
-        }
+        
 
         .mobile-buttons {
             display: flex;

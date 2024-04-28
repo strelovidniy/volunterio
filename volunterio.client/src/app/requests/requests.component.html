@@ -15,7 +15,8 @@
                 </mat-icon>
             </button>
         </mat-form-field>
-        <button mat-stroked-button
+        <button i18n
+                mat-stroked-button
                 *ngIf="!tableView"
                 [mat-menu-trigger-for]="sortMenu"
                 class="button desktop-button">
@@ -24,37 +25,44 @@
         <mat-menu #sortMenu="matMenu">
             <div id="buttonsMenu"
                  class="width-200">
-                <button mat-stroked-button 
+                <button i18n
+                        mat-stroked-button 
                         (click)="sortChange({active: '', direction: '' })"
                         [class.active]="!sortFiledName && !sortDirection">
                     None
                 </button>
-                <button mat-stroked-button 
+                <button i18n
+                        mat-stroked-button 
                         (click)="sortChange({active: tableColumnsName.title, direction: 'asc'})"
                         [class.active]="sortFiledName === tableColumnsName.title && sortDirection">
                     Title (ASC)
                 </button>
-                <button mat-stroked-button 
+                <button i18n
+                        mat-stroked-button 
                         (click)="sortChange({active: tableColumnsName.title, direction: 'desc'})"
                         [class.active]="sortFiledName === tableColumnsName.title && !sortDirection">
                     Title (DESC)
                 </button>
-                <button mat-stroked-button 
+                <button i18n
+                        mat-stroked-button 
                         (click)="sortChange({active: tableColumnsName.description, direction: 'asc'})"
                         [class.active]="sortFiledName === tableColumnsName.description && sortDirection">
                     Description (ASC)
                 </button>
-                <button mat-stroked-button 
+                <button i18n
+                        mat-stroked-button 
                         (click)="sortChange({active: tableColumnsName.description, direction: 'asc'})"
                         [class.active]="sortFiledName === tableColumnsName.description && !sortDirection">
                     Description (DESC)
                 </button>
-                <button mat-stroked-button 
+                <button i18n
+                        mat-stroked-button 
                         (click)="sortChange({active: tableColumnsName.deadline, direction: 'asc'})"
                         [class.active]="sortFiledName === tableColumnsName.deadline && sortDirection">
                     Deadline (ASC)
                 </button>
-                <button mat-stroked-button 
+                <button i18n
+                        mat-stroked-button 
                         (click)="sortChange({active: tableColumnsName.deadline, direction: 'desc'})"
                         [class.active]="sortFiledName === tableColumnsName.deadline && !sortDirection">
                     Deadline (DESC)
@@ -70,14 +78,16 @@
         <mat-menu #menu="matMenu">
             <div id="buttonsMenu"
                  class="width-200">
-                <button mat-stroked-button
+                <button i18n
+                        mat-stroked-button
                         *ngIf="!tableView"
                         [mat-menu-trigger-for]="sortMenu"
                         class="button mobile-button"
                         (click)="$event.stopPropagation()">
                     Order by
                 </button> 
-                <button mat-stroked-button
+                <button i18n
+                        mat-stroked-button
                         *ngIf="canCreateHelpRequest"
                         class="button"
                         (click)="$event.stopPropagation(); createHelpRequest()">
@@ -135,7 +145,8 @@
                                  i18n>
                     Description
                 </mat-header-cell>
-                <mat-cell *matCellDef="let item"
+                <mat-cell i18n
+                          *matCellDef="let item"
                           class="w-26">
                     {{item.description.length > 100 ? item.description.substring(0, 100) + '...' : item.description}}
                 </mat-cell>

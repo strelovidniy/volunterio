@@ -49,7 +49,6 @@ internal class EmailService(
 
         smtpClient.Credentials = new NetworkCredential(emailSettings.FromEmail, emailSettings.Password);
         smtpClient.EnableSsl = emailSettings.UseSSL;
-        smtpClient.UseDefaultCredentials = false;
 
         using var message = new MailMessage();
 

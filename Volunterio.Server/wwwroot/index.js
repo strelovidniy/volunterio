@@ -10,47 +10,50 @@ const supportedLanguages = [
 
 const handleOnLoad = () => {
     const storedLocale = localStorage.getItem('locale');
-
-    let supportedLanguage;
-
     const href = window.location.href;
     const origin = window.location.origin;
 
     let path = href.replace(origin, '');
 
+    if (path.includes('/#/')) {
+        path = path.split('/#/')[1];
+    }
+
     if (!path.startsWith('/#')) {
         path = `/#${path}`;
     }
 
-    if (supportedLanguages.some(lang => lang === storedLocale)) {
-        supportedLanguage = storedLocale;
+    let languageToDisplay = undefined;
+
+    if (supportedLanguages.includes(storedLocale)) {
+        languageToDisplay = storedLocale;
     } else {
         let languages = navigator.languages;
 
         let supportedLanguage = getSupportedLanguage(languages);
-    
-        supportedLanguage = supportedLanguage || getSupportedLanguage([navigator.language.split('-')[0]]);
 
-        supportedLanguage = supportedLanguage || "en-US";
+        supportedLanguage = supportedLanguage || getSupportedLanguage(navigator.language.split('-'));
+
+        languageToDisplay = supportedLanguage || "en-US";
     }
-    
-    window.location.href = `/${supportedLanguage}/${path}`;
+
+    window.location.href = `/${languageToDisplay}/${path}`;
 }
 
 const getSupportedLanguage = (languages) => {
-    let supportedLanguage = null;
+    let selectedLanguage = null;
 
     languages.forEach((language) => {
-        const foundLanguage = supportedLanguages.find(lang => lang.split('-')[0].toLowerCase() == language.split('-')[0].toLowerCase())
+        const foundLanguage = supportedLanguages.find(lang => lang.split('-')[0].toLowerCase() == language.split('-')[0].toLowerCase() || lang.split('-')[0].toLowerCase() == language.split('-')[1]?.toLowerCase());
 
-        if (!!foundLanguage && !supportedLanguage) {
-            supportedLanguage = foundLanguage;
+        if (!!foundLanguage && !selectedLanguage) {
+            selectedLanguage = foundLanguage;
 
             return;
         }
     });
 
-    return supportedLanguage;
+    return selectedLanguage;
 }
 
 handleOnLoad();

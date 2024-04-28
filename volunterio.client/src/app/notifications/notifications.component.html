@@ -10,18 +10,18 @@
             <div class="row">
                 <volunterio-toggle label="Enable Tag Filtration"
                                    i18n-label
-                                   [(enabled)]="notificationsConfig.enableTagFilter">
+                                   [(enabled)]="notificationsConfig.enableTagFiltration">
                 </volunterio-toggle>
-                @if (notificationsConfig.enableTagFilter) {
+                @if (notificationsConfig.enableTagFiltration) {
                     <mat-form-field>
                         <mat-label i18n>
                             Filter Tags
                         </mat-label>
                         <input matInput
-                               [formControl]="tagFiltersFormControl"
+                               [formControl]="filterTagsFormControl"
                                (input)="setTags($event)">
                         <mat-error i18n
-                                   *ngIf="tagFiltersFormControl.hasError('required')">
+                                   *ngIf="filterTagsFormControl.hasError('required')">
                             Tags are required
                         </mat-error>
                         <mat-hint i18n>
@@ -34,19 +34,19 @@
             <div class="row">
                 <volunterio-toggle label="Enable Title Filtration"
                                    i18n-label
-                                   [(enabled)]="notificationsConfig.enableTitleFilter">
+                                   [(enabled)]="notificationsConfig.enableTitleFiltration">
                 </volunterio-toggle>
 
-                @if (notificationsConfig.enableTitleFilter) {
+                @if (notificationsConfig.enableTitleFiltration) {
                     <mat-form-field>
                         <mat-label i18n>
                             Filter Titles
                         </mat-label>
                         <input matInput
-                               [formControl]="titleFiltersFormControl"
+                               [formControl]="filterTitlesFormControl"
                                (input)="setTitles($event)">
                         <mat-error i18n
-                                   *ngIf="titleFiltersFormControl.hasError('required')">
+                                   *ngIf="filterTitlesFormControl.hasError('required')">
                             Titles are required
                         </mat-error>
                         <mat-hint i18n>
@@ -56,7 +56,7 @@
                 }
             </div>
 
-            @if (notificationsConfig.enableTagFilter || notificationsConfig.enableTitleFilter) {
+            @if (notificationsConfig.enableTagFiltration || notificationsConfig.enableTitleFiltration) {
                 <div class="row">
                     <h3 i18n>
                         DANGER ZONE: This will enable notifications for all the updates and can cause a lot of notifications
@@ -74,7 +74,7 @@
         <button mat-stroked-button 
                 color="accent"
                 [disabled]="isButtonDisabled()"
-                (click)="saveAsync()"
+                (click)="save()"
                 class="save-button"
                 i18n>
             Save

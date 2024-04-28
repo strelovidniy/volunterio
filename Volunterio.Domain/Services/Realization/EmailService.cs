@@ -60,7 +60,8 @@ internal class EmailService(
                 new MailAddress(email)
             },
             Subject = subject,
-            From = new MailAddress(emailSettings.FromEmail, emailSettings.FromDisplayName)
+            From = new MailAddress(emailSettings.FromEmail, emailSettings.FromDisplayName),
+            Priority = MailPriority.High
         };
 
         try
@@ -86,7 +87,7 @@ internal class EmailService(
         }
         catch (Exception ex)
         {
-            logger.LogError(ErrorMessage.EmailNotSent(message.Subject, message.To.FirstOrDefault()?.Address));
+            logger.LogError(ErrorMessage.EmailNotSent, message.Subject, message.To.FirstOrDefault()?.Address);
 
             logger.LogError(ex, ErrorMessage.EmailSendingError);
 

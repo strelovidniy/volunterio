@@ -29,13 +29,13 @@ namespace Volunterio.Domain.Services.Realization;
 internal class UserService(
     IJwtSettings jwtSettings,
     IRepository<User> userRepository,
-    IRepository<PushSubscription> pushSubscriptionRepository,
     IUrlSettings urlSettings,
     IEmailService emailService,
     IHttpContextAccessor httpContextAccessor,
     IMapper mapper,
     ILogger<UserService> logger,
-    IRoleService roleService
+    IRoleService roleService,
+    IPushSubscriptionService pushSubscriptionService
 ) : IUserService
 {
     public async Task DeleteUserAsync(
@@ -92,6 +92,11 @@ internal class UserService(
 
         await userRepository.SaveChangesAsync(cancellationToken);
     }
+
+    public Task AddPushSubscriptionAsync(
+        CreatePushSubscriptionModel createPushSubscriptionModel,
+        CancellationToken cancellationToken = default
+    ) => pushSubscriptionService.AddPushSubscriptionAsync(createPushSubscriptionModel, cancellationToken);
 
     public async Task UpdateProfileAsync(
         UpdateProfileModel model,
@@ -397,44 +402,6 @@ internal class UserService(
         await userRepository.SaveChangesAsync(cancellationToken);
     }
 
-    public async Task AddPushSubscriptionAsync(
-        CreatePushSubscriptionModel createPushSubscriptionModel,
-        CancellationToken cancellationToken = default
-    )
-    {
-        var currentUser = await GetUserAsync(cancellationToken);
-
-        RuntimeValidator.Assert(currentUser is not null, StatusCode.Unauthorized);
-
-        var existingSubscription = await pushSubscriptionRepository
-            .NoTrackingQuery()
-            .FirstOrDefaultAsync(
-                pushSubscription => pushSubscription.Endpoint == createPushSubscriptionModel.Endpoint
-                    && pushSubscription.Auth == createPushSubscriptionModel.Keys.Auth
-                    && pushSubscription.P256dh == createPushSubscriptionModel.Keys.P256dh
-                    && pushSubscription.UserId == currentUser!.Id,
-                cancellationToken
-            );
-
-        if (existingSubscription is not null)
-        {
-            return;
-        }
-
-        await pushSubscriptionRepository.AddAsync(
-            new PushSubscription
-            {
-                Endpoint = createPushSubscriptionModel.Endpoint,
-                ExpirationTime = createPushSubscriptionModel.ExpirationTime,
-                P256dh = createPushSubscriptionModel.Keys.P256dh,
-                Auth = createPushSubscriptionModel.Keys.Auth,
-                UserId = currentUser!.Id
-            },
-            cancellationToken
-        );
-
-        await pushSubscriptionRepository.SaveChangesAsync(cancellationToken);
-    }
 
     private Task<User?> GetUserAsync(
         string username,

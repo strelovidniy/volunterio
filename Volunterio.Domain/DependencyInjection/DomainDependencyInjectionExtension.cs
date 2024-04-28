@@ -1,6 +1,4 @@
-﻿using BackgroundTaskExecutor;
-using FluentValidation;
-using Microsoft.EntityFrameworkCore;
+﻿using FluentValidation;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Volunterio.Domain.Mapper.Profiles;
@@ -26,26 +24,7 @@ public static class DomainDependencyInjectionExtension
         .AddServices()
         .AddValidators()
         .AddSettings(configuration)
-        .AddMapper()
-        .AddBackgroundExecutor(configuration);
-
-    private static IServiceCollection AddBackgroundExecutor(
-        this IServiceCollection services,
-        IConfiguration configuration
-    ) => services
-        .AddBackgroundTaskExecutor(configuration)
-        .WithDatabase(options =>
-        {
-            options
-                .UseNpgsql(configuration.GetConnectionString("Volunterio"));
-
-            #if DEBUG
-            options
-                .EnableSensitiveDataLogging()
-                .EnableDetailedErrors();
-            #endif
-        })
-        .Use();
+        .AddMapper();
 
     private static IServiceCollection AddServices(
         this IServiceCollection services
@@ -63,7 +42,9 @@ public static class DomainDependencyInjectionExtension
         .AddScoped<IHelpRequestService, HelpRequestService>()
         .AddScoped<IImageService, ImageService>()
         .AddScoped<INotificationService, NotificationService>()
-        .AddScoped<INotificationSettingsService, NotificationSettingsService>();
+        .AddScoped<INotificationSettingsService, NotificationSettingsService>()
+        .AddScoped<IHelpRequestNotificationService, HelpRequestNotificationService>()
+        .AddScoped<IPushSubscriptionService, PushSubscriptionService>();
 
     private static IServiceCollection AddValidators(
         this IServiceCollection services

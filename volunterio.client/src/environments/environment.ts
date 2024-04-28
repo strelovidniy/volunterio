@@ -5,7 +5,8 @@
 const environment = {
     production: false,
     baseUrl: 'https://localhost:5001/',
-    apiUrl: 'https://localhost:5001/api/v1/'
+    apiUrl: 'https://localhost:5001/api/v1/',
+    serverPublicKey: 'BF4wld7aC9UXlrSesCUTuMbG8KbV-BwkdOELk3ltwwGzc02EJh_FtFv2FVMxQ1fwc8UEbPbRXYiRVNlrDsL0UF4'
 };
 
 export default environment;

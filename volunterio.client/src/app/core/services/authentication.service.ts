@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { BehaviorSubject, finalize, Observable, of, tap, map, switchMap } from 'rxjs';
 import lodash from 'lodash';
 
+import environment from 'src/environments/environment';
+
 import RoleType from '../enums/role/role-type.enum';
 import Role from '../enums/role/role.enum';
 
@@ -107,22 +109,17 @@ export default class AuthenticationService {
                 this.setToken(res.token);
             }),
             switchMap((_): Observable<IUserMe> => this.getCurrentUser()),
-            switchMap(async (currentUser: IUserMe): Promise<IUserMe> => {
-                try {
-                    if (!currentUser?.notificationsConfig?.enableNotifications) {
-                        return currentUser;
-                    }
-
-                    const pushSubscription = await this.swPush.requestSubscription({
-                        serverPublicKey: 'BF4wld7aC9UXlrSesCUTuMbG8KbV-BwkdOELk3ltwwGzc02EJh_FtFv2FVMxQ1fwc8UEbPbRXYiRVNlrDsL0UF4',
-                    });
-
-                    await this.addUserPushSubscription(pushSubscription).toPromise();
-                } catch (error) {
-                    console.error(error);
+            switchMap((currentUser: IUserMe): Observable<IUserMe> => {
+                if (currentUser?.notificationsConfig?.enableNotifications) {
+                    this.swPush
+                        .requestSubscription({
+                            serverPublicKey: environment.serverPublicKey,
+                        })
+                        .then((pushSubscription: PushSubscription): Promise<void> => this.addUserPushSubscription(pushSubscription).toPromise())
+                        .catch((error): void => console.error(error));
                 }
 
-                return currentUser;
+                return of(currentUser);
             }),
             finalize((): void => this.loader.hide())
         );
@@ -177,7 +174,7 @@ export default class AuthenticationService {
         this.loader.showDialogLoading();
         this.http.post(`${this.endpointService.resetPassword()}`, data).subscribe({
             next: (): void => {
-                this.notifier.success('New password has been sent to the mail');
+                this.notifier.success($localize`New password has been sent to the mail`);
                 if (callback) {
                     callback();
                 }
@@ -212,7 +209,7 @@ export default class AuthenticationService {
         this.loader.showDialogLoading();
         this.http.post(this.endpointService.changePassword(), data).subscribe({
             next: (): void => {
-                this.notifier.success('Password changed');
+                this.notifier.success($localize`Password changed`);
                 if (callback) {
                     callback();
                 }
@@ -251,7 +248,7 @@ export default class AuthenticationService {
         this.http.put(this.endpointService.userUpdate(), data).subscribe({
             next: (): void => {
                 this.loader.hideDialogLoading();
-                this.notifier.success('Сhanges applied');
+                this.notifier.success($localize`Сhanges applied`);
                 if (callback) {
                     callback();
                 }
@@ -355,7 +352,7 @@ export default class AuthenticationService {
         return lodash.every(permissionsList);
     }
 
-    public addUserPushSubscription(pushSubscription: PushSubscription): Observable<any> {
-        return this.http.post(`${this.endpointService.addUserPushSubscription()}`, pushSubscription);
+    public addUserPushSubscription(pushSubscription: PushSubscription): Observable<void> {
+        return this.http.post<void>(`${this.endpointService.addUserPushSubscription()}`, pushSubscription);
     }
 }

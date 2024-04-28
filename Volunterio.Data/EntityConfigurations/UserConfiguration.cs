@@ -105,7 +105,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
 
         builder
             .HasOne(user => user.NotificationSettings)
-            .WithOne()
+            .WithOne(notificationSettings => notificationSettings.User)
             .HasForeignKey<NotificationSettings>(notificationSettings => notificationSettings.UserId)
             .HasPrincipalKey<User>(user => user.Id)
             .OnDelete(DeleteBehavior.Cascade);

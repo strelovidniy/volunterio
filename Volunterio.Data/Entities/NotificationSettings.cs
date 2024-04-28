@@ -17,4 +17,6 @@ public class NotificationSettings : EntityBase, IEntity
     public IEnumerable<string>? FilterTitles { get; set; }
 
     public bool EnableUpdateNotifications { get; set; }
+
+    public User? User { get; set; }
 }

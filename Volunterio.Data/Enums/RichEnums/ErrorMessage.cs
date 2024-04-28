@@ -19,6 +19,9 @@ public class ErrorMessage(string value) : RichEnum<string>(value)
     public static ErrorMessage EmailSendingError =>
         new("Error while sending email");
 
+    public static ErrorMessage NotificationSendingError =>
+        new("Error while sending notification");
+
     public static ErrorMessage ExpandingPropertyError =>
         new("Error while expanding property");
 
@@ -37,8 +40,6 @@ public class ErrorMessage(string value) : RichEnum<string>(value)
     public static ErrorMessage RolesGettingError =>
         new("Error while getting roles");
 
-    public static ErrorMessage EmailNotSent(
-        string? subject,
-        string? receiver
-    ) => new($"Email was not sent | Subject - {subject} | Receiver - {receiver}");
+    public static ErrorMessage EmailNotSent =>
+        new("Email was not sent | Subject - {subject} | Receiver - {receiver}");
 }

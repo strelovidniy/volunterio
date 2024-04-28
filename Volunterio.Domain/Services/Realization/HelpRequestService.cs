@@ -23,6 +23,7 @@ internal class HelpRequestService(
     ICurrentUserService currentUserService,
     IStorageService storageService,
     IImageService imageService,
+    IHelpRequestNotificationService helpRequestNotificationService,
     IMapper mapper,
     ILogger<HelpRequestService> logger
 ) : IHelpRequestService
@@ -76,6 +77,8 @@ internal class HelpRequestService(
             addedHelpRequest.Id,
             cancellationToken
         );
+
+        await helpRequestNotificationService.NotifyAboutCreatingHelpRequestAsync(addedHelpRequest, cancellationToken);
     }
 
     public async Task UpdateHelpRequestAsync(
@@ -176,6 +179,8 @@ internal class HelpRequestService(
                 cancellationToken
             );
         }
+
+        await helpRequestNotificationService.NotifyAboutHelpRequestUpdateAsync(helpRequest, cancellationToken);
     }
 
     public async Task<PagedCollectionView<HelpRequestView>> GetHelpRequestsAsync(

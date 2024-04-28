@@ -279,7 +279,7 @@
                 <button mat-icon-button
                         [mat-menu-trigger-for]="cardMenu"
                         (click)="$event.stopPropagation()"
-                        *ngId="canCreateHelpRequest">
+                        *ngIf="canCreateHelpRequest">
                     <mat-icon>
                         more_vert
                     </mat-icon>

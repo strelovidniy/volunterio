@@ -1,10 +1,10 @@
 interface INotificationsConfig {
     enableNotifications: boolean;
     enableUpdateNotifications: boolean;
-    enableTagFilter: boolean;
-    tagFilters?: string[];
-    enableTitleFilter: boolean;
-    titleFilters?: string[];
+    enableTagFiltration: boolean;
+    filterTags?: string[];
+    enableTitleFiltration: boolean;
+    filterTitles?: string[];
 }
 
 export default INotificationsConfig;

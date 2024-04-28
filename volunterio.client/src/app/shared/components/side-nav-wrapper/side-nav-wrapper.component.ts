@@ -147,8 +147,8 @@ export default class SideNavWrapperComponent implements OnInit, AfterViewInit, O
         return this.authService.checkRole(Role.canSeeAllRoles) || this.authService.checkRole(Role.canSeeRoles);
     }
 
-    public get showMaintenance(): boolean {
-        return this.authService.checkRole(Role.canMaintainSystem);
+    public get showNotifications(): boolean {
+        return this.authService.checkRole(Role.canSeeHelpRequests);
     }
 
     public get showUsers(): boolean {

@@ -145,7 +145,7 @@
                            routerLink="/notifications"
                            tabindex="7"
                            routerLinkActive="active-link"
-                           *ngIf="showRequests"
+                           *ngIf="showNotifications"
                            (click)="closeBarIfMobile()">
                 <mat-icon mat-list-icon>
                     notifications
@@ -171,14 +171,14 @@
                 </span>
             </mat-list-item>
 
-            <mat-list-item [hidden]="!showRoles && !showUsers && !showMaintenance" 
+            <mat-list-item [hidden]="!showRoles && !showUsers" 
                            matTooltip="Admin panel"
                            matTooltipPosition="below"
                            (click)="toggleAdmin()"
                            class="parent"
                            routerLinkActive="active-link"
                            [routerLinkActiveOptions]="{ exact: true}"
-                           *ngIf="showUsers || showRoles || showMaintenance">
+                           *ngIf="showUsers || showRoles">
                 <mat-icon mat-list-icon>
                     computer
                 </mat-icon>

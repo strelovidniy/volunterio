@@ -30,6 +30,8 @@ export default class SideNavWrapperComponent implements OnInit, AfterViewInit, O
 
     public isContentTransparent: boolean = false;
 
+    public selectedLocale?: string | null;
+
     private refreshUiSubscription?: Subscription;
     private contentTransparencySubscription?: Subscription;
 
@@ -51,6 +53,10 @@ export default class SideNavWrapperComponent implements OnInit, AfterViewInit, O
     }
 
     public ngOnInit(): void {
+        this.selectedLocale = location.href.replace(location.origin, '').split('/')[1];
+
+        localStorage.setItem('locale', this.selectedLocale);
+
         this.refreshUiSubscription = this.eventBus.refreshUiSubject.subscribe({
             next: (): void => this.initInfo()
         });
@@ -149,6 +155,16 @@ export default class SideNavWrapperComponent implements OnInit, AfterViewInit, O
 
     public goForward(): void {
         window.history.forward();
+    }
+
+    public changeLanguage(locale: string): void {
+        const existingLocale = location.href.replace(location.origin, '').split('/')[1];
+
+        if (existingLocale !== locale) {
+            localStorage.setItem('locale', locale);
+
+            location.href = location.href.replace(existingLocale, locale);
+        }
     }
 
     public get showRoles(): boolean {

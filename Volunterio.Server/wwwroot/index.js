@@ -9,19 +9,31 @@ const supportedLanguages = [
 ]
 
 const handleOnLoad = () => {
-    let languages = navigator.languages;
+    const storedLocale = localStorage.getItem('locale');
 
-    let supportedLanguage = getSupportedLanguage(languages);
+    let supportedLanguage;
 
     const href = window.location.href;
     const origin = window.location.origin;
 
-    const path = href.replace(origin, '');
+    let path = href.replace(origin, '');
 
-    supportedLanguage = supportedLanguage || getSupportedLanguage([navigator.language.split('-')[0]]);
+    if (!path.startsWith('/#')) {
+        path = `/#${path}`;
+    }
 
-    supportedLanguage = supportedLanguage || "en-US";
+    if (supportedLanguages.some(lang => lang === storedLocale)) {
+        supportedLanguage = storedLocale;
+    } else {
+        let languages = navigator.languages;
 
+        let supportedLanguage = getSupportedLanguage(languages);
+    
+        supportedLanguage = supportedLanguage || getSupportedLanguage([navigator.language.split('-')[0]]);
+
+        supportedLanguage = supportedLanguage || "en-US";
+    }
+    
     window.location.href = `/${supportedLanguage}/${path}`;
 }
 
@@ -29,7 +41,7 @@ const getSupportedLanguage = (languages) => {
     let supportedLanguage = null;
 
     languages.forEach((language) => {
-        const foundLanguage = supportedLanguages.find(lang => lang.split('-')[0] == language.split('-')[0])
+        const foundLanguage = supportedLanguages.find(lang => lang.split('-')[0].toLowerCase() == language.split('-')[0].toLowerCase())
 
         if (!!foundLanguage && !supportedLanguage) {
             supportedLanguage = foundLanguage;

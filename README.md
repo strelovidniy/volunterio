@@ -27,7 +27,7 @@
 6. **Запустіть проект, використовуючи серидовище розробки**: Потрібно запустити `Volunterio.Server` сервер, який автоматично запустить Angular клієнт.
 
 ## Технології, які були використані на проекті.
-ASP .NET Core 8, Angular 17, PostgreSQL 16, Automapper, Fluent Validation.
+ASP .NET Core 8, Angular 17, PostgreSQL 16, Automapper, Fluent Validation. Хостинг за допомогою окремого фізичного серверу на Windows Server 2022 + IIS 10.0
 
 ## Зв'язок
 Якщо у вас є які-небудь питання або пропозиції, будь ласка, зв'яжіться з нами за допомогою електронної пошти [roma.dan2001@gmail.com](mailto:roma.dan2001@gmail.com) або створіть новий issue у репозиторії.

@@ -1,10 +1,10 @@
-﻿namespace Volunterio.Domain.Models.Create;
+﻿namespace Volunterio.Domain.Models.Views;
 
-public record UpdateNotificationSettingModel(
+public record NotificationSettingsView(
     bool EnableNotifications,
     bool EnableTagFiltration,
     IEnumerable<string>? FilterTags,
     bool EnableTitleFiltration,
     IEnumerable<string>? FilterTitles,
     bool EnableUpdateNotifications
-) : IValidatableModel;
+);

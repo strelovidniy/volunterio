@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Volunterio.Data.Context;
@@ -11,9 +12,11 @@ using Volunterio.Data.Context;
 namespace Volunterio.Data.Migrations
 {
     [DbContext(typeof(VolunterioContext))]
-    partial class VolunterioContextModelSnapshot : ModelSnapshot
+    [Migration("20240428000511_AddedNotificationSettings")]
+    partial class AddedNotificationSettings
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -256,9 +259,6 @@ namespace Volunterio.Data.Migrations
                         .HasColumnType("uuid");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId")
-                        .IsUnique();
 
                     b.ToTable("NotificationSettings", "dbo");
                 });
@@ -672,15 +672,6 @@ namespace Volunterio.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Volunterio.Data.Entities.NotificationSettings", b =>
-                {
-                    b.HasOne("Volunterio.Data.Entities.User", null)
-                        .WithOne("NotificationSettings")
-                        .HasForeignKey("Volunterio.Data.Entities.NotificationSettings", "UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("Volunterio.Data.Entities.PushSubscription", b =>
                 {
                     b.HasOne("Volunterio.Data.Entities.User", "User")
@@ -742,8 +733,6 @@ namespace Volunterio.Data.Migrations
                     b.Navigation("Details");
 
                     b.Navigation("IssuedRequests");
-
-                    b.Navigation("NotificationSettings");
 
                     b.Navigation("PushSubscriptions");
                 });

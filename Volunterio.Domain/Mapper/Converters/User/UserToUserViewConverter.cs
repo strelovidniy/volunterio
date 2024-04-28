@@ -15,6 +15,7 @@ internal class UserToUserViewConverter : ITypeConverter<Data.Entities.User, User
         user.LastName,
         user.Email,
         context.Mapper.Map<AccessView>(user.Role),
-        context.Mapper.Map<UserDetailsView>(user.Details)
+        context.Mapper.Map<UserDetailsView?>(user.Details),
+        context.Mapper.Map<NotificationSettingsView>(user.NotificationSettings)
     );
 }

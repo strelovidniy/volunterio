@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 using Volunterio.Data.Enums;
-using Volunterio.Domain.Models.Create;
+using Volunterio.Domain.Models.Update;
 using Volunterio.Domain.Validators.Extensions;
 
 namespace Volunterio.Domain.Validators;
@@ -41,7 +41,7 @@ internal class UpdateNotificationSettingModelValidator : AbstractValidator<Updat
         );
 
         When(
-            updateNotificationSettingModel => !updateNotificationSettingModel.EnableTitleFiltration,
+            updateNotificationSettingModel => updateNotificationSettingModel.EnableTitleFiltration,
             () =>
             {
                 RuleFor(updateNotificationSettingModel => updateNotificationSettingModel.FilterTitles)
@@ -52,7 +52,7 @@ internal class UpdateNotificationSettingModelValidator : AbstractValidator<Updat
         );
 
         When(
-            updateNotificationSettingModel => !updateNotificationSettingModel.EnableTagFiltration,
+            updateNotificationSettingModel => updateNotificationSettingModel.EnableTagFiltration,
             () =>
             {
                 RuleFor(updateNotificationSettingModel => updateNotificationSettingModel.FilterTags)

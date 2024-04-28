@@ -6,5 +6,6 @@ public record UserView(
     string? LastName,
     string Email,
     AccessView Access,
-    UserDetailsView Details
+    UserDetailsView? Details,
+    NotificationSettingsView? NotificationsConfig
 );

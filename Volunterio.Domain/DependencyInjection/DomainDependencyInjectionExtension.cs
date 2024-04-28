@@ -105,6 +105,7 @@ public static class DomainDependencyInjectionExtension
             new ContactInfoMapperProfile(),
             new HelpRequestImageMapperProfile(),
             new HelpRequestMapperProfile(),
+            new NotificationSettingsMapperProfile(),
             new RoleMapperProfile(),
             new UserDetailsMapperProfile(),
             new UserMapperProfile()

@@ -1,7 +1,7 @@
 ﻿using EntityFrameworkCore.RepositoryInfrastructure;
 using Microsoft.EntityFrameworkCore;
 using Volunterio.Data.Entities;
-using Volunterio.Domain.Models.Create;
+using Volunterio.Domain.Models.Update;
 using Volunterio.Domain.Services.Abstraction;
 
 namespace Volunterio.Domain.Services.Realization;

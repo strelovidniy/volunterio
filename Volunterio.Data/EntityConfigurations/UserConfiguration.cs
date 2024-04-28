@@ -102,5 +102,12 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
             .HasForeignKey(pushSubscription => pushSubscription.UserId)
             .HasPrincipalKey(user => user.Id)
             .OnDelete(DeleteBehavior.Cascade);
+
+        builder
+            .HasOne(user => user.NotificationSettings)
+            .WithOne()
+            .HasForeignKey<NotificationSettings>(notificationSettings => notificationSettings.UserId)
+            .HasPrincipalKey<User>(user => user.Id)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

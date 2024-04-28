@@ -1,4 +1,4 @@
-﻿using Volunterio.Domain.Models.Create;
+﻿using Volunterio.Domain.Models.Update;
 
 namespace Volunterio.Domain.Services.Abstraction;
 

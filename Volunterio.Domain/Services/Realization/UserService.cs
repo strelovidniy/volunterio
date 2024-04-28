@@ -454,7 +454,8 @@ internal class UserService(
             .Include(user => user.Details)
             .ThenInclude(details => details!.Address)
             .Include(user => user.Details)
-            .ThenInclude(details => details!.ContactInfo);
+            .ThenInclude(details => details!.ContactInfo)
+            .Include(user => user.NotificationSettings);
 
     private Task SendRegistrationEmailAsync(
         User registeredUser,

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Volunterio.Domain.Attributes;
-using Volunterio.Domain.Models.Create;
+using Volunterio.Domain.Models.Update;
 using Volunterio.Domain.Services.Abstraction;
 using Volunterio.Server.Controllers.Base;
 

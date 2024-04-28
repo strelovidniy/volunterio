@@ -36,4 +36,6 @@ public class User : EntityBase, IEntity
     public IEnumerable<HelpRequest>? IssuedRequests { get; set; }
 
     public IEnumerable<PushSubscription>? PushSubscriptions { get; set; }
+
+    public NotificationSettings? NotificationSettings { get; set; }
 }

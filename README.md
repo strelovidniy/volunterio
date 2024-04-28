@@ -11,11 +11,11 @@
 
 
 ## Як почати користуватися:
-1. **Клонування репозиторію**: `git clone https://github.com/strelovidniy/volunterio.git` 
-2. **Встановлення .Net SDK 8 за посиланням**: https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-8.0.204-windows-x64-installer
-3. **Встановлення Node v18.12.0 за посиланням**: https://nodejs.org/en/blog/release/v18.12.0
-4. **Встановлення PostgreSql за посиланням**: https://www.postgresql.org/download/windows/
-5. **Встановлення pgAdmin за посиланням**: https://www.pgadmin.org/download/
+1. **Клонувати репозиторій локально**: `git clone https://github.com/strelovidniy/volunterio.git` 
+2. **Встановити .Net SDK 8 за посиланням**: https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-8.0.204-windows-x64-installer
+3. **Встановити Node v18.12.0 за посиланням**: https://nodejs.org/en/blog/release/v18.12.0
+4. **Встановити PostgreSql за посиланням**: https://www.postgresql.org/download/windows/
+5. **Встановити pgAdmin за посиланням**: https://www.pgadmin.org/download/
 
 Для правильної роботи платформи потрібно налаштувати базу даних PostgreSQL. Нижче подані детальні кроки:
 1. **Відкрийте pgAdmin**: Запустіть програму pgAdmin на вашому комп'ютері.

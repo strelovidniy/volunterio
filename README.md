@@ -26,7 +26,7 @@
 
 
 ## Технології, які були використані на проекті.
-- ASP .NET Core 8, Angular 17, PostgreSQL 16, Automapper, Fluent Validation.
+ASP .NET Core 8, Angular 17, PostgreSQL 16, Automapper, Fluent Validation.
 
 ## Зв'язок
 Якщо у вас є які-небудь питання або пропозиції, будь ласка, зв'яжіться з нами за допомогою електронної пошти [roma.dan2001@gmail.com](mailto:roma.dan2001@gmail.com) або створіть новий issue у репозиторії.

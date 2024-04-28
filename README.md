@@ -14,9 +14,10 @@
 
 ## Як почати користуватися:
 1. **Клонування репозиторію**: `git clone https://github.com/strelovidniy/volunterio.git` 
-2. **Встановлення .Net SDK 8**: `https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-8.0.204-windows-x64-installer`
-3. **Запуск локального сервера**: `https://nodejs.org/en/blog/release/v18.12.0`
-4. **Перейдіть за посиланням**: [http://localhost:3000](http://localhost:3000)
+2. **Встановлення .Net SDK 8 за посиланням**: https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-8.0.204-windows-x64-installer
+3. **Встановлення Node v18.12.0 за посиланням**: https://nodejs.org/en/blog/release/v18.12.0
+4. **Встановлення PostgreSql за посиланням**: https://www.postgresql.org/download/windows/
+5. **Встановлення pgAdmin за посиланням**: https://www.pgadmin.org/download/
 
 ## Внесення внесків
 Ми вітаємо внески від будь-яких зацікавлених розробників. Якщо ви хочете внести свій внесок, будь ласка, створіть pull request з описом ваших змін.

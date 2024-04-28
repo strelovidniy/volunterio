@@ -43,5 +43,7 @@ ASP .NET Core 8, Angular 17, PostgreSQL 16, Automapper, Fluent Validation. Хо�
 Логін - `nazariy.chetvertukha@gmail.com`.
 Пароль - `Pa$$word123`.
 
+Демо: https://drive.google.com/drive/u/0/folders/13qSEsuYBx33LUlsXiz8QEvXuMuJTq0DV
+
 ## Зв'язок
 Якщо у вас є які-небудь питання або пропозиції, будь ласка, зв'яжіться з нами за допомогою електронної пошти [roma.dan2001@gmail.com](mailto:roma.dan2001@gmail.com) або створіть новий issue у репозиторії.

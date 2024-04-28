@@ -42,6 +42,15 @@
                 </mat-icon>
             </button>
             <mat-menu #menu="matMenu">
+                <button mat-menu-item
+                        [mat-menu-trigger-for]="languageMenu">
+                    <mat-icon>
+                        translate
+                    </mat-icon>
+                    <span i18n>
+                        Language
+                    </span>
+                </button>
                 <button mat-menu-item 
                         (click)="profileDialog()">
                     <mat-icon>
@@ -67,6 +76,64 @@
                     </mat-icon>
                     <span i18n>
                         Logout
+                    </span>
+                </button>
+            </mat-menu>
+            <mat-menu #languageMenu="matMenu">
+                <button mat-menu-item
+                        (click)="changeLanguage('en-US')"
+                        class="language-button"
+                        [disabled]="selectedLocale === 'en-US'">
+                    <span i18n>
+                        English
+                    </span>
+                </button>
+                <button mat-menu-item
+                        (click)="changeLanguage('de-DE')"
+                        class="language-button"
+                        [disabled]="selectedLocale === 'de-DE'">
+                    <span i18n>
+                        German
+                    </span>
+                </button>
+                <button mat-menu-item
+                        (click)="changeLanguage('fr-FR')"
+                        class="language-button"
+                        [disabled]="selectedLocale === 'fr-FR'">
+                    <span i18n>
+                        French
+                    </span>
+                </button>
+                <button mat-menu-item
+                        (click)="changeLanguage('es-ES')"
+                        class="language-button"
+                        [disabled]="selectedLocale === 'es-ES'">
+                    <span i18n>
+                        Spanish
+                    </span>
+                </button>
+                <button mat-menu-item
+                        (click)="changeLanguage('it-IT')"
+                        class="language-button"
+                        [disabled]="selectedLocale === 'it-IT'">
+                    <span i18n>
+                        Italian
+                    </span>
+                </button>
+                <button mat-menu-item
+                        (click)="changeLanguage('ja-JP')"
+                        class="language-button"
+                        [disabled]="selectedLocale === 'ja-JP'">
+                    <span i18n>
+                        Japanese
+                    </span>
+                </button>
+                <button mat-menu-item
+                        (click)="changeLanguage('uk-UA')"
+                        class="language-button"
+                        [disabled]="selectedLocale === 'uk-UA'">
+                    <span i18n>
+                        Urkainian
                     </span>
                 </button>
             </mat-menu>

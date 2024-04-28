@@ -6,7 +6,7 @@ public class ImageLocation(string value) : RichEnum<string>(value)
 {
     private const string Base = "Volunterio.Server.Views.Images.";
 
-    public static ImageLocation Icon => new($"{Base}Logo.svg");
+    public static ImageLocation Icon => new($"{Base}Logo.png");
 
     public static ImageLocation TwitterIcon => new($"{Base}Twitter.png");
 

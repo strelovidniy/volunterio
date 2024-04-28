@@ -54,7 +54,7 @@
 		<None Remove="Views\Images\Divider.png" />
 		<None Remove="Views\Images\Facebook.png" />
 		<None Remove="Views\Images\Instagram.png" />
-		<None Remove="Views\Images\Logo.svg" />
+		<None Remove="Views\Images\Logo.png" />
 		<None Remove="Views\Images\Twitter.png" />
 		<None Remove="Views\Images\WhiteBackground.png" />
 	</ItemGroup>
@@ -63,7 +63,7 @@
 		<EmbeddedResource Include="Views\Images\Divider.png" />
 		<EmbeddedResource Include="Views\Images\Facebook.png" />
 		<EmbeddedResource Include="Views\Images\Instagram.png" />
-		<EmbeddedResource Include="Views\Images\Logo.svg" />
+		<EmbeddedResource Include="Views\Images\Logo.png" />
 		<EmbeddedResource Include="Views\Images\Twitter.png" />
 		<EmbeddedResource Include="Views\Images\WhiteBackground.png" />
 	</ItemGroup>

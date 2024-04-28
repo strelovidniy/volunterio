@@ -46,6 +46,6 @@ export default class EndpointService {
     public readonly deleteHelpRequest = (id: string): string => `${environment.apiUrl}help-requests/delete?id=${id}`;
 
     // Notifications
-    public readonly updateNotificationsConfig = (): string => `${environment.apiUrl}notifications-config/update`;
+    public readonly updateNotificationsConfig = (): string => `${environment.apiUrl}notification-settings/update`;
 
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import EndpointService from './endpoint.service';
+
 import IUpdateNotificationsConfigRequest from '../interfaces/notifications-config/update-notifications-config-request.interface';
 
 

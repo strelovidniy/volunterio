@@ -88,10 +88,16 @@ export default class AuthInterceptor implements HttpInterceptor {
                 return $localize`Directory not found`;
             case StatusCode.fileNotFound:
                 return $localize`File not found`;
+            case StatusCode.helpRequestNotFound:
+                return $localize`Help request not found`;
+            case StatusCode.imageNotFound:
+                return $localize`Image not found`;
             case StatusCode.queryResultError:
                 return $localize`Query result error`;
             case StatusCode.emailSendingError:
                 return $localize`Email sending error`;
+            case StatusCode.imageProcessingError:
+                return $localize`Image processing error`;
             case StatusCode.userHasNoRole:
                 return $localize`User has no role`;
             case StatusCode.fileHasAnUnacceptableFormat:
@@ -102,6 +108,8 @@ export default class AuthInterceptor implements HttpInterceptor {
                 return $localize`Role cannot be deleted`;
             case StatusCode.userRoleCannotBeChanged:
                 return $localize`User role cannot be changed`;
+            case StatusCode.tagCannotBeEmpty:
+                return $localize`Tag cannot be empty`;
             case StatusCode.firstNameTooLong:
                 return $localize`First name too long`;
             case StatusCode.lastNameTooLong:
@@ -122,6 +130,30 @@ export default class AuthInterceptor implements HttpInterceptor {
                 return $localize`Postal code too long`;
             case StatusCode.countryTooLong:
                 return $localize`Country too long`;
+            case StatusCode.instagramTooLong:
+                return $localize`Instagram too long`;
+            case StatusCode.linkedInTooLong:
+                return $localize`LinkedIn too long`;
+            case StatusCode.phoneNumberTooLong:
+                return $localize`Phone number too long`;
+            case StatusCode.skypeTooLong:
+                return $localize`Skype too long`;
+            case StatusCode.telegramTooLong:
+                return $localize`Telegram too long`;
+            case StatusCode.otherTooLong:
+                return $localize`Other too long`;
+            case StatusCode.titleTooLong:
+                return $localize`Title too long`;
+            case StatusCode.descriptionTooLong:
+                return $localize`Description too long`;
+            case StatusCode.tagTooLong:
+                return $localize`Tag too long`;
+            case StatusCode.endpointTooLong:
+                return $localize`Endpoint too long`;
+            case StatusCode.authTooLong:
+                return $localize`Auth too long`;
+            case StatusCode.p256dhTooLong:
+                return $localize`P256dh too long`;
             case StatusCode.incorrectPassword:
                 return $localize`Incorrect password`;
             case StatusCode.passwordsDoNotMatch:
@@ -166,6 +198,24 @@ export default class AuthInterceptor implements HttpInterceptor {
                 return $localize`Postal code required`;
             case StatusCode.countryRequired:
                 return $localize`Country required`;
+            case StatusCode.imagesRequired:
+                return $localize`Images required`;
+            case StatusCode.descriptionRequired:
+                return $localize`Description required`;
+            case StatusCode.titleRequired:
+                return $localize`Title required`;
+            case StatusCode.authRequired:
+                return $localize`Auth required`;
+            case StatusCode.p256dhRequired:
+                return $localize`P256dh required`;
+            case StatusCode.KeysRequired:
+                return $localize`Keys required`;
+            case StatusCode.endpointRequired:
+                return $localize`Endpoint required`;
+            case StatusCode.filterTitlesRequired:
+                return $localize`Filter titles required`;
+            case StatusCode.filterTagsRequired:
+                return $localize`Filter tags required`;
             case StatusCode.passwordLengthExceeded:
                 return $localize`Password length exceeded`;
             case StatusCode.passwordMustHaveAtLeast8Characters:
@@ -192,10 +242,16 @@ export default class AuthInterceptor implements HttpInterceptor {
                 return $localize`Invalid verification code`;
             case StatusCode.invalidFile:
                 return $localize`Invalid file`;
+            case StatusCode.invalidPhoneNumber:
+                return $localize`Invalid phone number`;
+            case StatusCode.invalidNotificationSettings:
+                return $localize`Invalid notification settings`;
             case StatusCode.firstNameShouldNotContainWhiteSpace:
                 return $localize`First name should not contain white space`;
             case StatusCode.lastNameShouldNotContainWhiteSpace:
                 return $localize`Last name should not contain white space`;
+            case StatusCode.helpRequestRemoved:
+                return $localize`Help request removed`;
         }
     }
 }

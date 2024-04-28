@@ -86,7 +86,8 @@ public static class DomainDependencyInjectionExtension
         .AddValidator<CreateHelpRequestModel, CreateHelpRequestModelValidator>()
         .AddValidator<UpdateHelpRequestModel, UpdateHelpRequestModelValidator>()
         .AddValidator<CreatePushSubscriptionModel, CreatePushSubscriptionModelValidator>()
-        .AddValidator<CreatePushSubscriptionKeysModel, CreatePushSubscriptionKeysModelValidator>();
+        .AddValidator<CreatePushSubscriptionKeysModel, CreatePushSubscriptionKeysModelValidator>()
+        .AddValidator<UpdateNotificationSettingModel, UpdateNotificationSettingModelValidator>();
 
     private static IServiceCollection AddValidator<TModel, TValidator>(
         this IServiceCollection services

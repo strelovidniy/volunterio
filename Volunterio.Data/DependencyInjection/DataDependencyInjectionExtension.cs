@@ -40,6 +40,7 @@ public static class DataDependencyInjectionExtension
         .AddRepository<ContactInfo>()
         .AddRepository<HelpRequest>()
         .AddRepository<HelpRequestImage>()
+        .AddRepository<NotificationSettings>()
         .AddRepository<PushSubscription>()
         .AddRepository<Role>()
         .AddRepository<User>()

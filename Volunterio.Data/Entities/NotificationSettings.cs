@@ -1,0 +1,20 @@
+﻿using EntityFrameworkCore.RepositoryInfrastructure;
+
+namespace Volunterio.Data.Entities;
+
+public class NotificationSettings : EntityBase, IEntity
+{
+    public Guid UserId { get; set; }
+
+    public bool EnableNotifications { get; set; }
+
+    public bool EnableTagFiltration { get; set; }
+
+    public IEnumerable<string>? FilterTags { get; set; }
+
+    public bool EnableTitleFiltration { get; set; }
+
+    public IEnumerable<string>? FilterTitles { get; set; }
+
+    public bool EnableUpdateNotifications { get; set; }
+}

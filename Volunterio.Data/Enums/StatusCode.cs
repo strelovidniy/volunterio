@@ -14,7 +14,6 @@ public enum StatusCode
     FileNotFound = 106,
     HelpRequestNotFound = 107,
     ImageNotFound = 108,
-    NotificationSettingNotFound = 109,
 
     QueryResultError = 201,
 
@@ -84,6 +83,8 @@ public enum StatusCode
     P256dhRequired = 1021,
     KeysRequired = 1022,
     EndpointRequired = 1023,
+    FilterTitlesRequired = 1024,
+    FilterTagsRequired = 1025,
 
     PasswordLengthExceeded = 1101,
 
@@ -101,6 +102,7 @@ public enum StatusCode
     InvalidVerificationCode = 1306,
     InvalidFile = 1307,
     InvalidPhoneNumber = 1308,
+    InvalidNotificationSettings = 1309,
 
     FirstNameShouldNotContainWhiteSpace = 1401,
     LastNameShouldNotContainWhiteSpace = 1402,

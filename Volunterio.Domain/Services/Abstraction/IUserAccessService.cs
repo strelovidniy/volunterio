@@ -37,4 +37,8 @@ public interface IUserAccessService
     public Task CheckIfUserCanCreateHelpRequestsAsync(
         CancellationToken cancellationToken = default
     );
+
+    public Task CheckIfUserCanSeeHelpRequests(
+        CancellationToken cancellationToken = default
+    );
 }

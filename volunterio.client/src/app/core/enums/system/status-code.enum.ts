@@ -9,10 +9,13 @@ enum StatusCode {
     userRoleNotFound = 104,
     directoryNotFound = 105,
     fileNotFound = 106,
+    helpRequestNotFound = 107,
+    imageNotFound = 108,
 
     queryResultError = 201,
 
     emailSendingError = 301,
+    imageProcessingError = 302,
 
     userHasNoRole = 401,
 
@@ -21,6 +24,7 @@ enum StatusCode {
     roleCannotBeUpdated = 601,
     roleCannotBeDeleted = 602,
     userRoleCannotBeChanged = 603,
+    tagCannotBeEmpty = 604,
 
     firstNameTooLong = 701,
     lastNameTooLong = 702,
@@ -32,6 +36,18 @@ enum StatusCode {
     stateTooLong = 708,
     postalCodeTooLong = 709,
     countryTooLong = 710,
+    instagramTooLong = 711,
+    linkedInTooLong = 712,
+    phoneNumberTooLong = 713,
+    skypeTooLong = 714,
+    telegramTooLong = 715,
+    otherTooLong = 716,
+    titleTooLong = 717,
+    descriptionTooLong = 718,
+    tagTooLong = 719,
+    endpointTooLong = 720,
+    authTooLong = 721,
+    p256dhTooLong = 722,
 
     incorrectPassword = 801,
     passwordsDoNotMatch = 802,
@@ -57,6 +73,15 @@ enum StatusCode {
     stateRequired = 1014,
     postalCodeRequired = 1015,
     countryRequired = 1016,
+    imagesRequired = 1017,
+    descriptionRequired = 1018,
+    titleRequired = 1019,
+    authRequired = 1020,
+    p256dhRequired = 1021,
+    KeysRequired = 1022,
+    endpointRequired = 1023,
+    filterTitlesRequired = 1024,
+    filterTagsRequired = 1025,
 
     passwordLengthExceeded = 1101,
 
@@ -73,9 +98,13 @@ enum StatusCode {
     invalidEmailModel = 1305,
     invalidVerificationCode = 1306,
     invalidFile = 1307,
+    invalidPhoneNumber = 1308,
+    invalidNotificationSettings = 1309,
 
     firstNameShouldNotContainWhiteSpace = 1401,
-    lastNameShouldNotContainWhiteSpace = 1402
+    lastNameShouldNotContainWhiteSpace = 1402,
+
+    helpRequestRemoved = 1501
 }
 
 export default StatusCode;

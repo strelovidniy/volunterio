@@ -45,24 +45,20 @@ internal class EmailService(
         CancellationToken cancellationToken = default
     )
     {
-        using var smtpClient = new SmtpClient(emailSettings.Server, emailSettings.Port)
-        {
-            Credentials = new NetworkCredential(emailSettings.FromEmail, emailSettings.Password),
-            EnableSsl = true
-        };
+        using var smtpClient = new SmtpClient(emailSettings.Server, emailSettings.Port);
 
-        using var message = new MailMessage
-        {
-            Body = content,
-            IsBodyHtml = isHtmlContent,
-            To =
-            {
-                new MailAddress(email)
-            },
-            Subject = subject,
-            From = new MailAddress(emailSettings.FromEmail, emailSettings.FromDisplayName),
-            Priority = MailPriority.High
-        };
+        smtpClient.Credentials = new NetworkCredential(emailSettings.FromEmail, emailSettings.Password);
+        smtpClient.EnableSsl = emailSettings.UseSSL;
+        smtpClient.UseDefaultCredentials = false;
+
+        using var message = new MailMessage();
+
+        message.Body = content;
+        message.IsBodyHtml = isHtmlContent;
+        message.To.Add(new MailAddress(email));
+        message.Subject = subject;
+        message.From = new MailAddress(emailSettings.FromEmail, emailSettings.FromDisplayName);
+        message.Priority = MailPriority.High;
 
         try
         {

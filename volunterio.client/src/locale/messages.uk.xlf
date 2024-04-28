@@ -85,14 +85,14 @@
         </context-group>
       </trans-unit>
       <trans-unit id="6062619234299757179" datatype="html">
-        <source> City / District cannot be longer than 200 characters </source><target> Місто/район не може містити більше 200 символів </target>
+        <source> City / District cannot be longer than 200 characters </source><target> Місто / район не може містити більше 200 символів </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/account-preferences/account-preferences.component.html</context>
           <context context-type="linenumber">73</context>
         </context-group>
       </trans-unit>
       <trans-unit id="330984187734607081" datatype="html">
-        <source> City / District is required </source><target> Необхідно вказати місто/район </target>
+        <source> City / District is required </source><target> Необхідно вказати місто / район </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/account-preferences/account-preferences.component.html</context>
           <context context-type="linenumber">77</context>
@@ -106,14 +106,14 @@
         </context-group>
       </trans-unit>
       <trans-unit id="7047582552328074278" datatype="html">
-        <source> Province / State cannot be longer than 200 characters </source><target> Провінція/штат не може містити більше 200 символів </target>
+        <source> Province / State cannot be longer than 200 characters </source><target> Провінція / штат не може містити більше 200 символів </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/account-preferences/account-preferences.component.html</context>
           <context context-type="linenumber">89</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6360909774658665727" datatype="html">
-        <source> Province / State is required </source><target> Потрібно вказати провінцію/штат </target>
+        <source> Province / State is required </source><target> Потрібно вказати провінцію / штат </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/account-preferences/account-preferences.component.html</context>
           <context context-type="linenumber">93</context>
@@ -127,7 +127,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="3400254077064894577" datatype="html">
-        <source> Country cannot be longer than 200 characters </source><target> Країна не може містити більше 200 символів </target>
+        <source> Country cannot be longer than 200 characters </source><target> Назва країни не може містити більше 200 символів </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/account-preferences/account-preferences.component.html</context>
           <context context-type="linenumber">105</context>
@@ -235,7 +235,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="5041354590769758251" datatype="html">
-        <source>Admin</source><target>адмін</target>
+        <source>Admin</source><target>Адміністратор</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/roles/role-dialog/role-dialog.component.ts</context>
           <context context-type="linenumber">37</context>
@@ -276,7 +276,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="7590013429208346303" datatype="html">
-        <source>Custom</source><target>Custom</target>
+        <source>Custom</source><target>Інше</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/roles/role-dialog/role-dialog.component.ts</context>
           <context context-type="linenumber">52</context>
@@ -407,14 +407,14 @@
         </context-group>
       </trans-unit>
       <trans-unit id="5075614928411823465" datatype="html">
-        <source>System Maintenance</source><target>Обслуговування системи</target>
+        <source>System Maintenance</source><target>Системні налаштування</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/roles/role-dialog/role-dialog.component.ts</context>
           <context context-type="linenumber">115</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4069085231351219294" datatype="html">
-        <source>Maintain System</source><target>Підтримувати систему</target>
+        <source>Maintain System</source><target>Редагувати системні налаштування</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/roles/role-dialog/role-dialog.component.ts</context>
           <context context-type="linenumber">120</context>
@@ -450,14 +450,14 @@
         </context-group>
       </trans-unit>
       <trans-unit id="6783769952742707282" datatype="html">
-        <source> Created At </source><target> Створено Ат </target>
+        <source> Created At </source><target> Створено </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/roles/roles-table/roles-table.component.html</context>
           <context context-type="linenumber">71</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7232536697846573498" datatype="html">
-        <source> Updated At </source><target> Оновлено At </target>
+        <source> Updated At </source><target> Оновлено </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/roles/roles-table/roles-table.component.html</context>
           <context context-type="linenumber">84</context>
@@ -581,7 +581,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="2995600988434044148" datatype="html">
-        <source> First Name is required </source><target> Ім'я обов'язкове </target>
+        <source> First Name is required </source><target> Необхідно вказати ім'я </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/components/users/user-editor/user-editor.component.html</context>
           <context context-type="linenumber">23,24</context>
@@ -775,7 +775,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="2715185765061607307" datatype="html">
-        <source> Log in </source><target> авторизуватися </target>
+        <source> Log in </source><target> Авторизуватися </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/login/login.component.html</context>
           <context context-type="linenumber">3,4</context>
@@ -822,7 +822,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="931252989873527145" datatype="html">
-        <source>Remember me</source><target>Пам'ятай мене</target>
+        <source>Remember me</source><target>Запам'ятати мене</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/login/login.component.html</context>
           <context context-type="linenumber">42,43</context>
@@ -905,7 +905,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="8493464027750383400" datatype="html">
-        <source> Must contain at least 1 in Capital Case! </source><target> Має містити принаймні 1 у великому регістрі! </target>
+        <source> Must contain at least 1 in Capital Case! </source><target> Має містити принаймні 1 великого регістру! </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/reset-password/reset-password.component.html</context>
           <context context-type="linenumber">47</context>
@@ -1051,7 +1051,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="7706521662003490351" datatype="html">
-        <source> You already have an account? <x id="START_LINK" ctype="x-a" equiv-text="&lt;a (click)=&quot;logIn()&quot;&gt;" /> Log in <x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;" /></source><target> Ви вже маєте акаунт? <x id="START_LINK" ctype="x-a" equiv-text="&lt;a (click)=&quot;logIn()&quot;&gt;" /> авторизуватися <x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;" /></target>
+        <source> You already have an account? <x id="START_LINK" ctype="x-a" equiv-text="&lt;a (click)=&quot;logIn()&quot;&gt;" /> Log in <x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;" /></source><target> Ви вже маєте акаунт? <x id="START_LINK" ctype="x-a" equiv-text="&lt;a (click)=&quot;logIn()&quot;&gt;" /> Авторизуватися <x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;" /></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/sign-up/sign-up.component.html</context>
           <context context-type="linenumber">151,155</context>
@@ -1079,7 +1079,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="7121326823691725766" datatype="html">
-        <source> This app is the best app, thank you for downloading it. <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;" /> You won't regret using it. </source><target> Ця програма є найкращою програмою, дякую, що завантажили її. <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;" /> Ви не пошкодуєте про його використання. </target>
+        <source> This app is the best app, thank you for downloading it. <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;" /> You won't regret using it. </source><target> Це найкращий застосунок, дякую, що долучились. <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;" /> Ви не пошкодуєте. </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/components/welcome/welcome.component.html</context>
           <context context-type="linenumber">7,9</context>
@@ -1261,7 +1261,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="6849587612810259375" datatype="html">
-        <source>State too long</source><target>Стан занадто довгий</target>
+        <source>State too long</source><target>Штат занадто довгий</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">120</context>
@@ -1359,7 +1359,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="7457515156150802557" datatype="html">
-        <source>Invitation token required</source><target>Потрібен маркер запрошення</target>
+        <source>Invitation token required</source><target>Потрібен токен запрошення</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">148</context>
@@ -1415,7 +1415,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="4756382175496941028" datatype="html">
-        <source>State required</source><target>Потрібна держава</target>
+        <source>State required</source><target>Потрібен штат</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/interceptors/auth.interceptor.ts</context>
           <context context-type="linenumber">164</context>
@@ -1619,7 +1619,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="8280328410153194407" datatype="html">
-        <source>close dialog</source><target>закрити діалог</target>
+        <source>close dialog</source><target>Закрити</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/dialogs/copy-dialog/copy-dialog.component.html</context>
           <context context-type="linenumber">6,7</context>
@@ -1640,7 +1640,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="7856196625590027574" datatype="html">
-        <source> close </source><target> закрити </target>
+        <source> close </source><target> Закрити </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/dialogs/image-dialog/image-dialog.component.html</context>
           <context context-type="linenumber">5,6</context>

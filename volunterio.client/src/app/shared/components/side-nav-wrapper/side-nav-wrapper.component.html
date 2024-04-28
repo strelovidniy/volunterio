@@ -239,4 +239,31 @@
             </div>
         </div>
     </div>
+    <div class="installed-app-buttons-container">
+        <div class="installed-app-buttons">
+            <button mat-stroked-button
+                    matTooltip="Go Back"
+                    i18n-matTooltip
+                    (click)="goBack()">
+                <mat-icon>
+                    arrow_back
+                </mat-icon>
+                <span i18n>
+                    Back
+                </span>
+            </button>
+            <button mat-stroked-button
+                    matTooltip="Go Forward"
+                    i18n-matTooltip
+                    (click)="goForward()">
+                <span i18n>
+                    Forward
+                </span>
+                <mat-icon>
+                    arrow_forward
+                </mat-icon>
+            </button>
+        </div>
+    </div>
+    
 </div>

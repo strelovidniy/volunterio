@@ -241,4 +241,29 @@
 			flex: 1;
 		}
 	}
+
+	.installed-app-buttons-container {
+		position: absolute;
+		width: 100vw;
+		height: 64px;
+		bottom: 0;
+		background-color: $first-additional-color;
+		align-items: center;
+
+		.installed-app-buttons {
+			height: 44px;
+			margin-top: 10px;
+			padding-top: 10px;
+			margin-left: 10px;
+			margin-right: 10px;
+			padding-right: 20px;
+			padding-left: 20px;
+			border-top-right-radius: 10px;
+			border-top-left-radius: 10px;
+			background-color: $third-additional-color;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+		}
+	}
 }

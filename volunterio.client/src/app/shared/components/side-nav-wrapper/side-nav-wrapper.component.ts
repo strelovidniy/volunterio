@@ -143,6 +143,14 @@ export default class SideNavWrapperComponent implements OnInit, AfterViewInit, O
         }
     }
 
+    public goBack(): void {
+        window.history.back();
+    }
+
+    public goForward(): void {
+        window.history.forward();
+    }
+
     public get showRoles(): boolean {
         return this.authService.checkRole(Role.canSeeAllRoles) || this.authService.checkRole(Role.canSeeRoles);
     }

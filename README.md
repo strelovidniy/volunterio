@@ -10,12 +10,12 @@
 - **Налаштування нотифікацій**: Волонтери можуть налаштовувати нотифікації про нові запити, використовуючи теги, щоб отримувати повідомлення про тільки ті потреби, які їх цікавлять.
 
 ## Технології, які були використані на проекті.
-- C#/.NET 7, Azure, Blazor, Razor Pages, MS SQL Server, Automapper, Fluent Validation.
+- ASP .NET Core 8, Angular 17, PostgreSQL 16, Automapper, Fluent Validation.
 
-## Як почати користуватися
-1. **Клонування репозиторію**: `git clone https://github.com/yourusername/human-needs-search.git`
-2. **Встановлення залежностей**: `npm install` або `yarn install`
-3. **Запуск локального сервера**: `npm start` або `yarn start`
+## Як почати користуватися:
+1. **Клонування репозиторію**: `git clone https://github.com/strelovidniy/volunterio.git` 
+2. **Встановлення .Net SDK 8**: `https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-8.0.204-windows-x64-installer`
+3. **Запуск локального сервера**: `https://nodejs.org/en/blog/release/v18.12.0`
 4. **Перейдіть за посиланням**: [http://localhost:3000](http://localhost:3000)
 
 ## Внесення внесків

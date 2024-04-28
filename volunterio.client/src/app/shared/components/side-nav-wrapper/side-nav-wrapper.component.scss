@@ -246,9 +246,10 @@
 		position: absolute;
 		width: 100vw;
 		height: 64px;
-		bottom: 0;
+		bottom: -64px;
 		background-color: $first-additional-color;
 		align-items: center;
+		transition: all 225ms ease-in-out;
 
 		.installed-app-buttons {
 			height: 44px;

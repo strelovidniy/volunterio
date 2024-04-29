@@ -21,11 +21,21 @@
                 align-items: center;
                 overflow: hidden;
                 padding: 10px;
+                height: 500px;
+                border-radius: 28px;
 
                 img {
                     border-radius: 28px;
                     max-height: 500px;
                     max-width: 100%;
+
+                    &.ng-lazyloading {
+                        max-height: unset;
+                        max-width: unset;
+                        height: 100%;
+                        width: 100%;
+                        object-fit: cover;
+                    }
                 }
             }
         }
